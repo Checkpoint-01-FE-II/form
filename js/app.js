@@ -17,7 +17,7 @@ const btnForm = document.createElement("button");
 
 //apensando elementos
 document.body.appendChild(divPrincipal);
-div.appendChild(formulario);
+divPrincipal.appendChild(formulario);
 formulario.appendChild(tituloForm);
 formulario.appendChild(campoForm);
 formulario.appendChild(btnForm);
