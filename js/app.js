@@ -20,7 +20,6 @@ const formulario = document.createElement("form");
         const legendCampo2 = document.createElement("legend");
         const inputCampo2 = document.createElement("input");
         
-    
     const campoForm3 = document.createElement("fieldset");
         const legendCampo3 = document.createElement("legend");    
         const inputCampo3 = document.createElement("input");
@@ -29,7 +28,7 @@ const formulario = document.createElement("form");
     const btnForm = document.createElement("button");
 
 
-//----------------------------------------------------------------- 
+//------------------------------------------------------------------------ 
 //EDITANDO ATRIBUTOS DOS ELEMENTOS
 
 formulario.classList.add("nes-container");
@@ -60,7 +59,7 @@ formulario.classList.add("is-dark");
     btnForm.insertAdjacentText("afterbegin", "Enviar");
 
 
-//----------------------------------------------------------------- 
+//------------------------------------------------------------------------ 
 //APENSANDO ELEMENTOS
 
 document.body.appendChild(formulario);
@@ -83,7 +82,7 @@ document.body.appendChild(formulario);
     formulario.appendChild(btnForm);
 
 
-//----------------------------------------------------------------- 
+//------------------------------------------------------------------------ 
 //STYLE
 
 document.querySelector("*").style.cssText = `
@@ -98,7 +97,7 @@ document.querySelector("*").style.cssText = `
         flex-direction: column;
         align-items: center;
         gap: 4.5%;
-        height: 70vh;
+        height: 75vh;
     `
 
         campoForm1.style.cssText=`
@@ -120,6 +119,7 @@ document.querySelector("*").style.cssText = `
                 padding: 10px 20px 20px 20px;
                 width: 95%;
                 color: #FFFFFF;
+                text-align: center;
             `
 
         campoForm2.style.cssText=`
@@ -140,13 +140,15 @@ document.querySelector("*").style.cssText = `
                 padding: 10px 20px 20px 20px;
                 width: 95%;
                 color: #FFFFFF;
+                text-align: center;
             `
 
         campoForm3.style.cssText=`
             border: 3px solid #FFC9725B;
             width: 85%;
             display: flex;
-
+            flex-direction: column;
+            align-items: center;
         `
             
             legendCampo3.style.cssText=`
@@ -167,17 +169,23 @@ document.querySelector("*").style.cssText = `
             `
             //OBS.: Removi a cor, se tornou desnecessária considerando que o btn vai ficar com opacity: 0.
             
-            // opacity: 0; --> GAMBIARRA QUE SOLUCIONA. USAR Z-INDEX (e position relative) CASO FOR COLOCAR UM BOTÃO DESTILIZADO NO LUGAR. ASSIM, O USUÁRIO CLICARÁ SEMPRE NO INPUT.
-            //display: none; --> OUTRA GAMBIARRA QUE SOLUCIONA. AQUI EU MATO O INPUT, TERIA QUE CRIAR UMA OUTRA DIV, COM COMPORTAMENTO IDÊNTICO, PARA SUBSTITUÍ-LO.
-            //UMA TERCEIRA SOLUÇÃO SERIA VIA LABEL.
+            //OPÇÕES DE GAMBIARRA PARA SOLUCIONAR BTN DA IMG
+
+            // 01: opacity: 0; --> GAMBIARRA QUE SOLUCIONA. USAR Z-INDEX (e position relative) CASO FOR COLOCAR UM BOTÃO DESTILIZADO NO LUGAR. ASSIM, O USUÁRIO CLICARÁ SEMPRE NO INPUT.
+            // 02: display: none; --> OUTRA GAMBIARRA QUE SOLUCIONA. AQUI EU MATO O INPUT, TERIA QUE CRIAR UMA OUTRA DIV, COM COMPORTAMENTO IDÊNTICO, PARA SUBSTITUÍ-LO.
+            // 03: UMA TERCEIRA SOLUÇÃO SERIA VIA LABEL.
 
             //esse botão ainda está mal configurado. estilizei apenas para efeito de visualização.
             //Pensei em estilizar para deixar igual a um placeholder. Alternativamente, podemos deixar um botão com estilo compatível com o resto do form
             btnFake.style.cssText=`
                 position: absolute;
                 z-index: 1;
+                background-color: rgb(33, 37, 41);
+                color: rgb(113, 113, 113);
+                border: none;
+                width: 65%;
             `
 
         btnForm.style.cssText=`
-            padding: 20px;
+            padding: 15px;
         `
