@@ -24,7 +24,8 @@ const formulario = document.createElement("form");
     const campoForm3 = document.createElement("fieldset");
         const legendCampo3 = document.createElement("legend");    
         const inputCampo3 = document.createElement("input");
-
+        const btnFake = document.createElement("button");
+    
     const btnForm = document.createElement("button");
 
 
@@ -36,26 +37,24 @@ formulario.classList.add("is-dark");
     
     tituloForm.insertAdjacentText("afterbegin", "Formulário");
     
-    campoForm1.setAttribute("type", "text");
-    //campoForm1.setAttribute("placeholder", "Título");    
+    campoForm1.setAttribute("type", "text");   
         legendCampo1.insertAdjacentText("afterbegin", "Título");    
-        
+        inputCampo1.setAttribute("placeholder", "Insira um título"); 
         inputCampo1.setAttribute("maxlength", "25");
         
     campoForm2.setAttribute("type", "text");
     //campoForm2.setAttribute("placeholder", "Descrição");
         legendCampo2.insertAdjacentText("afterbegin", "Descrição");
-        
+        inputCampo2.setAttribute("placeholder", "Insira uma descrição");
         inputCampo2.setAttribute("maxlength", "25");
         //MUDAR DE INPUT PARA TEXT AREA
     
     campoForm3.setAttribute("type", "file"); //ESTUDAR HIPÓTESE DE TER 2 TIPOS DE INPUT DE IMAGEM: FILE E TEXT (URL)
-    //campoForm3.setAttribute("placeholder", "URL da Imagem");
+    campoForm3.setAttribute("placeholder", "URL da Imagem");
         legendCampo3.insertAdjacentText("afterbegin", "Imagem");
-        //LABEL PARA RESOLVER?
         inputCampo3.setAttribute("type", "file")
-        inputCampo3.setAttribute("accept", ".jpg, .png, .svg, .bmp")
-        //inputCampo3.setAttribute("maxlength", "25"); PENSAR QUE IMG PODE TEM MUITO CARACTERE EM SUA URL.
+        inputCampo3.setAttribute("accept", ".jpg, .png, .svg, .bmp");
+        btnFake.insertAdjacentText("afterbegin", "Insira uma imagem");
 
     btnForm.setAttribute("type", "submit");
     btnForm.insertAdjacentText("afterbegin", "Enviar");
@@ -79,6 +78,7 @@ document.body.appendChild(formulario);
     formulario.appendChild(campoForm3);
         campoForm3.appendChild(legendCampo3);
         campoForm3.appendChild(inputCampo3);
+        campoForm3.appendChild(btnFake);
     
     formulario.appendChild(btnForm);
 
@@ -145,6 +145,8 @@ document.querySelector("*").style.cssText = `
         campoForm3.style.cssText=`
             border: 3px solid #FFC9725B;
             width: 85%;
+            display: flex;
+
         `
             
             legendCampo3.style.cssText=`
@@ -159,10 +161,23 @@ document.querySelector("*").style.cssText = `
                 background-color: #212529;
                 padding: 10px 20px 20px 20px;
                 width: 95%;
-                color: #FFFFFF;
+                position: relative;
+                z-index: 2;
+                opacity: 0;
             `
-            // opacity: 0; --> GAMBIARRA QUE SOLUCIONA. USAR Z-INDEX CASO FOR COLOCAR UM BOTÃO DESTILIZADO NO LUGAR. ASSIM, O USUÁRIO CLICARÁ SEMPRE NO INPUT.
+            //OBS.: Removi a cor, se tornou desnecessária considerando que o btn vai ficar com opacity: 0.
             
+            // opacity: 0; --> GAMBIARRA QUE SOLUCIONA. USAR Z-INDEX (e position relative) CASO FOR COLOCAR UM BOTÃO DESTILIZADO NO LUGAR. ASSIM, O USUÁRIO CLICARÁ SEMPRE NO INPUT.
             //display: none; --> OUTRA GAMBIARRA QUE SOLUCIONA. AQUI EU MATO O INPUT, TERIA QUE CRIAR UMA OUTRA DIV, COM COMPORTAMENTO IDÊNTICO, PARA SUBSTITUÍ-LO.
-            
             //UMA TERCEIRA SOLUÇÃO SERIA VIA LABEL.
+
+            //esse botão ainda está mal configurado. estilizei apenas para efeito de visualização.
+            //Pensei em estilizar para deixar igual a um placeholder. Alternativamente, podemos deixar um botão com estilo compatível com o resto do form
+            btnFake.style.cssText=`
+                position: absolute;
+                z-index: 1;
+            `
+
+        btnForm.style.cssText=`
+            padding: 20px;
+        `
