@@ -1,5 +1,5 @@
 //MAPA SIMPLIFICADO
-//div macro
+
     //form
         //h1
         //3x fieldset
@@ -49,7 +49,6 @@ formulario.classList.add("is-dark");
         //MUDAR DE INPUT PARA TEXT AREA
     
     campoForm3.setAttribute("type", "file"); //ESTUDAR HIPÓTESE DE TER 2 TIPOS DE INPUT DE IMAGEM: FILE E TEXT (URL)
-    campoForm3.setAttribute("placeholder", "URL da Imagem");
         legendCampo3.insertAdjacentText("afterbegin", "Imagem");
         inputCampo3.setAttribute("type", "file")
         inputCampo3.setAttribute("accept", ".jpg, .png, .svg, .bmp");
