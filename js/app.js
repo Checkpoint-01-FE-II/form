@@ -5,6 +5,7 @@
         //3x fieldset
         //1x button
 
+
 //-----------------------------------------------------------------        
 //CRIAÇÃO ELEMENTOS - JÁ COM VARIÁVEIS
 
@@ -25,6 +26,7 @@ const formulario = document.createElement("form");
         const inputCampo3 = document.createElement("input");
 
     const btnForm = document.createElement("button");
+
 
 //----------------------------------------------------------------- 
 //EDITANDO ATRIBUTOS DOS ELEMENTOS
@@ -53,7 +55,6 @@ formulario.classList.add("is-dark");
         //LABEL PARA RESOLVER?
         inputCampo3.setAttribute("type", "file")
         inputCampo3.setAttribute("accept", ".jpg, .png, .svg, .bmp")
-        
         //inputCampo3.setAttribute("maxlength", "25"); PENSAR QUE IMG PODE TEM MUITO CARACTERE EM SUA URL.
 
     btnForm.setAttribute("type", "submit");
@@ -80,6 +81,7 @@ document.body.appendChild(formulario);
         campoForm3.appendChild(inputCampo3);
     
     formulario.appendChild(btnForm);
+
 
 //----------------------------------------------------------------- 
 //STYLE
@@ -159,3 +161,8 @@ document.querySelector("*").style.cssText = `
                 width: 95%;
                 color: #FFFFFF;
             `
+            // opacity: 0; --> GAMBIARRA QUE SOLUCIONA. USAR Z-INDEX CASO FOR COLOCAR UM BOTÃO DESTILIZADO NO LUGAR. ASSIM, O USUÁRIO CLICARÁ SEMPRE NO INPUT.
+            
+            //display: none; --> OUTRA GAMBIARRA QUE SOLUCIONA. AQUI EU MATO O INPUT, TERIA QUE CRIAR UMA OUTRA DIV, COM COMPORTAMENTO IDÊNTICO, PARA SUBSTITUÍ-LO.
+            
+            //UMA TERCEIRA SOLUÇÃO SERIA VIA LABEL.
