@@ -180,10 +180,11 @@ document.querySelector("*").style.cssText = `
             btnFake.style.cssText=`
                 position: absolute;
                 z-index: 1;
+                padding: 10px 20px 20px 20px;
+                margin-right: 3.8%;
                 background-color: rgb(33, 37, 41);
                 color: rgb(113, 113, 113);
                 border: none;
-                width: 65%;
             `
 
         btnForm.style.cssText=`
