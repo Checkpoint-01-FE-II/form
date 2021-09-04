@@ -42,7 +42,6 @@ formulario.classList.add("is-dark");
         inputCampo1.setAttribute("maxlength", "25");
         
     campoForm2.setAttribute("type", "text");
-    //campoForm2.setAttribute("placeholder", "Descrição");
         legendCampo2.insertAdjacentText("afterbegin", "Descrição");
         inputCampo2.setAttribute("placeholder", "Insira uma descrição");
         inputCampo2.setAttribute("maxlength", "25");
@@ -68,22 +67,38 @@ document.body.appendChild(formulario);
     formulario.appendChild(campoForm1);
         campoForm1.appendChild(legendCampo1);
         campoForm1.appendChild(inputCampo1);
+
+        campoForm1.className = "campo-formulario";
+        legendCampo1.className = "legend-formulario";
+        inputCampo1.className = "input-formulario";
     
     formulario.appendChild(campoForm2);
         campoForm2.appendChild(legendCampo2);
         campoForm2.appendChild(inputCampo2);
+
+        campoForm2.className = "campo-formulario";
+        legendCampo2.className = "legend-formulario";
+        inputCampo2.className = "input-formulario";
     
     formulario.appendChild(campoForm3);
         campoForm3.appendChild(legendCampo3);
         campoForm3.appendChild(inputCampo3);
         campoForm3.appendChild(btnFake);
+
+        legendCampo3.className = "legend-formulario";
     
     formulario.appendChild(btnForm);
 
+//ARMAZENANDO CLASSES EM VARIÁVEIS
+const classeCampo = document.getElementsByClassName("campo-formulario");
+const classeLegend = document.getElementsByClassName("legend-formulario");
+const classeInput = document.getElementsByClassName("input-formulario");
+    
 
 //------------------------------------------------------------------------ 
 //STYLE
 
+//SETANDO A PÁGINA
 document.querySelector("*").style.cssText = `
     padding: 0;
     margin: 0;
@@ -98,20 +113,30 @@ document.querySelector("*").style.cssText = `
         gap: 4.5%;
         height: 75vh;
     `
+        
+        //SUBSTITUÍDOS BLOCOS DE CÓDIGO DE ESTILIZAÇÃO REPETIDOS POR FOR
+        //PS.: getElementsByClassName RETORNA HTMLCollection, QUE NÃO É ARRAY, MAS SE COMPORTA COMO SE O FOSSE. EX.: FOREACH NÃO SE APLICA, MAS LENGTH, SIM.
 
-        campoForm1.style.cssText=`
-            border: 3px solid #FFC9725B;
-            width: 85%;
-        `
-            
-        //width: fit-content -> não rola com Firefox Dev Ed.
-            legendCampo1.style.cssText=`
+        //ESTILO FIELDSET 1 E 2
+        for (let i = 0; i < classeCampo.length; i++) {
+            classeCampo[i].style.cssText=`
+                border: 3px solid #FFC9725B;
+                width: 85%;
+                `      
+        }
+        
+        //ESTILO LEGEND 1 A 3
+        for (let i = 0; i < classeLegend.length; i++) {
+            classeLegend[i].style.cssText=`
                 display: inline-block;
                 width: fit-content;
                 margin-left: 15px;
-            `
-
-            inputCampo1.style.cssText=`
+            `      
+        }
+    
+        //ESTILO INPUT 1 E 2
+        for (let i = 0; i < classeInput.length; i++) {
+            classeInput[i].style.cssText=`
                 border: none;    
                 outline: none;
                 background-color: #212529;
@@ -119,42 +144,17 @@ document.querySelector("*").style.cssText = `
                 width: 95%;
                 color: #FFFFFF;
                 text-align: center;
-            `
+            `      
+        }
 
-        campoForm2.style.cssText=`
-            border: 3px solid #FFC9725B;
-            width: 85%;
-        `
-            
-            legendCampo2.style.cssText=`
-                display: inline-block;
-                width: fit-content;
-                margin-left: 15px;
-            `
-
-            inputCampo2.style.cssText=`
-                border: none;    
-                outline: none;
-                background-color: #212529;
-                padding: 10px 20px 20px 20px;
-                width: 95%;
-                color: #FFFFFF;
-                text-align: center;
-            `
-
-        campoForm3.style.cssText=`
+        //EXCEÇÕES ÀS REGRAS ACIMA
+         campoForm3.style.cssText=`
             border: 3px solid #FFC9725B;
             width: 85%;
             display: flex;
             flex-direction: column;
             align-items: center;
         `
-            
-            legendCampo3.style.cssText=`
-                display: inline-block;
-                width: fit-content;
-                margin-left: 15px;
-            `
 
             inputCampo3.style.cssText=`
                 border: none;    
