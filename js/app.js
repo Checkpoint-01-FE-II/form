@@ -48,17 +48,14 @@ formulario.classList.add("is-dark");
     
     campoForm3.setAttribute("type", "file"); //ESTUDAR HIPÓTESE DE TER 2 TIPOS DE INPUT DE IMAGEM: FILE E TEXT (URL)
         legendCampo3.insertAdjacentText("afterbegin", "Imagem");
-<<<<<<< HEAD
         //LABEL PARA RESOLVER?
-        inputCampo3.setAttribute("type", "text")
+        // inputCampo3.setAttribute("type", "text")
         // inputCampo3.setAttribute("accept", ".jpg, .png, .svg, .bmp")
         
         //inputCampo3.setAttribute("maxlength", "25"); PENSAR QUE IMG PODE TEM MUITO CARACTERE EM SUA URL.
-=======
         inputCampo3.setAttribute("type", "file")
         inputCampo3.setAttribute("accept", ".jpg, .png, .svg, .bmp");
         btnFake.insertAdjacentText("afterbegin", "Insira uma imagem");
->>>>>>> f9ab4c7c7a196ad66b2de78636e80b031e797cc8
 
     btnForm.setAttribute("type", "submit");
     btnForm.setAttribute('onclick', 'adicionarCarta()')
@@ -189,38 +186,8 @@ document.querySelector("*").style.cssText = `
                 position: absolute;
                 z-index: 1;
                 padding: 10px 20px 20px 20px;
-<<<<<<< HEAD
                 width: 95%;
                 color: #FFFFFF;
-            `
-
-        
-let listaDeCartas = localStorage.getItem("listaDeCartas");
-
-if(listaDeCartas ==null){
-    listaDeCartas = []
-  localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
-} else {
-    listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
-}
-
-function adicionarCarta(){
-   
-  if (inputCampo1.value != '' && inputCampo2.value != '' && inputCampo3.value != '') {
-    let dadosNovaCarta=
-      {
-        titulo: inputCampo1.value,
-        url: inputCampo3.value,
-        descricao: inputCampo2.value,
-      }
-    listaDeCartas.push(dadosNovaCarta);
-    localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
-    location.href = './index.html';
-  }else{
-    alert("Verifique se a URL inserida é válida (.png ou .jpg) e se todos os campos estão preenchidos.")
-  }
-}
-=======
                 margin-right: 3.8%;
                 background-color: rgb(33, 37, 41);
                 color: rgb(113, 113, 113);
@@ -230,4 +197,29 @@ function adicionarCarta(){
         btnForm.style.cssText=`
             padding: 15px;
         `
->>>>>>> f9ab4c7c7a196ad66b2de78636e80b031e797cc8
+        
+        let listaDeCartas = localStorage.getItem("listaDeCartas");
+
+        if(listaDeCartas ==null){
+            listaDeCartas = []
+          localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
+        } else {
+            listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
+        }
+        
+        function adicionarCarta(){
+           
+          if (inputCampo1.value != '' && inputCampo2.value != '' && inputCampo3.value != '') {
+            let dadosNovaCarta=
+              {
+                titulo: inputCampo1.value,
+                url: inputCampo3.value,
+                descricao: inputCampo2.value,
+              }
+            listaDeCartas.push(dadosNovaCarta);
+            localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
+            location.href = './index.html';
+          }else{
+            alert("Verifique se a URL inserida é válida (.png ou .jpg) e se todos os campos estão preenchidos.")
+          }
+        }
