@@ -1,0 +1,192 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+header{
+    padding: 2rem 2rem 0 2rem;
+    @media screen and (min-width: 700px) {
+        padding: 4rem 2rem 2rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: 2.5rem;
+    }
+}
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-image: url(../imgs/background.png);
+    max-width: 1200px;
+    margin: auto;
+}
+main{
+    .container-cartas-e-descricao{
+        @media screen and (min-width: 700px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 1rem;
+
+        }
+        .section-fundo-cartas{
+            width: 87%;
+            height: 62vh; 
+            // height: fit-content;
+            border: 1.5rem solid;
+            border-image-source: url('../imgs/fundo-das-cartas.png');
+            border-image-repeat:repeat;
+            border-image-slice: 15;
+            margin: auto;
+            box-shadow: .5rem .5rem 1.5rem #000;
+            background-color: rgb(255, 255, 255);
+            border-radius:2%;
+
+            @media screen and (min-width: 700px) {      
+                width: 70%;
+                height: 75vh;
+                margin: 0;                                        
+            }
+                .container-cartas{
+                    width: 100%;
+                    height: 100%;
+                    // height: fit-content;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+                    grid-template-rows: repeat(auto-fill, minmax(7rem, 1fr));
+                    margin: auto;
+                    background-color: #fff;
+                    row-gap: .2rem;
+                    align-items: center;
+                    justify-items: center;
+                    @media screen and (min-width: 700px) {    
+                        width: 100%;
+                        height: 100%;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); 
+                        grid-template-rows: repeat(auto-fill, minmax(15rem, 1fr));
+                    }
+
+                    .cartas{
+                        width: 7rem;
+                        height: 7rem;
+                        transform-style: preserve-3d;
+                        display: flex;
+                        justify-content: center;
+                        transition: all .5s;
+                        @media screen and (min-width: 700px) {    
+
+                            width: 15rem;
+                            height: 15rem;
+                            /* border-right: 2px solid rgba(197, 126, 45, 0.39);
+                            border-bottom: 2px solid rgba(197, 126, 45, 0.39); */
+                        }
+                        .div-frente-verso{
+                            
+                            width: 7rem;
+                            height: 7rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            position: absolute;
+                            transition: all 1s;
+                            backface-visibility: hidden;
+                            @media screen and (min-width: 700px) {             
+                                    width: 15rem;
+                                    height: 15rem;
+                            }          
+                        }
+
+                        .front{
+                            transform: perspective(400px) rotateY(-180deg);
+                            
+                            &.flip{
+                                transform: perspective(400px) rotateY(0deg);
+                            }
+                        }
+                        .back{
+                            background: url("../imgs/carta-back.jpg");
+                            background-size:cover;
+                            
+                            
+                            &.flip{
+                                transform: perspective(400px) rotateY(180deg);
+                            }
+                        }
+
+                        .img-cartas{
+                            border: .9rem solid #000;
+                            border-image-source: url(../imgs/borda-cartas.png);
+                            border-image-slice: 35;
+                            width: 100%;
+                            height: 100%;
+                            padding-bottom: .1rem;
+                        }
+                    }
+                    
+                }      
+        } 
+        .section-descricao{
+            display: none;
+            @media screen and (min-width: 700px) {
+                    display: block;
+                    width: 28%;
+                    height: 75vh; 
+                    border: 16px solid;
+                    border-image-source: url('../imgs/fundo-descricao.png');
+                    border-image-repeat:repeat;
+                    border-image-slice: 15;
+                    margin: auto;
+                    box-shadow: 5px 5px 8px black;
+                    background-color: #fff;
+                    border-radius: 4%;
+
+                    .img-descricao{
+                        height: 50%;
+                        width: 100%;
+                    }
+                    div{
+                        background-color: #fff;
+                        height: 50%;
+                        padding: 12px;
+                        border-top-left-radius: 20px;
+                        border-top-right-radius: 20px;
+                        position: relative;
+                        z-index: 2;
+                        bottom: 20px;
+                    
+                        .p-descricao{
+                            font-size: 12px;
+                        }
+                    }
+            }
+        }  
+        
+    }
+
+    .nes-btn{
+        // width: 20rem;
+        width: fit-content;
+        border-image-repeat: stretch;
+        margin-top: 2rem;
+    }
+    .div-btns{
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        margin: auto;
+
+        button:disabled{
+            display: none;
+        }
+
+
+        .voltar{
+            display: none;
+        }
+    }
+}

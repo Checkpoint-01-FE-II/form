@@ -7,7 +7,6 @@
 
 //-----------------------------------------------------------------        
 //CRIAÇÃO ELEMENTOS - JÁ COM VARIÁVEIS
-
 const formulario = document.createElement("form");
     const tituloForm = document.createElement("h1");
 
@@ -51,12 +50,13 @@ formulario.classList.add("is-dark");
     //campoForm3.setAttribute("placeholder", "URL da Imagem");
         legendCampo3.insertAdjacentText("afterbegin", "Imagem");
         //LABEL PARA RESOLVER?
-        inputCampo3.setAttribute("type", "file")
-        inputCampo3.setAttribute("accept", ".jpg, .png, .svg, .bmp")
+        inputCampo3.setAttribute("type", "text")
+        // inputCampo3.setAttribute("accept", ".jpg, .png, .svg, .bmp")
         
         //inputCampo3.setAttribute("maxlength", "25"); PENSAR QUE IMG PODE TEM MUITO CARACTERE EM SUA URL.
 
     btnForm.setAttribute("type", "submit");
+    btnForm.setAttribute('onclick', 'adicionarCarta()')
     btnForm.insertAdjacentText("afterbegin", "Enviar");
 
 
@@ -159,3 +159,30 @@ document.querySelector("*").style.cssText = `
                 width: 95%;
                 color: #FFFFFF;
             `
+
+        
+let listaDeCartas = localStorage.getItem("listaDeCartas");
+
+if(listaDeCartas ==null){
+    listaDeCartas = []
+  localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
+} else {
+    listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
+}
+
+function adicionarCarta(){
+   
+  if (inputCampo1.value != '' && inputCampo2.value != '' && inputCampo3.value != '') {
+    let dadosNovaCarta=
+      {
+        titulo: inputCampo1.value,
+        url: inputCampo3.value,
+        descricao: inputCampo2.value,
+      }
+    listaDeCartas.push(dadosNovaCarta);
+    localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
+    location.href = './index.html';
+  }else{
+    alert("Verifique se a URL inserida é válida (.png ou .jpg) e se todos os campos estão preenchidos.")
+  }
+}
