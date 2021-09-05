@@ -157,10 +157,17 @@ main{
                         border-top-right-radius: 20px;
                         position: relative;
                         z-index: 2;
-                        bottom: 20px;
-                    
-                        .p-descricao{
-                            font-size: 12px;
+                        bottom: 2rem;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                        padding: 2rem;
+                        h3{
+                            font-size: 1.5rem;
+                        }
+                        p{
+                            font-size: 1.1rem;
+                            line-height: 2rem;
                         }
                     }
             }
