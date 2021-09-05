@@ -58,6 +58,22 @@ formulario.classList.add("is-dark");
 
 
 //------------------------------------------------------------------------ 
+//ATRIBUIÇÃO DE CLASSES E ARMAZENAMENTO DE CLASSES EM VARIÁVEIS
+campoForm1.className = "campo-formulario";
+campoForm2.className = "campo-formulario";    
+const classeCampo = document.getElementsByClassName("campo-formulario");
+
+legendCampo1.className = "legend-formulario";
+legendCampo2.className = "legend-formulario";    
+legendCampo3.className = "legend-formulario";
+const classeLegend = document.getElementsByClassName("legend-formulario");
+
+inputCampo1.className = "input-formulario";     
+inputCampo2.className = "input-formulario";
+const classeInput = document.getElementsByClassName("input-formulario");
+
+
+//------------------------------------------------------------------------ 
 //APENSANDO ELEMENTOS
 
 document.body.appendChild(formulario);
@@ -67,32 +83,17 @@ document.body.appendChild(formulario);
     formulario.appendChild(campoForm1);
         campoForm1.appendChild(legendCampo1);
         campoForm1.appendChild(inputCampo1);
-
-        campoForm1.className = "campo-formulario";
-        legendCampo1.className = "legend-formulario";
-        inputCampo1.className = "input-formulario";
     
     formulario.appendChild(campoForm2);
         campoForm2.appendChild(legendCampo2);
         campoForm2.appendChild(inputCampo2);
-
-        campoForm2.className = "campo-formulario";
-        legendCampo2.className = "legend-formulario";
-        inputCampo2.className = "input-formulario";
     
     formulario.appendChild(campoForm3);
         campoForm3.appendChild(legendCampo3);
         campoForm3.appendChild(inputCampo3);
         campoForm3.appendChild(btnFake);
-
-        legendCampo3.className = "legend-formulario";
     
     formulario.appendChild(btnForm);
-
-//ARMAZENANDO CLASSES EM VARIÁVEIS
-const classeCampo = document.getElementsByClassName("campo-formulario");
-const classeLegend = document.getElementsByClassName("legend-formulario");
-const classeInput = document.getElementsByClassName("input-formulario");
     
 
 //------------------------------------------------------------------------ 
@@ -147,7 +148,7 @@ document.querySelector("*").style.cssText = `
             `      
         }
 
-        //EXCEÇÕES ÀS REGRAS ACIMA
+        //EXCEÇÕES ÀS REGRAS ACIMA: ESTILOS FIELDSET 3 E INPUT 3
          campoForm3.style.cssText=`
             border: 3px solid #FFC9725B;
             width: 85%;
