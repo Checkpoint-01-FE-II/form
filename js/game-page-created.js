@@ -7,44 +7,54 @@ let paresEncontrados = 0;
 
 $header.insertAdjacentHTML("beforeend", `
     <h6>Tempo: ${tempo}</h6>
-    <h6>Pares encontrados: ${paresEncontrados}/7</h6>
+    <h6>Pares encontrados: ${paresEncontrados}/6</h6>
 `);
 
 let storagelistaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"));
 
 const embaralharCartas = (arr)=>{
-    let newArr=[];
-    while(newArr.length !== arr.length){
-        let i=Math.floor(Math.random()*arr.length)
-        if(newArr.indexOf(arr[i])===-1){
-            newArr.push(arr[i])
-        }
-    }
-    return newArr
-}
+    let novoArray=[];
+    while(novoArray.length !== arr.length){
+        let i=Math.floor(Math.random()*arr.length);
+        novoArray.indexOf(arr[i])<0 ? novoArray.push(arr[i]) : '';
+    };
+    return novoArray;
+};
 
 storagelistaDeCartas = embaralharCartas(storagelistaDeCartas);
 
 for(let i=0; i<storagelistaDeCartas.length;i++){
-$containerCartas.insertAdjacentHTML('beforeend', 
-`
-    <div class='cartas' id=${storagelistaDeCartas[i].id}>
-        <div class='div-frente-verso front'>
-            <img class='img-cartas' src='${storagelistaDeCartas[i].url}'} alt="">
+    storagelistaDeCartas[i].id=`carta${i}`
+    $containerCartas.insertAdjacentHTML('beforeend', 
+    `
+        <div class='cartas' id=${storagelistaDeCartas[i].id}>
+            <div class='div-frente-verso front'>
+                <img class='img-cartas' src='${storagelistaDeCartas[i].url}' alt="">
+            </div>
+            <div class='div-frente-verso back'>
+                <div class='img-cartas div-frente-verso'></div>
+            </div>
         </div>
-        <div class='div-frente-verso back'>
-            <div class='img-cartas div-frente-verso'></div>
-        </div>
-    </div>
-`)
+    `)
 }
 
-for(let i=1; i<=storagelistaDeCartas.length;i++){
-    document.querySelector("#carta" + i).addEventListener('click', flip)
+for(let i=0; i<storagelistaDeCartas.length;i++){
+
+    document.querySelector("#carta" + i).addEventListener('click', function (){
+        let faces = this.getElementsByClassName('div-frente-verso')
+        faces[0].classList.toggle('flip');
+        faces[1].classList.toggle('flip');
+        document.querySelector('.section-descricao').innerHTML =
+        `
+        <img class='img-descricao'
+        src=${storagelistaDeCartas[i].url}
+        alt="">
+        <div>
+            <h3>${storagelistaDeCartas[i].titulo}<h3>
+            <p>${storagelistaDeCartas[i].descricao}</p>                
+        </div>
+        `
+    }
+    )
 }
 
-function flip(){
-    let faces = this.getElementsByClassName('div-frente-verso')
-    faces[0].classList.toggle('flip');
-    faces[1].classList.toggle('flip');
-}
