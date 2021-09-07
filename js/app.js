@@ -53,8 +53,8 @@ formulario.classList.add("is-dark");
         // inputCampo3.setAttribute("accept", ".jpg, .png, .svg, .bmp")
         
         //inputCampo3.setAttribute("maxlength", "25"); PENSAR QUE IMG PODE TEM MUITO CARACTERE EM SUA URL.
-        inputCampo3.setAttribute("type", "file")
-        inputCampo3.setAttribute("accept", ".jpg, .png, .svg, .bmp");
+        inputCampo3.setAttribute("type", "text")
+        // inputCampo3.setAttribute("accept", ".jpg, .png, .svg, .bmp");
         btnFake.insertAdjacentText("afterbegin", "Insira uma imagem");
 
     btnForm.setAttribute("type", "submit");
@@ -170,7 +170,7 @@ document.querySelector("*").style.cssText = `
                 width: 95%;
                 position: relative;
                 z-index: 2;
-                opacity: 0;
+                opacity: 1;
             `
             //OBS.: Removi a cor, se tornou desnecessária considerando que o btn vai ficar com opacity: 0.
             
@@ -207,15 +207,17 @@ document.querySelector("*").style.cssText = `
             listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
         }
         
+        
         function adicionarCarta(){
-           
           if (inputCampo1.value != '' && inputCampo2.value != '' && inputCampo3.value != '') {
             let dadosNovaCarta=
               {
+                id: '',
                 titulo: inputCampo1.value,
                 url: inputCampo3.value,
                 descricao: inputCampo2.value,
               }
+
             listaDeCartas.push(dadosNovaCarta);
             localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
             location.href = './index.html';

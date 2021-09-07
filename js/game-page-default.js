@@ -46,10 +46,10 @@ function timer() {
 
 $header.insertAdjacentHTML("beforeend", `
     <h6 id="Iniciar">Tempo : 00:00:00</h6>
-    <h6>Pares encontrados: ${paresEncontrados}/6</h6>
+    <h6 class='pares-encontrados'>Pares encontrados: ${paresEncontrados}/6</h6>
 `);
 
-
+//Array com as cartas preestabelecidas.
 let cartasDefault = [
     {
         id: '',
@@ -125,6 +125,7 @@ let cartasDefault = [
     }
 ];
 
+//função que embaralha os elementos do array "cartasDefault"
 const embaralharCartas = (arr) => {
     let novoArray = [];
     while (novoArray.length !== arr.length) {
@@ -135,11 +136,11 @@ const embaralharCartas = (arr) => {
 };
 
 cartasDefault = embaralharCartas(cartasDefault);
-console.log(cartasDefault)
+
 
 for (let i = 0; i < cartasDefault.length; i++) {
-    cartasDefault[i].id = `carta${i}`
-    $containerCartas.insertAdjacentHTML('beforeend',
+    cartasDefault[i].id = `carta${i}` //adiciona o id das cartas dinamicamente.
+    $containerCartas.insertAdjacentHTML('beforeend', //adiciona as cartas na tela.
         `
         <div class='cartas' id=${cartasDefault[i].id}>
             <div class='div-frente-verso front'>
@@ -152,14 +153,21 @@ for (let i = 0; i < cartasDefault.length; i++) {
     `)
 }
 
+let arrayDuasCartas = [];
 
+//adiciona um evento de click às cartas que adiciona/remove a classe flip aos elementos que possuem a classe "div-frente-verso"
 for (let i = 0; i < cartasDefault.length; i++) {
-    document.querySelector("#carta" + (i)).addEventListener('click', function () {
+
+    document.querySelector("#carta" + i).addEventListener('click', function () {
         let faces = this.getElementsByClassName('div-frente-verso')
-        faces[0].classList.toggle('flip');
-        faces[1].classList.toggle('flip');
-        document.querySelector('.section-descricao').innerHTML =
-            `
+        if (faces[0].classList.contains('flip') && faces[1].classList.contains('flip')) {
+            return
+        } else {
+            faces[0].classList.toggle('flip');
+            faces[1].classList.toggle('flip');
+
+            document.querySelector('.section-descricao').innerHTML =
+                `
             <img class='img-descricao'
             src="../imgs/${cartasDefault[i].url}"
             alt="">
@@ -168,6 +176,55 @@ for (let i = 0; i < cartasDefault.length; i++) {
                 <p>${cartasDefault[i].descricao}</p>                
             </div>
             `
+            verificaPar(i)
+        }
     }
     )
+}
+
+    
+
+function verificaPar(i) {
+
+    arrayDuasCartas.length == 2 ? arrayDuasCartas = [] : '';
+
+    if (arrayDuasCartas.length == 0) {
+        arrayDuasCartas.push(cartasDefault[i])
+        console.log(arrayDuasCartas)
+    } else if (arrayDuasCartas.length == 1) {
+        arrayDuasCartas.push(cartasDefault[i])
+        let idElemento1 = `#${arrayDuasCartas[0].id}`;
+        let idElemento2 = `#${arrayDuasCartas[1].id}`;
+        let faceElemento1 = document.querySelector(idElemento1).getElementsByClassName('div-frente-verso');
+        let faceElemento2 = document.querySelector(idElemento2).getElementsByClassName('div-frente-verso');
+        if (arrayDuasCartas[0].url == arrayDuasCartas[1].url) {
+            faceElemento1[0].style.opacity = '0.2';
+            faceElemento1[1].style.opacity = '0.2';
+            faceElemento2[0].style.opacity = '0.2';
+            faceElemento2[1].style.opacity = '0.2';
+            faceElemento1[0].disabled = true;
+            faceElemento1[1].disabled = true;
+            faceElemento2[0].disabled = true;
+            faceElemento2[1].disabled = true;
+
+            paresEncontrados++;
+
+            document.querySelector('.pares-encontrados').innerHTML = `Pares encontrados: ${paresEncontrados}/6`
+            setTimeout(() => {
+                if (paresEncontrados === 6) {
+                    alert('Fim de Jogo, você conseguiu!')
+                }
+            }, 1000)
+
+        } else {
+            arrayDuasCartas = [];
+            setTimeout(() => {
+                faceElemento1[0].classList.toggle('flip')
+                faceElemento1[1].classList.toggle('flip')
+                faceElemento2[0].classList.toggle('flip')
+                faceElemento2[1].classList.toggle('flip')
+                document.querySelector('.section-descricao').innerHTML = '';
+            }, 1200)
+        }
+    }
 }
