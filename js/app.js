@@ -43,12 +43,6 @@ document.body.appendChild(main);
 document.body.appendChild(btnConfirmar);
 document.body.appendChild(btnCancelar);
 
-
-//----------
-//MODAL
-//document.body.appendChild(modal);
-
-
 //------------------------------------------------------------------------ 
 //EDITANDO ATRIBUTOS DOS ELEMENTOS
   
@@ -72,21 +66,18 @@ document.body.appendChild(btnCancelar);
         //inputCampo3.setAttribute("maxlength", "25")
 
     btnConfirmar.setAttribute("type", "submit");
-    //btnConfirmar.setAttribute('onclick', 'document.getElementById("modal").style.display="block"');
-    
-    //btnForm.setAttribute('onclick', 'adicionarCarta()')
-    //CHAMAR 'adicionarCarta()' dentro do btnConfirmar do modal
+    btnConfirmar.onclick = () => modal.style.display = "flex";
     btnConfirmar.insertAdjacentText("afterbegin", "Enviar");
 
     btnCancelar.setAttribute("type", "reset");
-    btnCancelar.setAttribute("form", "formBaralho");
+    btnCancelar.setAttribute("form", "form-baralho");
     btnCancelar.insertAdjacentText("afterbegin", "Cancelar");
 
 
 //------------------------------------------------------------------------ 
 //ATRIBUIÇÃO DE CLASSES E IDs
 
-formulario.id = "formBaralho";
+formulario.id = "form-baralho";
 formulario.classList.add("nes-container");
 formulario.classList.add("is-dark");
 
@@ -105,11 +96,16 @@ inputCampo2.className = "input-formulario";
 inputCampo3.className = "input-formulario";
 const cInput = document.getElementsByClassName("input-formulario");
 
+btnConfirmar.classList.add("form-btn")
 btnConfirmar.classList.add("nes-btn");
 btnConfirmar.classList.add("is-warning");
 
+btnCancelar.classList.add("form-btn");
 btnCancelar.classList.add("nes-btn");
 btnCancelar.classList.add("is-warning");
+
+const cFormBtn = document.getElementsByClassName("form-btn");
+
 
 
 //------------------------------------------------------------------------ 
@@ -131,15 +127,16 @@ document.querySelector("*").style.cssText = `
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 3rem;
+        gap: 1.5rem;
     `
+    
 
     formulario.style.cssText=`
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
-        padding-bottom: 3rem;
+        padding-bottom: 2rem;
     `
 
         tituloForm.style.cssText=`
@@ -155,7 +152,7 @@ document.querySelector("*").style.cssText = `
         }
 
         campoForm1.style.cssText = `
-            margin-top: 3rem;
+            margin-top: 1.5rem;
             border: .3rem solid #ffffff;
             font-size: 1rem;
         `
@@ -176,7 +173,7 @@ document.querySelector("*").style.cssText = `
                 border: none;    
                 outline: none;
                 background-color: #212529;
-                padding: 1rem 2rem 1rem 3rem;
+                padding: 1rem 2rem 1rem 2rem;
                 width: 95%;
                 color: #FFFFFF;
                 text-align: center;
@@ -184,18 +181,14 @@ document.querySelector("*").style.cssText = `
             `      
         }
 
-        btnConfirmar.style.cssText=`
+        //ESTILO BTNS DO FORM
+        for (let i = 0; i < cFormBtn.length; i++) {
+            cFormBtn[i].style.cssText=`
             font-size: 1.5rem;
             border-image-repeat: stretch;
             width: 16rem;
-        `
-
-        btnCancelar.style.cssText=`
-            font-size: 1.5rem;
-            border-image-repeat: stretch;
-            width: 16rem;
-            margin-top: -1.5rem;
-        `
+        `      
+        }
 
 
 //------------------------------------------------------------------------ 
@@ -210,46 +203,52 @@ document.querySelector("*").style.cssText = `
             listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
         }
         
-        // function adicionarCarta(){
-        //   if (inputCampo1.value != '' && inputCampo2.value != '' && inputCampo3.value != '') {
-        //     let dadosNovaCarta=
-        //       {
-        //         id: '',
-        //         titulo: inputCampo1.value,
-        //         url: inputCampo3.value,
-        //         descricao: inputCampo2.value,
-        //       }
+        function adicionarCarta(){
+          if (inputCampo1.value != '' && inputCampo2.value != '' && inputCampo3.value != '') {
+            let dadosNovaCarta=
+              {
+                id: '',
+                titulo: inputCampo1.value,
+                url: inputCampo3.value,
+                descricao: inputCampo2.value,
+              }
 
-        //     listaDeCartas.push(dadosNovaCarta);
-        //     localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
-        //     location.href = './index.html';
-        //   }else{
-        //     alert("Verifique se a URL inserida é válida (.png ou .jpg) e se todos os campos estão preenchidos.")
-        //   }
-        // }
+            listaDeCartas.push(dadosNovaCarta);
+            localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
+            location.href = './index.html';
+          }else{
+            alert("Verifique se a URL inserida é válida (.png ou .jpg) e se todos os campos estão preenchidos.")
+          }
+        }
 
 
 //------------------------------------------------------------------------ 
 //MODAL
 
 const modalContainer = document.createElement("div");
-const cardPreview = document.createElement("div");
-const cardImg = document.createElement("img");
-const cardTitulo = document.createElement("h3");
-const cardText = document.createElement("p");
-const cardBtnConfirmar = document.createElement("button");
-//DEVO CRIAR CANCELAR PARA RETORNAR?
-//const cardCancelar = document.createElement("button");
+    const cardPreview = document.createElement("div");
+        const cardImg = document.createElement("img");
+        const cardTitulo = document.createElement("h3");
+        const cardText = document.createElement("p");
+    const divCardBtns = document.createElement("div");
+        const cardBtnConfirmar = document.createElement("button");
+        const cardBtnVoltar = document.createElement("button");
 
 //-----------------------------------------------------------------
 
-modalContainer.id = "modal"
+modalContainer.id = "modal";
+
 cardPreview.classList.add("nes-container");
 cardPreview.classList.add("is-dark");
 
+cardBtnConfirmar.classList.add("card-btn");
 cardBtnConfirmar.classList.add("nes-btn");
 cardBtnConfirmar.classList.add("is-warning");
 
+cardBtnVoltar.classList.add("card-btn");
+cardBtnVoltar.classList.add("nes-btn");
+cardBtnVoltar.classList.add("is-warning");
+const cCardBtn = document.getElementsByClassName("card-btn");
 
 //-----------------------------------------------------------------
 
@@ -260,11 +259,10 @@ document.body.appendChild(modalContainer);
         cardPreview.appendChild(cardImg);
         cardPreview.appendChild(cardTitulo);
         cardPreview.appendChild(cardText);
-        //SEPARAR BTNS DEPOIS. CRIAR DIV?
-    
-    modalContainer.appendChild(cardBtnConfirmar);
-        
-        //modalContainer.appendChild(cardCancelar);
+
+    modalContainer.appendChild(divCardBtns);
+        divCardBtns.appendChild(cardBtnConfirmar);
+        divCardBtns.appendChild(cardBtnVoltar);
 
 //-----------------------------------------------------------------
 
@@ -273,40 +271,78 @@ cardImg.setAttribute("alt","Imagem a ser exibida na carta");
 
 cardTitulo.insertAdjacentText("afterbegin", "Título");
 
-cardText.insertAdjacentText("afterbegin", "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla reprehenderit quae sit aliquam ratione cum cumque pariatur officia, ea ipsa modi debitis dolor quasi magnam cupiditate earum. Ab, minima unde. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla reprehenderit quae sit aliquam ratione cum cumque pariatur officia, ea ipsa modi debitis dolor quasi magnam cupiditate earum. Ab, minima unde. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla reprehenderit quae sit aliquam ratione cum cumque pariatur officia, ea ipsa modi debitis dolor quasi magnam cupiditate earum. Ab, minima unde. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla reprehenderit quae sit aliquam ratione cum cumque pariatur officia, ea ipsa modi debitis dolor quasi magnam cupiditate earum. Ab, minima unde.");
+cardText.insertAdjacentText("afterbegin", "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla reprehenderit quae sit aliquam ratione cum cumque pariatur officia, ea ipsa modi debitis dolor quasi magnam cupiditate earum. Ab, minima unde.");
 
 cardBtnConfirmar.setAttribute("type", "submit");
+// cardBtnConfirmar.onclick = adicionarCarta();
 cardBtnConfirmar.insertAdjacentText("afterbegin", "Confirmar");
 
-//cardCancelar.setAttribute();
+cardBtnVoltar.insertAdjacentText("afterbegin", "Voltar");
+cardBtnVoltar.onclick = () => modal.style.display = "none";
+
+window.onclick = event => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  } 
+
 
 //-----------------------------------------------------------------
 
 modalContainer.style.cssText=`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-position: fixed;
-width: 100%;
-height: 100%;
-gap: 3rem;
-background-color: rgba(0,0,0,0.5);
-`
-//display: none;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+    background-color: rgba(0,0,0,0.85);
+    `
 
-cardPreview.style.cssText=`
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 1.5rem;
-`
+        cardPreview.style.cssText=`
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding-bottom: 2rem;
+            width: 35rem;
+            max-width: 95%;
+            max-height: 95%;
+            `
 
-cardTitulo.style.cssText=`
-font-size: 1.6rem;
-`
+            cardImg.style.cssText=`
+                width: 27rem;
+                height: 27rem;
+                object-fit: cover;
+                border: 1rem solid;
+                border-image-slice: 35;
+                border-image-source: url(./imgs/borda-cartas.png);
+                `
 
-cardText.style.cssText=`
-font-size: .9rem;
-text-align: center;
-`
+            cardTitulo.style.cssText=`
+                font-size: 1.6rem;
+                `
+
+            cardText.style.cssText=`
+                font-size: .9rem;
+                text-align: center;
+                line-height: 1.5rem;
+                width: 27rem;
+                `
+        
+        divCardBtns.style.cssText=`
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 1rem;
+        `
+        
+        for (let i = 0; i < cCardBtn.length; i++) {
+            cCardBtn[i].style.cssText=`
+            font-size: 1.5rem;
+            border-image-repeat: stretch;
+            width: 14rem;
+            `
+        }
