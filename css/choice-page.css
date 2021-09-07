@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-image: url("../imgs/background.png");
+  max-width: 1000px;
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+body main {
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .nes-container {
+  font-size: .8rem;
+}
+
+@media screen and (min-width: 700px) {
+  body main .nes-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+body main .nes-container .texto-opcoes {
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 700px) {
+  body main .nes-container .texto-opcoes {
+    margin-top: 3rem;
+  }
+}
+
+body main .nes-container .radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  font-size: .8rem;
+}
+
+body main .nes-container .radio label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .2rem;
+  padding: 0 1.2rem;
+}
+
+body main .nes-btn {
+  width: 10rem;
+  border-image-repeat: stretch;
+  margin-top: 2rem;
+}
+/*# sourceMappingURL=choice-page.css.map */
