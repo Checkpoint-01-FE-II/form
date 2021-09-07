@@ -36,15 +36,15 @@ body{
 }
 main{
     .container-cartas-e-descricao{
-        @media screen and (min-width: 700px) {
+        @media screen and (min-width: 1024px) {
             @include flex(row, space-around);
             // align-items: center;
             gap: 1rem;
         }
         .section-fundo-cartas{
             width: 87%;
-            height: 62vh; 
-            // height: fit-content;
+            // height: 62vh; 
+            height: fit-content;
             border: 1.5rem solid;
             border-image-source: url('../imgs/fundo-das-cartas.png');
             border-image-repeat:repeat;
@@ -54,15 +54,15 @@ main{
             background-color: rgb(255, 255, 255);
             border-radius:2%;
 
-            @media screen and (min-width: 700px) {      
+            @media screen and (min-width: 1024px) {      
                 width: 70%;
                 height: 75vh;
                 margin: 0;                                        
             }
                 .container-cartas{
                     width: 100%;
-                    height: 100%;
-                    // height: fit-content;
+                    // height: 100%;
+                    height: fit-content;
                     display: grid;
                     @include gridTemplate(7rem, 7rem);
                     margin: auto;
@@ -70,11 +70,18 @@ main{
                     row-gap: .2rem;
                     align-items: center;
                     justify-items: center;
-                    @media screen and (min-width: 700px) {    
-                        width: 100%;
-                        height: 100%;
-                        display: grid;
+                    @media screen and (min-width: 360px) {    
+                        @include gridTemplate(8rem, 8rem);
+                    }
+                    @media screen and (min-width: 768px) {    
                         @include gridTemplate(15rem, 15rem);
+                    }
+                    @media screen and (min-width: 1024px) {  
+                        height: 100%;  
+                        @include gridTemplate(16rem, 16rem);
+                    }
+                    @media screen and (min-width: 1440px) {   
+                        @include gridTemplate(16.4rem, 16.4rem);
                     }
 
                     .cartas{
@@ -83,11 +90,22 @@ main{
                         transform-style: preserve-3d;
                         @include flex(row, center);
                         transition: all .5s;
-                        @media screen and (min-width: 700px) {    
-
+                        @media screen and (min-width: 360px) {    
+                            width: 8rem;
+                            height: 8rem;
+                        }
+                        @media screen and (min-width: 768px) {    
                             width: 15rem;
                             height: 15rem;
-
+                        }
+                        @media screen and (min-width: 1024px) {    
+                            width: 16rem;
+                            height: 16rem;
+                            
+                        }
+                        @media screen and (min-width: 1440px) {   
+                            width: 16.4rem;
+                            height: 16.4rem;
                         }
                         .div-frente-verso{
                             width: 7rem;
@@ -97,10 +115,22 @@ main{
                             position: absolute;
                             transition: all 1s;
                             backface-visibility: hidden;
-                            @media screen and (min-width: 700px) {             
-                                    width: 15rem;
-                                    height: 15rem;
-                            }          
+                            @media screen and (min-width: 360px) {    
+                                width: 8rem;
+                                height: 8rem;
+                            }
+                            @media screen and (min-width: 768px) {    
+                                width: 15rem;
+                                height: 15rem;
+                            }
+                            @media screen and (min-width: 1024px) {             
+                                    width: 16rem;
+                                    height: 16rem;
+                            }         
+                            @media screen and (min-width: 1440px) {   
+                                width: 16.4rem;
+                                height: 16.4rem;
+                            } 
                         }
 
                         .front{
@@ -134,7 +164,7 @@ main{
         } 
         .section-descricao{
             display: none;
-            @media screen and (min-width: 700px) {
+            @media screen and (min-width: 1024px) {
                     display: block;
                     width: 28%;
                     height: 75vh; 
@@ -177,18 +207,22 @@ main{
         
     }
 
-    .nes-btn{
-        // width: 20rem;
-        width: fit-content;
-        border-image-repeat: stretch;
-        margin-top: 2rem;
-    }
     .div-btns{
         display: flex;
         flex-direction: column;
         align-items: center;    
         margin: auto;
-
+        .nes-btn{
+            width: fit-content;
+            border-image-repeat: stretch;
+            margin-top: 2rem;
+        }
+        #btnreiniciar{
+            font-size: 1.3rem;
+            @media screen and (min-width: 768px) {    
+                font-size: 2rem;
+            }
+        }
         button:disabled{
             display: none;
         }
@@ -200,6 +234,7 @@ main{
     }
 }
 
+//modal com as instruções do jogo.
 .modal{
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
@@ -210,69 +245,70 @@ main{
     left: 0;
     right: 0;
     bottom: 0;
-}
 
-.caixa-infos {
+    .caixa-infos {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
     width: 90%;
-    @media screen and (min-width: 700px) {
+    @media screen and (min-width: 768px) {
         width: 70rem;
     }
 
-    .infos-start {
-        // background-color: #fff;
-        // border-radius: 8px;
-        padding:  1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-        @media screen and (min-width: 700px) {
-        padding: 4rem;
-        gap: 2rem;
-        }
-        .title {
-            font-weight: 600;
-            font-size: 2rem;
-
-        }
-        
-        .subtitle {
-            font-size: 1rem;
-            line-height: 2rem;
-            @media screen and (min-width: 700px) {
-                line-height: 3rem;
-                font-size: 1.4rem;
+        .infos-start {
+            // background-color: #fff;
+            // border-radius: 8px;
+            padding:  1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+            @media screen and (min-width: 768px) {    
+                padding: 4rem;
+                gap: 2rem;
             }
+                .title {
+                    font-weight: 600;
+                    font-size: 2rem;
+
+                }
+                
+                .subtitle {
+                    font-size: 1rem;
+                    line-height: 2rem;
+                    @media screen and (min-width: 1024px) {
+                        line-height: 3rem;
+                        font-size: 1.4rem;
+                    }
+                    
+                }
+
+                .instructions {
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    @media screen and (min-width: 768px) {
+                        font-size: 2rem;
+                    }
+                }
+                
+                .p-instructions {
+                    margin: 0 1rem;
+                    line-height: 1.5rem;
+                    font-size: 1rem;
+                    @media screen and (min-width: 1024px) {
+                        margin: 0 5rem;
+                        line-height: 2rem;
+                        font-size: 1.3rem;
+                    }
+                }
             
-        }
-
-        .instructions {
-            font-weight: 600;
-            font-size: 1.5rem;
-            @media screen and (min-width: 700px) {
-                font-size: 2rem;
-            }
-        }
-        
-        .p-instructions {
-            margin: 0 1rem;
-            line-height: 1.5rem;
-            font-size: 1rem;
-            @media screen and (min-width: 700px) {
-                margin: 0 5rem;
-                line-height: 2rem;
-                font-size: 1.3rem;
-            }
-        }
-        
-    }  
+        }  
+    }
 }
 
+//Estilo do contador(3,2,1) e da mensagem de fim de jogo.
 .infos-na-tela{
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
@@ -293,7 +329,10 @@ main{
         font-size: 10rem;
         color: #fff;
         text-shadow: 1.4rem 1.4rem 1rem #000;
-        @media screen and (min-width: 700px){
+        @media screen and (min-width: 768px) {    
+            font-size: 15rem;
+        }
+        @media screen and (min-width: 1024px){
             font-size: 20rem;
         }
     }
@@ -304,11 +343,14 @@ main{
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: 3;
-        font-size: 1rem;
+        font-size: 1.5rem;
         color: #fff;
         text-shadow: 1.4rem 1.4rem 1rem #000;
         text-align: center;
-        @media screen and (min-width: 700px){
+        @media screen and (min-width: 768px) {    
+            font-size: 2.5rem;
+        }
+        @media screen and (min-width: 1024px){
             font-size: 3rem;
         }
     }

@@ -245,10 +245,12 @@ function verificaPar(i) {
 
             document.querySelector('.pares-encontrados').innerHTML = `Pares encontrados: ${paresEncontrados}/6`
             setTimeout(() => {
-                if (paresEncontrados === 6) {
+                if (paresEncontrados === 1) {
                     $infosNaTela.style.display='block';
                     $h2InfosNaTela.style.display='block';
-                    $h2InfosNaTela.innerHTML=`Fim de Jogo! Seu tempo foi: ${(hh < 10 ? "0" + hh : hh)}:${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}.`
+                    $h2InfosNaTela.innerHTML=`
+                    Fim de Jogo!
+                    Seu tempo foi de: ${(hh < 10 ? "0" + hh : hh)}:${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}.`
                     pausar()}}, 1000)
 
         } else {
