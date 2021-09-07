@@ -12,20 +12,22 @@ function start() {
     cron = setInterval(() => { timer(); }, tempo)
     document.getElementById("btniniciar").style.display = "none"
     document.getElementById("btnreiniciar").style.display = "block"
+       
 }
 
 function pausar() {
-
+    clearInterval(cron);
 
 }
 function recomecar() {
-    cron = clearInterval
+    document.getElementById("btniniciar").style.display = "block"
+    document.getElementById("btnreiniciar").style.display = "none"
+      
+    clearInterval(cron);
     hh = 0;
     mm = 0;
     ss = 0;
     
-    embaralharCartas()
-    cron = setInterval(() => { timer(); }, tempo)
 }
 function timer() {
     ss++;
@@ -212,7 +214,8 @@ function verificaPar(i) {
             document.querySelector('.pares-encontrados').innerHTML = `Pares encontrados: ${paresEncontrados}/6`
             setTimeout(() => {
                 if (paresEncontrados === 6) {
-                    alert('Fim de Jogo, você conseguiu!')
+                    alert('Fim de Jogo, você conseguiu!'+'\n'+"seu tempo foi :"+(hh < 10 ? "0" + hh : hh) + ":" + (mm < 10 ? "0" + mm : mm) + ":" + (ss < 10 ? "0" + ss : ss))
+                    pausar()
                 }
             }, 1000)
 
