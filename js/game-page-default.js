@@ -1,5 +1,8 @@
 const $header = document.querySelector('header');
 const $containerCartas = document.querySelector('.container-cartas');
+const $h1InfosNaTela = document.querySelector('.h1');
+const $h2InfosNaTela = document.querySelector('.h2');
+const $infosNaTela = document.querySelector('.infos-na-tela');
 
 let hh = 0;
 let mm = 0;
@@ -8,24 +11,43 @@ let cron;
 let tempo = 1000;/*quantos milessimos equivalem a 1 seg*/
 let paresEncontrados = 0;
 
+
+function contador (){
+    $infosNaTela.style.display='block';
+    setTimeout(()=>{
+        $h1InfosNaTela.innerHTML='3'
+    }, 1000)
+    setTimeout(()=>{
+        $h1InfosNaTela.innerHTML='2'
+    }, 2000)
+    setTimeout(()=>{
+        $h1InfosNaTela.innerHTML='1'
+    }, 3000)
+}
 function start() {
+    const $modal = document.querySelector('.modal');
+    $modal.style.display='none';
+    contador();
+    setTimeout(()=>{
+        $h1InfosNaTela.style.display='none';
+        $infosNaTela.style.display='none';
     cron = setInterval(() => { timer(); }, tempo)
     document.getElementById("btniniciar").style.display = "none"
-    document.getElementById("btnreiniciar").style.display = "block"
+    document.getElementById("btnreiniciar").style.display = "block"},4000)
 }
 
 function pausar() {
-
-
+    
 }
 function recomecar() {
-    cron = clearInterval
-    hh = 0;
-    mm = 0;
-    ss = 0;
-    
-    embaralharCartas()
-    cron = setInterval(() => { timer(); }, tempo)
+    // cron = clearInterval
+    // hh = 0;
+    // mm = 0;
+    // ss = 0;
+
+    // embaralharCartas()
+    // cron = setInterval(() => { timer(); }, tempo)
+    location.href='../game-page-default.html'
 }
 function timer() {
     ss++;
@@ -36,7 +58,6 @@ function timer() {
         if (mm == 60) {
             mm = 0;
             hh++;
-
         }
     }
 
@@ -182,7 +203,7 @@ for (let i = 0; i < cartasDefault.length; i++) {
     )
 }
 
-    
+
 
 function verificaPar(i) {
 
@@ -202,17 +223,16 @@ function verificaPar(i) {
             faceElemento1[1].style.opacity = '0.2';
             faceElemento2[0].style.opacity = '0.2';
             faceElemento2[1].style.opacity = '0.2';
-            faceElemento1[0].disabled = true;
-            faceElemento1[1].disabled = true;
-            faceElemento2[0].disabled = true;
-            faceElemento2[1].disabled = true;
 
             paresEncontrados++;
 
             document.querySelector('.pares-encontrados').innerHTML = `Pares encontrados: ${paresEncontrados}/6`
             setTimeout(() => {
                 if (paresEncontrados === 6) {
-                    alert('Fim de Jogo, você conseguiu!')
+                    $infosNaTela.style.display='block';
+                    $h2InfosNaTela.style.display='block';
+                    $h2InfosNaTela.innerHTML=`Fim de Jogo! Seu tempo foi de ${hh}:${mm}:${ss}.`
+                    
                 }
             }, 1000)
 

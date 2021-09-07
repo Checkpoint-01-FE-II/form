@@ -30,6 +30,24 @@
 
     </header>
     <main>
+        <div class="modal">
+            <div id="caixa-infos" disabled class="caixa-infos">
+                <div class="infos-start nes-container is-dark">
+                    <h1 class="title">Teste sua memória</h1>
+                    <p class="subtitle">Em quanto tempo você acha que consegue encontrar todos os pares de cartas?</p>
+                    <!-- <img src="img/cat3-edited2.png" alt="" class="infocat"> -->
+                    <h2 class="instructions">Instruções</h2>
+                    <p class='p-instructions'>As cartas começarão viradas para baixo.</p>
+                    <p class='p-instructions'>Tente encontrar as cartas que são iguais.</p>
+                    <p class='p-instructions'>Você pode selecionar duas cartas por vez.</p>
+
+                    <div class='div-btns'>
+                        <button type="button" onclick="start()" id="btniniciar"
+                            class="nes-btn is-warning">Iniciar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class='container-cartas-e-descricao'>
             <section class='section-fundo-cartas'>
                 <!-- fundo com a borda -->
@@ -44,10 +62,15 @@
             </section>
         </div>
         <div class='div-btns'>
-            <button type="button" onclick="start()" id="btniniciar" class="nes-btn is-warning">Iniciar</button>
-            <button type="button" onclick="recomecar()" class="nes-btn is-warning voltar" id="btnreiniciar" >Recomeçar</button>
+            <!-- <button type="button" onclick="start()" id="btniniciar" class="nes-btn is-warning">Iniciar</button> -->
+            <button type="button" onclick="recomecar()" class="nes-btn is-warning voltar"
+                id="btnreiniciar">Recomeçar</button>
 
             <button type="button" class="nes-btn is-warning voltar">Voltar ao Menu</button>
+        </div>
+        <div class="infos-na-tela">
+            <h1 class='h1'></h1>
+            <h1 class='h2'></h1>
         </div>
     </main>
     <footer>
