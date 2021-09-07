@@ -48,7 +48,24 @@ function recomecar() {
     // embaralharCartas()
     // cron = setInterval(() => { timer(); }, tempo)
     location.href='../game-page-default.html'
+    // document.getElementById("btnreiniciar").style.display = "block"
+       
 }
+
+function pausar() {
+    clearInterval(cron);
+
+}
+// function recomecar() {
+//     document.getElementById("btniniciar").style.display = "block"
+//     document.getElementById("btnreiniciar").style.display = "none"
+      
+//     clearInterval(cron);
+//     hh = 0;
+//     mm = 0;
+//     ss = 0;
+    
+// }
 function timer() {
     ss++;
 
@@ -228,13 +245,11 @@ function verificaPar(i) {
 
             document.querySelector('.pares-encontrados').innerHTML = `Pares encontrados: ${paresEncontrados}/6`
             setTimeout(() => {
-                if (paresEncontrados === 6) {
+                if (paresEncontrados === 1) {
                     $infosNaTela.style.display='block';
                     $h2InfosNaTela.style.display='block';
-                    $h2InfosNaTela.innerHTML=`Fim de Jogo! Seu tempo foi de ${hh}:${mm}:${ss}.`
-                    
-                }
-            }, 1000)
+                    $h2InfosNaTela.innerHTML=`Fim de Jogo! Seu tempo foi: ${(hh < 10 ? "0" + hh : hh)}:${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}.`
+                    pausar()}}, 1000)
 
         } else {
             arrayDuasCartas = [];
