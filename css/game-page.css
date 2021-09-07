@@ -336,6 +336,7 @@ main .div-btns .voltar {
 @media screen and (min-width: 700px) {
   .caixa-infos .infos-start .subtitle {
     line-height: 3rem;
+    font-size: 1.4rem;
   }
 }
 
