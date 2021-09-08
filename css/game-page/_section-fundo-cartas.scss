@@ -1,0 +1,131 @@
+@mixin gridTemplate($columnRem,$rowRem) {
+    grid-template-columns: repeat(auto-fit, minmax($columnRem, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax($rowRem, 1fr));
+}
+@mixin flex($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+}
+    .section-fundo-cartas{
+        width: 87%;
+        // height: 62vh; 
+        height: fit-content;
+        border: 1.5rem solid;
+        border-image-source: url('../../imgs/fundo-das-cartas.png');
+        border-image-repeat:repeat;
+        border-image-slice: 15;
+        margin: auto;
+        box-shadow: .5rem .5rem 1.5rem #000;
+        background-color: rgb(255, 255, 255);
+        border-radius:2%;
+
+        @media screen and (min-width: 1024px) {      
+            width: 70%;
+            height: 75vh;
+            margin: 0;                                        
+        }
+            .container-cartas{
+                width: 100%;
+                // height: 100%;
+                height: fit-content;
+                display: grid;
+                @include gridTemplate(7rem, 7rem);
+                margin: auto;
+                background-color: #fff;
+                row-gap: .2rem;
+                align-items: center;
+                justify-items: center;
+                @media screen and (min-width: 360px) {    
+                    @include gridTemplate(8rem, 8rem);
+                }
+                @media screen and (min-width: 768px) {    
+                    @include gridTemplate(15rem, 15rem);
+                }
+                @media screen and (min-width: 1024px) {  
+                    height: 100%;  
+                    @include gridTemplate(16rem, 16rem);
+                }
+                @media screen and (min-width: 1440px) {   
+                    @include gridTemplate(16.4rem, 16.4rem);
+                }
+
+                .cartas{
+                    width: 7rem;
+                    height: 7rem;
+                    transform-style: preserve-3d;
+                    @include flex(row, center);
+                    transition: all .5s;
+                    @media screen and (min-width: 360px) {    
+                        width: 8rem;
+                        height: 8rem;
+                    }
+                    @media screen and (min-width: 768px) {    
+                        width: 15rem;
+                        height: 15rem;
+                    }
+                    @media screen and (min-width: 1024px) {    
+                        width: 16rem;
+                        height: 16rem;
+                        
+                    }
+                    @media screen and (min-width: 1440px) {   
+                        width: 16.4rem;
+                        height: 16.4rem;
+                    }
+                    .div-frente-verso{
+                        width: 7rem;
+                        height: 7rem;
+                        @include flex(row, center);
+                        // align-items: center;
+                        position: absolute;
+                        transition: all 1s;
+                        backface-visibility: hidden;
+                        @media screen and (min-width: 360px) {    
+                            width: 8rem;
+                            height: 8rem;
+                        }
+                        @media screen and (min-width: 768px) {    
+                            width: 15rem;
+                            height: 15rem;
+                        }
+                        @media screen and (min-width: 1024px) {             
+                                width: 16rem;
+                                height: 16rem;
+                        }         
+                        @media screen and (min-width: 1440px) {   
+                            width: 16.4rem;
+                            height: 16.4rem;
+                        } 
+                    }
+
+                    .front{
+                        transform: perspective(400px) rotateY(-180deg);
+                        
+                        &.flip{
+                            transform: perspective(400px) rotateY(0deg);
+                        }
+                    }
+                    .back{
+                        background: url("../../imgs/carta-back.jpg");
+                        background-size:cover;
+                        
+                        
+                        &.flip{
+                            transform: perspective(400px) rotateY(180deg);
+                        }
+                    }
+
+                    .img-cartas{
+                        border: .9rem solid #000;
+                        border-image-source: url(../../imgs/borda-cartas.png);
+                        border-image-slice: 35;
+                        width: 100%;
+                        height: 100%;
+                        padding-bottom: .1rem;
+                    }
+                }
+                
+            }      
+    }
+    

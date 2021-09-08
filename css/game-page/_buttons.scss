@@ -1,0 +1,25 @@
+.div-btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    margin: auto;
+
+    .nes-btn{
+        width: fit-content;
+        border-image-repeat: stretch;
+        margin-top: 2rem;
+    }
+    #btnreiniciar{
+        font-size: 1.3rem;
+        @media screen and (min-width: 768px) {    
+            font-size: 2rem;
+        }
+    }
+    button:disabled{
+        display: none;
+    }
+    
+    .voltar{
+        display: none;
+    }
+}

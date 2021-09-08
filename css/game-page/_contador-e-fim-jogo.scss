@@ -1,0 +1,48 @@
+//Estilo do contador(3,2,1) e da mensagem de fim de jogo.
+.infos-na-tela{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    .h1{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        font-size: 10rem;
+        color: #fff;
+        text-shadow: 1.4rem 1.4rem 1rem #000;
+        
+        @media screen and (min-width: 768px) {    
+            font-size: 15rem;
+        }
+        @media screen and (min-width: 1024px){
+            font-size: 20rem;
+        }
+    }
+    .h2{
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        font-size: 1.5rem;
+        color: #fff;
+        text-shadow: 1.4rem 1.4rem 1rem #000;
+        text-align: center;
+        @media screen and (min-width: 768px) {    
+            font-size: 2.5rem;
+        }
+        @media screen and (min-width: 1024px){
+            font-size: 3rem;
+        }
+    }
+}
