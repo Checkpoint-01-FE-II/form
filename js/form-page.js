@@ -17,7 +17,7 @@ const main = document.createElement("main");
             const legendCampo3 = document.createElement("legend");    
             const inputCampo3 = document.createElement("input");
         
-        const btnConfirmar = document.createElement("button");
+        const btnEnviar = document.createElement("button");
         const btnCancelar = document.createElement("button");
         const btnVoltar = document.createElement("button");
 
@@ -42,9 +42,8 @@ document.body.appendChild(main);
             campoForm3.appendChild(legendCampo3);
             campoForm3.appendChild(inputCampo3);
 
-//VALE A PENA CRIAR UMA DIV SÓ PARA BTNS, COMO CARD PREVIEW
-//CRIAR BTN VOLTAR PARA REGRESSAR À TELA DE ESCOLHA (PRINCIPAL)        
-document.body.appendChild(btnConfirmar);
+//VALE A PENA CRIAR UMA DIV SÓ PARA BTNS, COMO CARD PREVIEW      
+document.body.appendChild(btnEnviar);
 document.body.appendChild(btnCancelar);
 document.body.appendChild(btnVoltar);
 
@@ -56,23 +55,34 @@ document.body.appendChild(btnVoltar);
     campoForm1.setAttribute("type", "text");   
         legendCampo1.insertAdjacentText("afterbegin", "Título");    
         inputCampo1.setAttribute("placeholder", "Insira título"); 
-        inputCampo1.setAttribute("maxlength", "25");
+        inputCampo1.required = "true";
+        inputCampo1.pattern = "[\\w+]{4,20}";
+        //ACRESCENTAR ORIENTAÇÃO AO USUÁRIO SOBRE PREENCHIMENTO DO INPUT
+        
         
     campoForm2.setAttribute("type", "text");
         legendCampo2.insertAdjacentText("afterbegin", "Descrição");
         inputCampo2.setAttribute("placeholder", "Insira descrição");
         inputCampo2.setAttribute("maxlength", "25");
+        inputCampo2.required = "true";
     
     campoForm3.setAttribute("type", "file"); //ESTUDAR HIPÓTESE DE TER 2 TIPOS DE INPUT DE IMAGEM: FILE E TEXT (URL)
         legendCampo3.insertAdjacentText("afterbegin", "Imagem");
         inputCampo3.setAttribute("placeholder", "Insira URL");
         inputCampo3.setAttribute("type", "text");
+        inputCampo3.required = "true";
         // QUANTO DE LIMITE DE CARACTERES?
         //inputCampo3.setAttribute("maxlength", "25")
 
-    btnConfirmar.setAttribute("type", "submit");
-    //btnConfirmar.onclick = () => modal.style.display = "flex";
-    btnConfirmar.insertAdjacentText("afterbegin", "Enviar");
+    btnEnviar.setAttribute("type", "submit");
+    btnEnviar.setAttribute("form", "form-baralho");
+    
+    //REFATORAR FUNC DE EXIBIÇÃO DO MODAL
+    //btnEnviar.onsubmit = () => modal.style.display = "flex";
+    
+    
+    btnEnviar.insertAdjacentText("afterbegin", "Enviar");
+
 
     btnCancelar.setAttribute("type", "reset");
     btnCancelar.setAttribute("form", "form-baralho");
@@ -108,9 +118,9 @@ inputCampo2.className = "input-formulario";
 inputCampo3.className = "input-formulario";
 const cInput = document.getElementsByClassName("input-formulario");
 
-btnConfirmar.classList.add("form-btn")
-btnConfirmar.classList.add("nes-btn");
-btnConfirmar.classList.add("is-warning");
+btnEnviar.classList.add("form-btn")
+btnEnviar.classList.add("nes-btn");
+btnEnviar.classList.add("is-warning");
 
 btnCancelar.classList.add("form-btn");
 btnCancelar.classList.add("nes-btn");
@@ -219,6 +229,7 @@ document.querySelector("*").style.cssText = `
             listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
         }
         
+        //FORM JÁ VERIFICA CAMPOS VAZIOS? TORNARIA VERIFICAÇÃO POR DENTRO DA FUNÇÃO DESNECESSÁRIA?
         function adicionarCarta(){
           if (inputCampo1.value != '' && inputCampo2.value != '' && inputCampo3.value != '') {
             let dadosNovaCarta=
@@ -271,7 +282,6 @@ const cCardBtn = document.getElementsByClassName("card-btn");
 document.body.appendChild(modalContainer);
 
     modalContainer.appendChild(cardPreview);
-
         cardPreview.appendChild(cardImg);
         cardPreview.appendChild(cardTitulo);
         cardPreview.appendChild(cardText);
