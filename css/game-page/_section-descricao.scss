@@ -1,0 +1,52 @@
+@mixin gridTemplate($columnRem,$rowRem) {
+    grid-template-columns: repeat(auto-fit, minmax($columnRem, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax($rowRem, 1fr));
+}
+@mixin flex($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+}
+
+.section-descricao{
+    display: none;
+    @media screen and (min-width: 1024px) {
+            display: block;
+            width: 28%;
+            height: 75vh; 
+            border: 1.6rem solid;
+            border-image-source: url('../../imgs/fundo-descricao.png');
+            border-image-repeat:repeat;
+            border-image-slice: 15;
+            margin: auto;
+            box-shadow: .5rem .5rem .8rem black;
+            background-color: #fff;
+            border-radius: 4%;
+
+            .img-descricao{
+                height: 50%;
+                width: 100%;
+            }
+            div{
+                background-color: #fff;
+                height: 50%;
+                padding: 1.2rem;
+                border-top-left-radius: 2rem;
+                border-top-right-radius: 2rem;
+                position: relative;
+                z-index: 2;
+                bottom: 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem;
+                h3{
+                    font-size: 1.4rem;
+                }
+                p{
+                    font-size: 1.1rem;
+                    line-height: 1.8rem;
+                }
+            }
+    }
+}  
