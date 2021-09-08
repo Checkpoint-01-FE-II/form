@@ -1,5 +1,6 @@
 //-----------------------------------------------------------------        
-//CRIAÇÃO ELEMENTOS - JÁ COM VARIÁVEIS
+//CRIAÇÃO ELEMENTOS COM SUAS VARIÁVEIS
+
 const main = document.createElement("main");
     const formulario = document.createElement("form");
         const tituloForm = document.createElement("h1");
@@ -39,7 +40,9 @@ document.body.appendChild(main);
         formulario.appendChild(campoForm3);
             campoForm3.appendChild(legendCampo3);
             campoForm3.appendChild(inputCampo3);
-    
+
+//VALE A PENA CRIAR UMA DIV SÓ PARA BTNS, COMO CARD PREVIEW
+//CRIAR BTN VOLTAR PARA REGRESSAR À TELA DE ESCOLHA (PRINCIPAL)        
 document.body.appendChild(btnConfirmar);
 document.body.appendChild(btnCancelar);
 
@@ -66,7 +69,7 @@ document.body.appendChild(btnCancelar);
         //inputCampo3.setAttribute("maxlength", "25")
 
     btnConfirmar.setAttribute("type", "submit");
-    btnConfirmar.onclick = () => modal.style.display = "flex";
+    //btnConfirmar.onclick = () => modal.style.display = "flex";
     btnConfirmar.insertAdjacentText("afterbegin", "Enviar");
 
     btnCancelar.setAttribute("type", "reset");
@@ -91,6 +94,9 @@ legendCampo2.className = "legend-formulario";
 legendCampo3.className = "legend-formulario";
 const cLegend = document.getElementsByClassName("legend-formulario");
 
+inputCampo1.id = "input-titulo";
+inputCampo2.id = "input-descricao";
+inputCampo3.id = "input-img";
 inputCampo1.className = "input-formulario";     
 inputCampo2.className = "input-formulario";
 inputCampo3.className = "input-formulario";
@@ -144,12 +150,12 @@ document.querySelector("*").style.cssText = `
         `
         
         //ESTILO FIELDSET - cor anterior: #FFC9725B
-        for (let i = 0; i < cCampo.length; i++) {
-            cCampo[i].style.cssText=`
+        Array.from(cCampo).forEach(element => {
+            element.style.cssText=`
                 border: .3rem solid #ffffff;
                 font-size: 1rem;
-                `      
-        }
+            `
+        });
 
         campoForm1.style.cssText = `
             margin-top: 1.5rem;
@@ -158,18 +164,18 @@ document.querySelector("*").style.cssText = `
         `
         
         //ESTILO LEGEND
-        for (let i = 0; i < cLegend.length; i++) {
-            cLegend[i].style.cssText=`
+        Array.from(cLegend).forEach(element => {
+            element.style.cssText=`
                 display: inline-block;
                 width: fit-content;
                 margin-left: .5rem;
                 font-size: 1.2rem;
-            `      
-        }
+            `
+        });
     
         //ESTILO INPUT
-        for (let i = 0; i < cInput.length; i++) {
-            cInput[i].style.cssText=`
+        Array.from(cInput).forEach(element => {
+            element.style.cssText=`
                 border: none;    
                 outline: none;
                 background-color: #212529;
@@ -178,17 +184,17 @@ document.querySelector("*").style.cssText = `
                 color: #FFFFFF;
                 text-align: center;
                 font-size: .9rem;
-            `      
-        }
+            `
+        });
 
         //ESTILO BTNS DO FORM
-        for (let i = 0; i < cFormBtn.length; i++) {
-            cFormBtn[i].style.cssText=`
-            font-size: 1.5rem;
-            border-image-repeat: stretch;
-            width: 16rem;
-        `      
-        }
+        Array.from(cFormBtn).forEach(element => {
+                element.style.cssText=`
+                font-size: 1.5rem;
+                border-image-repeat: stretch;
+                width: 16rem;
+            `
+        });
 
 
 //------------------------------------------------------------------------ 
@@ -266,6 +272,7 @@ document.body.appendChild(modalContainer);
 
 //-----------------------------------------------------------------
 
+//MUDAR VALORES DO CARD, DEIXAR "" VAZIOS
 cardImg.setAttribute("src","https://assets.pokemon.com/assets/cms2/img/misc/countries/pt/country_detail_pokemon.png");
 cardImg.setAttribute("alt","Imagem a ser exibida na carta");
 
@@ -274,6 +281,7 @@ cardTitulo.insertAdjacentText("afterbegin", "Título");
 cardText.insertAdjacentText("afterbegin", "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla reprehenderit quae sit aliquam ratione cum cumque pariatur officia, ea ipsa modi debitis dolor quasi magnam cupiditate earum. Ab, minima unde.");
 
 cardBtnConfirmar.setAttribute("type", "submit");
+//REMOVER COMENTÁRIO AO FINAL - ALERTA DO ELSE INCOMODA NA HORA DE CODAR
 // cardBtnConfirmar.onclick = adicionarCarta();
 cardBtnConfirmar.insertAdjacentText("afterbegin", "Confirmar");
 
@@ -339,10 +347,31 @@ modalContainer.style.cssText=`
             gap: 1rem;
         `
         
-        for (let i = 0; i < cCardBtn.length; i++) {
-            cCardBtn[i].style.cssText=`
-            font-size: 1.5rem;
-            border-image-repeat: stretch;
-            width: 14rem;
+        Array.from(cCardBtn).forEach(element => {
+            element.style.cssText=`
+                font-size: 1.5rem;
+                border-image-repeat: stretch;
+                width: 14rem;
             `
-        }
+        });
+
+
+//----------------------------------------------------------------
+
+//FUNCTION MONTAR MODAL
+
+//OU BTN ONCLICK? OU 3ª OPÇÃO?
+//formulario.onsubmit = comporCard();
+
+//const comporCard = event => {
+    //formulario.submit.preventDefault
+
+    //cardTitulo.innerHTML = inputCampo1.value;
+    
+    //cardTitulo.innerText = inputCampo1.value;
+    //valorDescricao = inputCampo2.value;
+    //valorImg = inputCampo3.value;
+    //cardImg.insertAdjacentText = inputCampo3.value;
+    // cardTitulo.insertAdjacentText("afterbegin", valorTitulo);
+    // cardText.insertAdjacentText = inputCampo2.value;
+//};
