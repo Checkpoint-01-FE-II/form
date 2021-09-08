@@ -4,6 +4,9 @@ const $h1InfosNaTela = document.querySelector('.h1');
 const $h2InfosNaTela = document.querySelector('.h2');
 const $infosNaTela = document.querySelector('.infos-na-tela');
 
+const audio = document.getElementById("musica");
+audio.volume = 0.6;
+
 let hh = 0;
 let mm = 0;
 let ss = 0;
@@ -33,6 +36,7 @@ function start() {
         $infosNaTela.style.display='none';
     cron = setInterval(() => { timer(); }, tempo)
     document.getElementById("btniniciar").style.display = "none"
+    document.getElementById("musica").autoplay="true"
     document.getElementById("btnreiniciar").style.display = "block"},4000)
 }
 
