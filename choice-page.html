@@ -24,27 +24,39 @@
 
 <body>
     <main>
-    <div class="nes-container is-dark with-title">
-        <p class="title">Opções de jogo</p>
-        <p class='texto-opcoes'>Escolha uma das opções abaixo e clique em "Ok".</p>
+        <div class="nes-container is-dark with-title">
+            <p class="title">Opções de jogo</p>
+            <div class='conteudo'>
+                <img class='logo' src="./imgs/logo1_edited.png" alt="">
+                <p class='texto-opcoes'>Escolha uma das opções abaixo e clique em "Ok".</p>
 
-        <div class='radio' style="background-color:#212529; padding: 1rem 0;">
-            <label>
-                <input type="radio" class="nes-radio is-dark" name="answer-dark" id='default' checked />
-                <span>Jogar com um baralho de cartas pronto</span>
-            </label>
+                <div class='radio' style="background-color:#212529; padding: 1rem 0;">
+                    <label>
+                        <input type="radio" class="nes-radio is-dark" name="answer-dark" id='default' />
+                        <span>Jogar com um baralho de cartas pronto</span>
+                        <div class="nes-select is-dark">
+                            <select required id="dark_select">
+                                <option value="" disabled selected hidden>Baralho</option>
+                                <option value="onepiece">Personagens One Piece</option>
+                                <option value="marvel">Personagens Marvel</option>
+                                <option value="personagens-aleatorios-1">Personagens aleatórios - 01</option>
+                                <option value="personagens-aleatorios-2">Personagens aleatórios - 02</option>
+                            </select>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" class="nes-radio is-dark" name="answer-dark" id='created' />
+                        <span>Criar o meu próprio baralho de cartas</span>
+                    </label>
 
-            <label>
-                <input type="radio" class="nes-radio is-dark" name="answer-dark" id='created'/>
-                <span>Criar o meu próprio baralho de cartas</span>
-            </label>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <button type="button" class="nes-btn is-warning">Ok</button>
+        <button type="button" class="nes-btn is-warning">Ok</button>
 
 
-    
+
     </main>
     <!-- SCRIPT JS -->
     <script src="./js/choice-page.js"></script>
