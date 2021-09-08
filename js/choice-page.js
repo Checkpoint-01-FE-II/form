@@ -16,6 +16,6 @@ $btn.addEventListener('click', ()=>{
         }
         
     } else if(document.querySelector('#created').checked){
-        location.href = '../index.html'
+        location.href = '../html/form-page.html'
     }
 })

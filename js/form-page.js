@@ -19,6 +19,7 @@ const main = document.createElement("main");
         
         const btnConfirmar = document.createElement("button");
         const btnCancelar = document.createElement("button");
+        const btnVoltar = document.createElement("button");
 
 //------------------------------------------------------------------------ 
 //APENSANDO ELEMENTOS
@@ -45,6 +46,7 @@ document.body.appendChild(main);
 //CRIAR BTN VOLTAR PARA REGRESSAR À TELA DE ESCOLHA (PRINCIPAL)        
 document.body.appendChild(btnConfirmar);
 document.body.appendChild(btnCancelar);
+document.body.appendChild(btnVoltar);
 
 //------------------------------------------------------------------------ 
 //EDITANDO ATRIBUTOS DOS ELEMENTOS
@@ -77,6 +79,10 @@ document.body.appendChild(btnCancelar);
     btnCancelar.insertAdjacentText("afterbegin", "Cancelar");
 
 
+    btnVoltar.addEventListener('click', ()=>{
+    location.href = "../index.html"}
+    )
+    btnVoltar.insertAdjacentText("afterbegin", "Voltar");
 //------------------------------------------------------------------------ 
 //ATRIBUIÇÃO DE CLASSES E IDs
 
@@ -109,6 +115,10 @@ btnConfirmar.classList.add("is-warning");
 btnCancelar.classList.add("form-btn");
 btnCancelar.classList.add("nes-btn");
 btnCancelar.classList.add("is-warning");
+
+btnVoltar.classList.add("form-btn");
+btnVoltar.classList.add("nes-btn");
+btnVoltar.classList.add("is-warning");
 
 const cFormBtn = document.getElementsByClassName("form-btn");
 

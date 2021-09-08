@@ -11,7 +11,7 @@ let hh = 0;
 let mm = 0;
 let ss = 0;
 let cron;
-let tempo = 16.666;/*quantos milessimos equivalem a 1 seg*/
+let tempo = 1000;/*quantos milessimos equivalem a 1 seg*/
 let paresEncontrados = 0;
 
 
@@ -94,7 +94,6 @@ $header.insertAdjacentHTML("beforeend", `
 `);
 
 //Array com as cartas preestabelecidas.
-//Referência das imagens: https://www.boredpanda.com/i-create-crossovers-inspired-by-mangas-movies-books-tv-shows-and-more/?utm_source=google&utm_medium=organic&utm_campaign=organic
 let cartasDefault = [
     {
         id: '',
