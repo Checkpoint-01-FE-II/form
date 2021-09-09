@@ -23,7 +23,7 @@
             background-color: #fff;
             border-radius: 4%;
 
-            @media screen and (min-width: 1440px) {      
+            @media screen and (min-width: 1300px) {      
                 width: 33rem;
                 height: 55rem;         
             }
@@ -46,14 +46,14 @@
                 padding: 2rem;
                 h3{
                     font-size: 1.3rem;
-                    @media screen and (min-width: 1440px) { 
+                    @media screen and (min-width: 1300px) { 
                         font-size: 1.4rem;
                     }
                 }
                 p{
                     font-size: 1rem;
                     line-height: 1.7rem;
-                    @media screen and (min-width: 1440px) { 
+                    @media screen and (min-width: 1300px) { 
                         font-size: 1.1rem;
                         line-height: 1.8rem;
                     }

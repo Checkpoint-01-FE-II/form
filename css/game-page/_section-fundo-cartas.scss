@@ -35,7 +35,7 @@
                 height: 50rem;  
                           
             }
-            @media screen and (min-width: 1440px) {      
+            @media screen and (min-width: 1300px) {      
                 width: 80rem;
                 height: 57rem;  
                           
@@ -63,7 +63,7 @@
                         
                     
                     }
-                    @media screen and (min-width: 1440px) {   
+                    @media screen and (min-width: 1300px) {   
                         @include gridTemplate(17rem, 17rem);
                     }
     
@@ -86,7 +86,7 @@
                             height: 15rem;
                             
                         }
-                        @media screen and (min-width: 1440px) {   
+                        @media screen and (min-width: 1300px) {   
                             width: 17rem;
                             height: 17rem;
                         }
@@ -110,7 +110,7 @@
                                     width: 15rem;
                                     height: 15rem;
                             }         
-                            @media screen and (min-width: 1440px) {   
+                            @media screen and (min-width: 1300px) {   
                                 width: 17rem;
                                 height: 17rem;
                             } 

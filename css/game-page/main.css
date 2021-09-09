@@ -33,7 +33,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1300px) {
   .section-fundo-cartas {
     width: 80rem;
     height: 57rem;
@@ -84,7 +84,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1300px) {
   .section-fundo-cartas .container-cartas {
     -ms-grid-columns: (minmax(17rem, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
@@ -133,7 +133,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1300px) {
   .section-fundo-cartas .container-cartas .cartas {
     width: 17rem;
     height: 17rem;
@@ -181,7 +181,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1300px) {
   .section-fundo-cartas .container-cartas .cartas .div-frente-verso {
     width: 17rem;
     height: 17rem;
@@ -238,7 +238,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) and (min-width: 1440px) {
+@media screen and (min-width: 1024px) and (min-width: 1300px) {
   .section-descricao {
     width: 33rem;
     height: 55rem;
@@ -274,7 +274,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) and (min-width: 1440px) {
+@media screen and (min-width: 1024px) and (min-width: 1300px) {
   .section-descricao div h3 {
     font-size: 1.4rem;
   }
@@ -287,7 +287,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) and (min-width: 1440px) {
+@media screen and (min-width: 1024px) and (min-width: 1300px) {
   .section-descricao div p {
     font-size: 1.1rem;
     line-height: 1.8rem;
@@ -549,7 +549,7 @@ body header {
   }
 }
 
-@media screen and (min-width: 1024px) and (min-width: 1440px) {
+@media screen and (min-width: 1024px) and (min-width: 1300px) {
   body main .container-cartas-e-descricao {
     gap: 1rem;
   }
