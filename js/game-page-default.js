@@ -93,81 +93,402 @@ $header.insertAdjacentHTML("beforeend", `
     <h6 class='pares-encontrados'>Pares encontrados: ${paresEncontrados}/6</h6>
 `);
 
+//musica de fundo
+switch(JSON.parse(localStorage.getItem('baralho'))){
+    case 'onepiece': audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
+    break;
+    case 'marvel':audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
+    break;
+    case 'aleatorios1':audio.src='../audio/Super Mario Bros Theme Song .mp3'
+    break;
+    case 'aleatorios2':audio.src='../audio/Super Mario Bros Theme Song .mp3'
+    break;
+    case 'default': audio.src='../audio/Super Mario Bros Theme Song .mp3'
+}
+
 //Array com as cartas preestabelecidas.
-let cartasDefault = [
-    {
-        id: '',
-        titulo: 'Bulbasaur',
-        url: 'carta01.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    },
-    {
-        id: '',
-        titulo: 'Loki',
-        url: 'carta02.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    },
-    {
-        id: '',
-        titulo: 'Luke Skywalker',
-        url: 'carta03.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    },
-    {
-        id: '',
-        titulo: 'Squirtle',
-        url: 'carta04.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    },
-    {
-        id: '',
-        titulo: 'Little Mermaid',
-        url: 'carta05.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    },
-    {
-        id: '',
-        titulo: 'Princess Jasmine',
-        url: 'carta06.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    },
-    {
-        id: '',
-        titulo: 'Bulbasaur',
-        url: 'carta01.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    },
-    {
-        id: '',
-        titulo: 'Loki',
-        url: 'carta02.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    },
-    {
-        id: '',
-        titulo: 'Luke Skywalker',
-        url: 'carta03.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    },
-    {
-        id: '',
-        titulo: 'Squirtle',
-        url: 'carta04.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    },
-    {
-        id: '',
-        titulo: 'Little Mermaid',
-        url: 'carta05.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    },
-    {
-        id: '',
-        titulo: 'Princess Jasmine',
-        url: 'carta06.jpg',
-        descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
-    }
-];
+let cartasDefault;
+switch(JSON.parse(localStorage.getItem('baralho'))){
+    case 'onepiece':
+        cartasDefault = [
+        {
+            id: '',
+            titulo: "Monkey D. Luffy",
+            url: '../imgs/onepiece/luffy.png',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        },
+        {
+            id: '',
+            titulo: 'Rotonoa Zoro',
+            url: '../imgs/onepiece/zoro.jpg',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        },
+        {
+            id: '',
+            titulo: 'Nami',
+            url: '../imgs/onepiece/nami.png',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        },
+        {
+            id: '',
+            titulo: 'Tony Chopper',
+            url: '../imgs/onepiece/chopper.png',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        },
+        {
+            id: '',
+            titulo: 'Brook',
+            url: '../imgs/onepiece/brook.png',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        },
+        {
+            id: '',
+            titulo: 'Franky',
+            url: '../imgs/onepiece/franky.png',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        },
+        {
+            id: '',
+            titulo: "Monkey D. Luffy",
+            url: '../imgs/onepiece/luffy.png',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        },
+        {
+            id: '',
+            titulo: 'Rotonoa Zoro',
+            url: '../imgs/onepiece/zoro.jpg',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        },
+        {
+            id: '',
+            titulo: 'Nami',
+            url: '../imgs/onepiece/nami.png',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        },
+        {
+            id: '',
+            titulo: 'Tony Chopper',
+            url: '../imgs/onepiece/chopper.png',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        },
+        {
+            id: '',
+            titulo: 'Brook',
+            url: '../imgs/onepiece/brook.png',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        },
+        {
+            id: '',
+            titulo: 'Franky',
+            url: '../imgs/onepiece/franky.png',
+            descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+        }
+    ];
+    break;
+    case 'marvel':
+        cartasDefault = [
+            {
+                id: '',
+                titulo: 'Dr. Estranho',
+                url: '../imgs/marvel/estranho.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Homem-Aranha',
+                url: '../imgs/marvel/homem-aranha.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Homem de Ferro',
+                url: '../imgs/marvel/homem-ferro.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Pantera Negra',
+                url: '../imgs/marvel/pantera.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Senhor das Estrelas',
+                url: '../imgs/marvel/senhor-estrelas.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Thor',
+                url: '../imgs/marvel/thor.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Dr. Estranho',
+                url: '../imgs/marvel/estranho.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Homem-Aranha',
+                url: '../imgs/marvel/homem-aranha.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Homem de Ferro',
+                url: '../imgs/marvel/homem-ferro.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Pantera Negra',
+                url: '../imgs/marvel/pantera.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Senhor das Estrelas',
+                url: '../imgs/marvel/senhor-estrelas.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Thor',
+                url: '../imgs/marvel/thor.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            }
+        ];
+    break;
+    case 'aleatorios1':
+        cartasDefault = [
+            {
+                id: '',
+                titulo: 'Ranger Amarelo',
+                url: '../imgs/aleatorios/ranger.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Smurf',
+                url: '../imgs/aleatorios/smurf.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Krusty',
+                url: '../imgs/aleatorios/krusty.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Tio Patinhas',
+                url: '../imgs/aleatorios/tio-patinhas.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Capitão Planeta',
+                url: '../imgs/aleatorios/capitao-planeta.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Buzz Lightyear',
+                url: '../imgs/aleatorios/buzz.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Ranger Amarelo',
+                url: '../imgs/aleatorios/ranger.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Smurf',
+                url: '../imgs/aleatorios/smurf.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Krusty',
+                url: '../imgs/aleatorios/krusty.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Tio Patinhas',
+                url: '../imgs/aleatorios/tio-patinhas.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Capitão Planeta',
+                url: '../imgs/aleatorios/capitao-planeta.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Buzz Lightyear',
+                url: '../imgs/aleatorios/buzz.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            }
+        ];
+    break;
+    case 'aleatorios2':
+        cartasDefault = [
+            {
+                id: '',
+                titulo: 'Ciclope',
+                url: '../imgs/aleatorios/ciclope.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Crash Bandicoot',
+                url: '../imgs/aleatorios/crash.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Fly',
+                url: '../imgs/aleatorios/fly.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'O Máscara',
+                url: '../imgs/aleatorios/mascara.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Spock',
+                url: '../imgs/aleatorios/spock.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Seiya de Pégaso',
+                url: '../imgs/aleatorios/pegasus.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Ciclope',
+                url: '../imgs/aleatorios/ciclope.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Crash Bandicoot',
+                url: '../imgs/aleatorios/crash.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Fly',
+                url: '../imgs/aleatorios/fly.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'O Máscara',
+                url: '../imgs/aleatorios/mascara.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Spock',
+                url: '../imgs/aleatorios/spock.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Seiya de Pégaso',
+                url: '../imgs/aleatorios/pegasus.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            }
+        ];
+    break;
+    case 'default':
+        cartasDefault = [
+            {
+                id: '',
+                titulo: 'Bulbasaur',
+                url: 'carta01.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Loki',
+                url: 'carta02.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Luke Skywalker',
+                url: 'carta03.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Squirtle',
+                url: 'carta04.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Little Mermaid',
+                url: 'carta05.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Princess Jasmine',
+                url: 'carta06.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Bulbasaur',
+                url: 'carta01.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Loki',
+                url: 'carta02.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Luke Skywalker',
+                url: 'carta03.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Squirtle',
+                url: 'carta04.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Little Mermaid',
+                url: 'carta05.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Princess Jasmine',
+                url: 'carta06.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            }
+        ];
+}
 
 //função que embaralha os elementos do array "cartasDefault"
 const embaralharCartas = (arr) => {

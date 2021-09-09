@@ -15,20 +15,30 @@ document.querySelector("#created").addEventListener("change",()=> {
 
 
 $btn.addEventListener('click', ()=>{
+    let storage;
     if(document.querySelector('#default').checked){
         switch($select.value){
-            case 'onepiece':location.href = '../html/game-page-default-onepiece.html'
+            case 'onepiece':
+                storage='onepiece';
+                localStorage.setItem('baralho', JSON.stringify(storage))      
             break;
-            case 'marvel': location.href = '../html/game-page-default-marvel.html'
+            case 'marvel':
+                storage='marvel';
+                localStorage.setItem('baralho', JSON.stringify(storage))    
             break;
-            case 'personagens-aleatorios-1': location.href = '../html/game-page-default-aleatorios1.html'
+            case 'personagens-aleatorios-1': 
+                storage='aleatorios1';
+                localStorage.setItem('baralho', JSON.stringify(storage))    
             break;
-            case 'personagens-aleatorios-2': location.href = '../html/game-page-default-aleatorios2.html' 
+            case 'personagens-aleatorios-2':
+                storage='aleatorios2';
+                localStorage.setItem('baralho', JSON.stringify(storage))    
             break;
-            default: location.href = '../html/game-page-default.html' 
-            
+            default:  
+                storage='default';
+                localStorage.setItem('baralho', JSON.stringify(storage))   
         }
-        
+        location.href = '../html/game-page-default.html'
     } else if(document.querySelector('#created').checked){
         location.href = '../html/form-page.html'
         
