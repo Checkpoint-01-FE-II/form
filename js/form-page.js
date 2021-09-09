@@ -1,84 +1,97 @@
 //-----------------------------------------------------------------        
 //CRIAÇÃO ELEMENTOS COM SUAS VARIÁVEIS
 
-const main = document.createElement("main");
-    const formulario = document.createElement("form");
-        const tituloForm = document.createElement("h1");
+const $main = document.createElement("main");
+    const $formulario = document.createElement("form");
+        const $tituloForm = document.createElement("h1");
 
-        const campoForm1 = document.createElement("fieldset");
-            const legendCampo1 = document.createElement("legend");
-            const inputCampo1 = document.createElement("input");
+        const $campoForm1 = document.createElement("fieldset");
+            const $legendCampo1 = document.createElement("legend");
+            const $inputCampo1 = document.createElement("input");
         
-        const campoForm2 = document.createElement("fieldset");
-            const legendCampo2 = document.createElement("legend");
-            const inputCampo2 = document.createElement("input");
+        const $campoForm2 = document.createElement("fieldset");
+            const $legendCampo2 = document.createElement("legend");
+            const $inputCampo2 = document.createElement("input");
             
-        const campoForm3 = document.createElement("fieldset");
-            const legendCampo3 = document.createElement("legend");    
-            const inputCampo3 = document.createElement("input");
+        const $campoForm3 = document.createElement("fieldset");
+            const $legendCampo3 = document.createElement("legend");    
+            const $inputCampo3 = document.createElement("input");
         
-        const btnEnviar = document.createElement("button");
-        const btnCancelar = document.createElement("button");
-        const btnVoltar = document.createElement("button");
+        const $btnEnviar = document.createElement("button");
+        const $btnCancelar = document.createElement("button");
+        const $btnVoltar = document.createElement("button");
 
 //------------------------------------------------------------------------ 
 //APENSANDO ELEMENTOS
 
-document.body.appendChild(main);
+document.body.appendChild($main);
     
-    main.appendChild(formulario);
+    $main.appendChild($formulario);
            
-        formulario.appendChild(tituloForm);
+        $formulario.appendChild($tituloForm);
         
-        formulario.appendChild(campoForm1);
-            campoForm1.appendChild(legendCampo1);
-            campoForm1.appendChild(inputCampo1);
+        $formulario.appendChild($campoForm1);
+            $campoForm1.appendChild($legendCampo1);
+            $campoForm1.appendChild($inputCampo1);
         
-        formulario.appendChild(campoForm2);
-            campoForm2.appendChild(legendCampo2);
-            campoForm2.appendChild(inputCampo2);
+        $formulario.appendChild($campoForm2);
+            $campoForm2.appendChild($legendCampo2);
+            $campoForm2.appendChild($inputCampo2);
         
-        formulario.appendChild(campoForm3);
-            campoForm3.appendChild(legendCampo3);
-            campoForm3.appendChild(inputCampo3);
+        $formulario.appendChild($campoForm3);
+            $campoForm3.appendChild($legendCampo3);
+            $campoForm3.appendChild($inputCampo3);
 
 //VALE A PENA CRIAR UMA DIV SÓ PARA BTNS, COMO CARD PREVIEW      
-document.body.appendChild(btnEnviar);
-document.body.appendChild(btnCancelar);
-document.body.appendChild(btnVoltar);
+document.body.appendChild($btnEnviar);
+document.body.appendChild($btnCancelar);
+document.body.appendChild($btnVoltar);
 
 //------------------------------------------------------------------------ 
 //EDITANDO ATRIBUTOS DOS ELEMENTOS
   
-    tituloForm.insertAdjacentText("afterbegin", "Meu Baralho");
+    $tituloForm.insertAdjacentText("afterbegin", "Meu Baralho");
     
-    campoForm1.setAttribute("type", "text");   
-        legendCampo1.insertAdjacentText("afterbegin", "Título");    
-        inputCampo1.setAttribute("placeholder", "Insira título"); 
-        inputCampo1.required = "true";
-        inputCampo1.pattern = "[\\S]{4,20}";
+    $campoForm1.setAttribute("type", "text");   
+        $legendCampo1.insertAdjacentText("afterbegin", "Título");    
+        $inputCampo1.setAttribute("placeholder", "Insira título"); 
+        // $inputCampo1.required = "true";
+        // $inputCampo1.pattern = "[\\S]{4,20}";
         //ACRESCENTAR ORIENTAÇÃO AO USUÁRIO SOBRE PREENCHIMENTO DO INPUT
         //BUSCAR PADRÃO QUE PERMITA UM ESPAÇO ENTRE PALAVRAS
         
         
-    campoForm2.setAttribute("type", "text");
-        legendCampo2.insertAdjacentText("afterbegin", "Descrição");
-        inputCampo2.setAttribute("placeholder", "Insira descrição");
-        inputCampo2.required = "true";
+    $campoForm2.setAttribute("type", "text");
+        $legendCampo2.insertAdjacentText("afterbegin", "Descrição");
+        $inputCampo2.setAttribute("placeholder", "Insira descrição");
+        // $inputCampo2.required = "true";
         //inputCampo2.setAttribute("maxlength", "400");
         //inputCampo2.pattern = "[\\S]{4,400}";
         //PADRÃO DISTINTO -> USUÁRIO DIGITARÁ UM TEXTO
         //LIMITE DE CARACTERES = 400
     
-    campoForm3.setAttribute("type", "file"); //ESTUDAR HIPÓTESE DE TER 2 TIPOS DE INPUT DE IMAGEM: FILE E TEXT (URL)
-        legendCampo3.insertAdjacentText("afterbegin", "Imagem");
-        inputCampo3.setAttribute("placeholder", "Insira URL");
-        inputCampo3.setAttribute("type", "text");
-        inputCampo3.required = "true";
-        inputCampo3.pattern = "[\\S]";
+    $campoForm3.setAttribute("type", "file"); //ESTUDAR HIPÓTESE DE TER 2 TIPOS DE INPUT DE IMAGEM: FILE E TEXT (URL)
+        $legendCampo3.insertAdjacentText("afterbegin", "Imagem");
+        $inputCampo3.setAttribute("placeholder", "Insira URL");
+        $inputCampo3.setAttribute("type", "text");
+        // $inputCampo3.required = "true";
+        //inputCampo3.pattern = "[\\S]";
 
-    btnEnviar.setAttribute("type", "submit");
-    btnEnviar.setAttribute("form", "form-baralho");
+    $btnEnviar.setAttribute("type", "submit");
+    $btnEnviar.setAttribute("form", "form-baralho");
+    $btnEnviar.onclick = evt => {
+        evt.preventDefault();
+        modal.style.display = "flex";
+        $cardTitulo.innerHTML = $inputCampo1.value;
+        $cardText.innerHTML = $inputCampo2.value;
+        $cardImg.src = $inputCampo3.value;
+    };
+
+    // evt.preventDefault();
+//     modal.style.display = "flex";
+//     $cardTitulo.innerHTML = $inputCampo1.value;
+//     $cardText.innerHTML = $inputCampo2.value;
+//     $cardImg.innerHTML = $inputCampo3.value;
     
     //REFATORAR FUNC DE EXIBIÇÃO DO MODAL
     // btnEnviar.onsubmit = () => {
@@ -87,55 +100,55 @@ document.body.appendChild(btnVoltar);
     // }
     
     
-    btnEnviar.insertAdjacentText("afterbegin", "Enviar");
+    $btnEnviar.insertAdjacentText("afterbegin", "Enviar");
 
 
-    btnCancelar.setAttribute("type", "reset");
-    btnCancelar.setAttribute("form", "form-baralho");
-    btnCancelar.insertAdjacentText("afterbegin", "Cancelar");
+    $btnCancelar.setAttribute("type", "reset");
+    $btnCancelar.setAttribute("form", "form-baralho");
+    $btnCancelar.insertAdjacentText("afterbegin", "Cancelar");
 
 
-    btnVoltar.addEventListener('click', ()=> location.href = "../index.html");
+    $btnVoltar.addEventListener('click', ()=> location.href = "../index.html");
 
-    btnVoltar.insertAdjacentText("afterbegin", "Voltar");
+    $btnVoltar.insertAdjacentText("afterbegin", "Voltar");
 //------------------------------------------------------------------------ 
 //ATRIBUIÇÃO DE CLASSES E IDs
 
-formulario.id = "form-baralho";
-formulario.classList.add("nes-container");
-formulario.classList.add("is-dark");
+$formulario.id = "form-baralho";
+$formulario.classList.add("nes-container");
+$formulario.classList.add("is-dark");
 
-campoForm1.className = "campo-formulario";
-campoForm2.className = "campo-formulario";
-campoForm3.className = "campo-formulario";
-const cCampo = document.getElementsByClassName("campo-formulario");
+$campoForm1.className = "campo-formulario";
+$campoForm2.className = "campo-formulario";
+$campoForm3.className = "campo-formulario";
+const $cCampo = document.getElementsByClassName("campo-formulario");
 
-legendCampo1.className = "legend-formulario";
-legendCampo2.className = "legend-formulario";    
-legendCampo3.className = "legend-formulario";
-const cLegend = document.getElementsByClassName("legend-formulario");
+$legendCampo1.className = "legend-formulario";
+$legendCampo2.className = "legend-formulario";    
+$legendCampo3.className = "legend-formulario";
+const $cLegend = document.getElementsByClassName("legend-formulario");
 
-inputCampo1.id = "input-titulo";
-inputCampo2.id = "input-descricao";
-inputCampo3.id = "input-img";
-inputCampo1.className = "input-formulario";     
-inputCampo2.className = "input-formulario";
-inputCampo3.className = "input-formulario";
-const cInput = document.getElementsByClassName("input-formulario");
+$inputCampo1.id = "input-titulo";
+$inputCampo2.id = "input-descricao";
+$inputCampo3.id = "input-img";
+$inputCampo1.className = "input-formulario";     
+$inputCampo2.className = "input-formulario";
+$inputCampo3.className = "input-formulario";
+const $cInput = document.getElementsByClassName("input-formulario");
 
-btnEnviar.classList.add("form-btn")
-btnEnviar.classList.add("nes-btn");
-btnEnviar.classList.add("is-warning");
+$btnEnviar.classList.add("form-btn")
+$btnEnviar.classList.add("nes-btn");
+$btnEnviar.classList.add("is-warning");
 
-btnCancelar.classList.add("form-btn");
-btnCancelar.classList.add("nes-btn");
-btnCancelar.classList.add("is-warning");
+$btnCancelar.classList.add("form-btn");
+$btnCancelar.classList.add("nes-btn");
+$btnCancelar.classList.add("is-warning");
 
-btnVoltar.classList.add("form-btn");
-btnVoltar.classList.add("nes-btn");
-btnVoltar.classList.add("is-warning");
+$btnVoltar.classList.add("form-btn");
+$btnVoltar.classList.add("nes-btn");
+$btnVoltar.classList.add("is-warning");
 
-const cFormBtn = document.getElementsByClassName("form-btn");
+const $cFormBtn = document.getElementsByClassName("form-btn");
 
 
 
@@ -162,7 +175,7 @@ document.querySelector("*").style.cssText = `
     `
     
 
-    formulario.style.cssText=`
+    $formulario.style.cssText=`
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -170,26 +183,26 @@ document.querySelector("*").style.cssText = `
         padding-bottom: 2rem;
     `
 
-        tituloForm.style.cssText=`
+        $tituloForm.style.cssText=`
             font-size: 1.6rem;
         `
         
         //ESTILO FIELDSET - cor anterior: #FFC9725B
-        Array.from(cCampo).forEach(element => {
+        Array.from($cCampo).forEach(element => {
             element.style.cssText=`
                 border: .3rem solid #ffffff;
                 font-size: 1rem;
             `
         });
 
-        campoForm1.style.cssText = `
+        $campoForm1.style.cssText = `
             margin-top: 1.5rem;
             border: .3rem solid #ffffff;
             font-size: 1rem;
         `
         
         //ESTILO LEGEND
-        Array.from(cLegend).forEach(element => {
+        Array.from($cLegend).forEach(element => {
             element.style.cssText=`
                 display: none;
                 width: fit-content;
@@ -199,7 +212,7 @@ document.querySelector("*").style.cssText = `
         });
     
         //ESTILO INPUT
-        Array.from(cInput).forEach(element => {
+        Array.from($cInput).forEach(element => {
             element.style.cssText=`
                 border: none;    
                 outline: none;
@@ -213,7 +226,7 @@ document.querySelector("*").style.cssText = `
         });
 
         //ESTILO BTNS DO FORM
-        Array.from(cFormBtn).forEach(element => {
+        Array.from($cFormBtn).forEach(element => {
                 element.style.cssText=`
                 font-size: 1.5rem;
                 border-image-repeat: stretch;
@@ -234,20 +247,21 @@ document.querySelector("*").style.cssText = `
             listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
         }
         
-        //FORM JÁ VERIFICA CAMPOS VAZIOS? TORNARIA VERIFICAÇÃO POR DENTRO DA FUNÇÃO DESNECESSÁRIA?
         function adicionarCarta(){
-          if (inputCampo1.value != '' && inputCampo2.value != '' && inputCampo3.value != '') {
+          if ($inputCampo1.value != '' && $inputCampo2.value != '' && $inputCampo3.value != '') {
             let dadosNovaCarta=
               {
                 id: '',
-                titulo: inputCampo1.value,
-                url: inputCampo3.value,
-                descricao: inputCampo2.value,
+                titulo: $inputCampo1.value,
+                url: $inputCampo3.value,
+                descricao: $inputCampo2.value,
               }
 
             listaDeCartas.push(dadosNovaCarta);
+            listaDeCartas.push(dadosNovaCarta);
             localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
-            location.href = './index.html';
+            //DEVEMOS MUDAR O ENDEREÇO DO LOCATION.HREF, NÃO?
+            location.reload();
           }else{
             alert("Verifique se a URL inserida é válida (.png ou .jpg) e se todos os campos estão preenchidos.")
           }
@@ -257,61 +271,63 @@ document.querySelector("*").style.cssText = `
 //------------------------------------------------------------------------ 
 //MODAL
 
-const modalContainer = document.createElement("div");
-    const cardPreview = document.createElement("div");
-        const cardImg = document.createElement("img");
-        const cardTitulo = document.createElement("h3");
-        const cardText = document.createElement("p");
-    const divCardBtns = document.createElement("div");
-        const cardBtnConfirmar = document.createElement("button");
-        const cardBtnVoltar = document.createElement("button");
+const $modalContainer = document.createElement("div");
+    const $cardPreview = document.createElement("div");
+        const $cardImg = document.createElement("img");
+        const $cardTitulo = document.createElement("h3");
+        const $cardText = document.createElement("p");
+    const $divCardBtns = document.createElement("div");
+        const $cardBtnConfirmar = document.createElement("button");
+        const $cardBtnVoltar = document.createElement("button");
 
 //-----------------------------------------------------------------
 
-modalContainer.id = "modal";
+$modalContainer.id = "modal";
 
-cardPreview.classList.add("nes-container");
-cardPreview.classList.add("is-dark");
+$cardPreview.classList.add("nes-container");
+$cardPreview.classList.add("is-dark");
 
-cardBtnConfirmar.classList.add("card-btn");
-cardBtnConfirmar.classList.add("nes-btn");
-cardBtnConfirmar.classList.add("is-warning");
+$cardBtnConfirmar.classList.add("card-btn");
+$cardBtnConfirmar.classList.add("nes-btn");
+$cardBtnConfirmar.classList.add("is-warning");
 
-cardBtnVoltar.classList.add("card-btn");
-cardBtnVoltar.classList.add("nes-btn");
-cardBtnVoltar.classList.add("is-warning");
-const cCardBtn = document.getElementsByClassName("card-btn");
+$cardBtnVoltar.classList.add("card-btn");
+$cardBtnVoltar.classList.add("nes-btn");
+$cardBtnVoltar.classList.add("is-warning");
+const $cCardBtn = document.getElementsByClassName("card-btn");
 
 //-----------------------------------------------------------------
 
-document.body.appendChild(modalContainer);
+document.body.appendChild($modalContainer);
 
-    modalContainer.appendChild(cardPreview);
-        cardPreview.appendChild(cardImg);
-        cardPreview.appendChild(cardTitulo);
-        cardPreview.appendChild(cardText);
+    $modalContainer.appendChild($cardPreview);
+        $cardPreview.appendChild($cardImg);
+        $cardPreview.appendChild($cardTitulo);
+        $cardPreview.appendChild($cardText);
 
-    modalContainer.appendChild(divCardBtns);
-        divCardBtns.appendChild(cardBtnConfirmar);
-        divCardBtns.appendChild(cardBtnVoltar);
+    $modalContainer.appendChild($divCardBtns);
+        $divCardBtns.appendChild($cardBtnConfirmar);
+        $divCardBtns.appendChild($cardBtnVoltar);
 
 //-----------------------------------------------------------------
 
 //MUDAR VALORES DO CARD, DEIXAR "" VAZIOS
-cardImg.setAttribute("src","https://assets.pokemon.com/assets/cms2/img/misc/countries/pt/country_detail_pokemon.png");
-cardImg.setAttribute("alt","Imagem a ser exibida na carta");
+$cardImg.setAttribute("src","");
+$cardImg.setAttribute("alt","Imagem a ser exibida na carta");
 
-cardTitulo.insertAdjacentText("afterbegin", "Título");
+$cardTitulo.insertAdjacentText("afterbegin", "");
 
-cardText.insertAdjacentText("afterbegin", "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla reprehenderit quae sit aliquam ratione cum cumque pariatur officia, ea ipsa modi debitis dolor quasi magnam cupiditate earum. Ab, minima unde. afterbegin", "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla reprehenderit quae sit aliquam ratione cum cumque pariatur officia, ea ipsa modi debitis dolor quasi magnam cupiditate earum. Ab, minima unde");
+$cardText.insertAdjacentText("afterbegin", "");
 
-cardBtnConfirmar.setAttribute("type", "submit");
+$cardBtnConfirmar.setAttribute("type", "submit");
+
 //REMOVER COMENTÁRIO AO FINAL - ALERTA DO ELSE INCOMODA NA HORA DE CODAR
-// cardBtnConfirmar.onclick = adicionarCarta();
-cardBtnConfirmar.insertAdjacentText("afterbegin", "Confirmar");
+$cardBtnConfirmar.onclick = () => adicionarCarta();
 
-cardBtnVoltar.insertAdjacentText("afterbegin", "Voltar");
-cardBtnVoltar.onclick = () => modal.style.display = "none";
+$cardBtnConfirmar.insertAdjacentText("afterbegin", "Confirmar");
+
+$cardBtnVoltar.insertAdjacentText("afterbegin", "Voltar");
+$cardBtnVoltar.onclick = () => modal.style.display = "none";
 
 window.onclick = event => {
     if (event.target == modal) {
@@ -322,7 +338,7 @@ window.onclick = event => {
 
 //-----------------------------------------------------------------
 
-modalContainer.style.cssText=`
+$modalContainer.style.cssText=`
     display: none;
     flex-direction: column;
     align-items: center;
@@ -334,7 +350,7 @@ modalContainer.style.cssText=`
     background-color: rgba(0,0,0,0.85);
     `
 
-        cardPreview.style.cssText=`
+        $cardPreview.style.cssText=`
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -345,34 +361,35 @@ modalContainer.style.cssText=`
             max-height: 95%;
             `
 
-            cardImg.style.cssText=`
+            $cardImg.style.cssText=`
                 width: 27rem;
-                height: 27rem;
-                object-fit: cover;
+                max-height: 27rem;
+                object-fit: scale-down;
                 border: 1rem solid;
                 border-image-slice: 35;
                 border-image-source: url(./imgs/borda-cartas.png);
+                background-color: white;
                 `
 
-            cardTitulo.style.cssText=`
+            $cardTitulo.style.cssText=`
                 font-size: 1.6rem;
                 `
 
-            cardText.style.cssText=`
+            $cardText.style.cssText=`
                 font-size: .9rem;
                 text-align: center;
                 line-height: 1.5rem;
                 width: 27rem;
                 `
         
-        divCardBtns.style.cssText=`
+        $divCardBtns.style.cssText=`
             display: flex;
             flex-direction: row;
             justify-content: space-around;
             gap: 1rem;
         `
         
-        Array.from(cCardBtn).forEach(element => {
+        Array.from($cCardBtn).forEach(element => {
             element.style.cssText=`
                 font-size: 1.5rem;
                 border-image-repeat: stretch;
@@ -385,9 +402,13 @@ modalContainer.style.cssText=`
 
 //FUNCTION MONTAR MODAL
 
-//OU BTN ONCLICK? OU 3ª OPÇÃO?
-//formulario.onsubmit = comporCard();
+// const comporCard = (evt) => {
+//     evt.preventDefault();
+//     modal.style.display = "flex";
+//     $cardTitulo.innerHTML = $inputCampo1.value;
+//     $cardText.innerHTML = $inputCampo2.value;
+//     $cardImg.innerHTML = $inputCampo3.value;
+// };
+// document.addEventListener('DOMContentLoaded', () => $btnEnviar.onclick = "comporCard()");
 
-//const comporCard = event => {
 
-//};
