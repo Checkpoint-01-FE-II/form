@@ -29,7 +29,7 @@ body{
     margin: auto;
 
     header{
-        padding: 2rem 2rem 0 2rem;
+        padding: 3rem 2rem 1rem 2rem;
         @media screen and (min-width: 700px) {
             padding: 4rem 2rem 2rem 2rem;
             @include flex(row, space-between);
@@ -40,9 +40,12 @@ body{
     main{
         .container-cartas-e-descricao{
             @media screen and (min-width: 1024px) {
-                @include flex(row, space-around);
-                // align-items: center;
+                @include flex(row, center);
+                margin-bottom: 2rem;
+                @media screen and (min-width: 1440px) {
                 gap: 1rem;
+                }
+                // align-items: center;
             }
         }
     }

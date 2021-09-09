@@ -12,8 +12,8 @@
     display: none;
     @media screen and (min-width: 1024px) {
             display: block;
-            width: 28%;
-            height: 75vh; 
+            width: 28rem;
+            height: 48rem;  
             border: 1.6rem solid;
             border-image-source: url('../../imgs/fundo-descricao.png');
             border-image-repeat:repeat;
@@ -23,6 +23,10 @@
             background-color: #fff;
             border-radius: 4%;
 
+            @media screen and (min-width: 1440px) {      
+                width: 33rem;
+                height: 55rem;         
+            }
             .img-descricao{
                 height: 50%;
                 width: 100%;
@@ -41,11 +45,18 @@
                 gap: 1rem;
                 padding: 2rem;
                 h3{
-                    font-size: 1.4rem;
+                    font-size: 1.3rem;
+                    @media screen and (min-width: 1440px) { 
+                        font-size: 1.4rem;
+                    }
                 }
                 p{
-                    font-size: 1.1rem;
-                    line-height: 1.8rem;
+                    font-size: 1rem;
+                    line-height: 1.7rem;
+                    @media screen and (min-width: 1440px) { 
+                        font-size: 1.1rem;
+                        line-height: 1.8rem;
+                    }
                 }
             }
     }
