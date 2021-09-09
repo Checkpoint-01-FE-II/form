@@ -96,7 +96,7 @@
                             @include flex(row, center);
                             // align-items: center;
                             position: absolute;
-                            transition: all 1s;
+                            transition: all .8s;
                             backface-visibility: hidden;
                             @media screen and (min-width: 360px) {    
                                 width: 8.5rem;

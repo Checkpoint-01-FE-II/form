@@ -589,7 +589,7 @@ function verificaPar(i) {
 
             document.querySelector('.pares-encontrados').innerHTML = `Pares encontrados: ${paresEncontrados}/6`
             setTimeout(() => {
-                if (paresEncontrados === 1) {
+                if (paresEncontrados === 6) {
                     $infosNaTela.style.display='block';
                     audio.pause()
                     audioWin.play()
@@ -606,7 +606,7 @@ function verificaPar(i) {
                 faceElemento2[0].classList.toggle('flip')
                 faceElemento2[1].classList.toggle('flip')
                 document.querySelector('.section-descricao').innerHTML = '';
-            }, 1000)
+            }, 800)
         }
     }
 }
