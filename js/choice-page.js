@@ -1,7 +1,13 @@
 const $btn = document.querySelector('button')
 const $select = document.querySelector('select')
-const audio = document.getElementById("musica");
-audio.volume = 1;
+const $audio = document.getElementById("musica");
+const $audioFundo = document.getElementById("musica-fundo");
+$audio.volume = 1;
+
+    window.addEventListener('mousemove', ()=>{
+        $audioFundo.play()
+        $audioFundo.volume = .2;
+    })  
 
 $select.addEventListener("change",()=> {
     document.getElementById("musica").play()

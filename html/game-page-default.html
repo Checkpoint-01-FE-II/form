@@ -30,7 +30,10 @@
 
     </header>
     <main>
-        <audio id="musica" src="" autoplay="false" controls ></audio>
+        <audio id="musica" src="" controls ></audio>
+        <audio id="som-match" src="../audio/sons/match.ogg" controls ></audio>
+        <audio id="som-win" src="../audio/sons/youwin.ogg" controls ></audio>
+        <audio id="som-letsgo" src="../audio/sons/letsgo.ogg" controls ></audio>
         <div class="modal">
             <div id="caixa-infos" disabled class="caixa-infos">
                 <div class="infos-start nes-container is-dark">
@@ -43,7 +46,7 @@
                     <p class='p-instructions'>Você deve selecionar duas cartas por vez.</p>
 
                     <div class='div-btns'>
-                        <button type="button" onclick="start()" id="btniniciar"
+                        <button onclick="start()" id="btniniciar"
                             class="nes-btn is-warning">Iniciar</button>
                     </div>
                 </div>
@@ -69,6 +72,10 @@
                 id="btnreiniciar">Recomeçar</button>
 
             <button type="button" class="nes-btn is-warning voltar">Voltar ao Menu</button>
+        </div>
+        <div class="infos-na-tela">
+            <h1 class='h1'></h1>
+            <h1 class='h2'></h1>
         </div>
         <div class="infos-na-tela">
             <h1 class='h1'></h1>

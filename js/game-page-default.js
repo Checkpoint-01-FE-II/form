@@ -5,13 +5,21 @@ const $h2InfosNaTela = document.querySelector('.h2');
 const $infosNaTela = document.querySelector('.infos-na-tela');
 
 const audio = document.getElementById("musica");
-audio.volume = 0.15;
+const audioMatch = document.getElementById("som-match");
+const audioWin = document.getElementById("som-win");
+const audioLetsGo = document.getElementById("som-letsgo");
 
-let hh = 0;
+audio.style.display='none';
+audioMatch.style.display='none';
+audioWin.style.display='none';
+audioLetsGo.style.display='none';
+audio.volume = 0.40;
+
 let mm = 0;
 let ss = 0;
+let ms = 0;
 let cron;
-let tempo = 1000;/*quantos milessimos equivalem a 1 seg*/
+let tempo = 16.666;/*quantos milessimos equivalem a 1 seg*/
 let paresEncontrados = 0;
 
 
@@ -19,32 +27,39 @@ function contador (){
     $infosNaTela.style.display='block';
     setTimeout(()=>{
         $h1InfosNaTela.innerHTML='3'
+        audioMatch.play()
+        audioMatch.volume=.3;
     }, 1000)
     setTimeout(()=>{
         $h1InfosNaTela.innerHTML='2'
+        audioMatch.play()
+        audioMatch.volume=.3;
     }, 2000)
     setTimeout(()=>{
         $h1InfosNaTela.innerHTML='1'
+        audioMatch.play()
+        audioMatch.volume=.3;
     }, 3000)
+    setTimeout(()=>{
+        audioLetsGo.play()
+        audioLetsGo.volume=.3;
+    }, 3100)  
 }
+
 function start() {
     const $modal = document.querySelector('.modal');
     $modal.style.display='none';
+    $modal.disabled='true';
     contador();
     setTimeout(()=>{
         $h1InfosNaTela.style.display='none';
         $infosNaTela.style.display='none';
     cron = setInterval(() => { timer(); }, tempo)
     document.getElementById("btniniciar").style.display = "none"
-    document.getElementById("musica").autoplay="true"
+    audio.play();
     document.getElementById("btnreiniciar").style.display = "block"},4000)
-    
-
 }
 
-function pausar() {
-    
-}
 function recomecar() {
     // cron = clearInterval
     // hh = 0;
@@ -53,7 +68,7 @@ function recomecar() {
 
     // embaralharCartas()
     // cron = setInterval(() => { timer(); }, tempo)
-    location.href='../game-page-default.html'
+    location.href='../html/game-page-default.html'
     // document.getElementById("btnreiniciar").style.display = "block"
        
 }
@@ -99,9 +114,9 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
     break;
     case 'marvel':audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
     break;
-    case 'aleatorios1':audio.src='../audio/Super Mario Bros Theme Song .mp3'
+    case 'aleatorios1':audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
     break;
-    case 'aleatorios2':audio.src='../audio/Super Mario Bros Theme Song .mp3'
+    case 'aleatorios2':audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
     break;
     case 'default': audio.src='../audio/Super Mario Bros Theme Song .mp3'
 }
@@ -563,6 +578,8 @@ function verificaPar(i) {
         let faceElemento1 = document.querySelector(idElemento1).getElementsByClassName('div-frente-verso');
         let faceElemento2 = document.querySelector(idElemento2).getElementsByClassName('div-frente-verso');
         if (arrayDuasCartas[0].url == arrayDuasCartas[1].url) {
+            audioMatch.play()
+            audioMatch.volume=.4;
             faceElemento1[0].style.opacity = '0.2';
             faceElemento1[1].style.opacity = '0.2';
             faceElemento2[0].style.opacity = '0.2';
@@ -572,14 +589,17 @@ function verificaPar(i) {
 
             document.querySelector('.pares-encontrados').innerHTML = `Pares encontrados: ${paresEncontrados}/6`
             setTimeout(() => {
-                if (paresEncontrados === 6) {
+                if (paresEncontrados === 1) {
+                    
                     $infosNaTela.style.display='block';
                     $h2InfosNaTela.style.display='block';
+                    audio.pause()
+                    audioWin.play()
+                    audioWin.volume=.5;
                     $h2InfosNaTela.innerHTML=`
                     Fim de Jogo!
                     Seu tempo foi de: ${(hh < 10 ? "0" + hh : hh)}:${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}.`
                     pausar()}}, 1000)
-
         } else {
             arrayDuasCartas = [];
             setTimeout(() => {
