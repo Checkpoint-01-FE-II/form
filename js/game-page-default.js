@@ -606,7 +606,7 @@ function verificaPar(i) {
                 faceElemento2[0].classList.toggle('flip')
                 faceElemento2[1].classList.toggle('flip')
                 document.querySelector('.section-descricao').innerHTML = '';
-            }, 1200)
+            }, 1000)
         }
     }
 }
