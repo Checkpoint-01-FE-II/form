@@ -19,7 +19,7 @@ let mm = 0;
 let ss = 0;
 let ms = 0;
 let cron;
-let tempo = 16.666;/*quantos milessimos equivalem a 1 seg*/
+let tempo = 16.666;//tempo em milisegundos /*quantos milessimos equivalem a 1 seg*/
 let paresEncontrados = 0;
 
 
@@ -88,18 +88,18 @@ function pausar() {
     
 // }
 function timer() {
-    ss++;
+    ms++;
 
-    if (ss == 60) {
-        ss = 0;
-        mm++;
-        if (mm == 60) {
-            mm = 0;
-            hh++;
+    if (ms == 60) {
+        ms = 0;
+        ss++;
+        if (ss == 60) {
+            ss = 0;
+            mm++;
         }
     }
 
-    let formato = "Tempo : " + (hh < 10 ? "0" + hh : hh) + ":" + (mm < 10 ? "0" + mm : mm) + ":" + (ss < 10 ? "0" + ss : ss)
+    let formato = "Tempo : " + (mm < 10 ? "0" + mm : mm) + ":" + (ss < 10 ? "0" + ss : ss) + ":" + (ms < 10 ? "0" + ms : ms)
     document.getElementById("Iniciar").innerText = formato
 }
 
@@ -590,15 +590,13 @@ function verificaPar(i) {
             document.querySelector('.pares-encontrados').innerHTML = `Pares encontrados: ${paresEncontrados}/6`
             setTimeout(() => {
                 if (paresEncontrados === 1) {
-                    
                     $infosNaTela.style.display='block';
-                    $h2InfosNaTela.style.display='block';
                     audio.pause()
                     audioWin.play()
                     audioWin.volume=.5;
                     $h2InfosNaTela.innerHTML=`
                     Fim de Jogo!
-                    Seu tempo foi de: ${(hh < 10 ? "0" + hh : hh)}:${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}.`
+                    Seu tempo foi de: ${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}:${(ms < 10 ? "0" + ms : ms)}.`;
                     pausar()}}, 1000)
         } else {
             arrayDuasCartas = [];
