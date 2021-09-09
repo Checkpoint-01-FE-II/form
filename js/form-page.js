@@ -56,29 +56,35 @@ document.body.appendChild(btnVoltar);
         legendCampo1.insertAdjacentText("afterbegin", "Título");    
         inputCampo1.setAttribute("placeholder", "Insira título"); 
         inputCampo1.required = "true";
-        inputCampo1.pattern = "[\\w+]{4,20}";
+        inputCampo1.pattern = "[\\S]{4,20}";
         //ACRESCENTAR ORIENTAÇÃO AO USUÁRIO SOBRE PREENCHIMENTO DO INPUT
+        //BUSCAR PADRÃO QUE PERMITA UM ESPAÇO ENTRE PALAVRAS
         
         
     campoForm2.setAttribute("type", "text");
         legendCampo2.insertAdjacentText("afterbegin", "Descrição");
         inputCampo2.setAttribute("placeholder", "Insira descrição");
-        inputCampo2.setAttribute("maxlength", "25");
         inputCampo2.required = "true";
+        //inputCampo2.setAttribute("maxlength", "400");
+        //inputCampo2.pattern = "[\\S]{4,400}";
+        //PADRÃO DISTINTO -> USUÁRIO DIGITARÁ UM TEXTO
+        //LIMITE DE CARACTERES = 400
     
     campoForm3.setAttribute("type", "file"); //ESTUDAR HIPÓTESE DE TER 2 TIPOS DE INPUT DE IMAGEM: FILE E TEXT (URL)
         legendCampo3.insertAdjacentText("afterbegin", "Imagem");
         inputCampo3.setAttribute("placeholder", "Insira URL");
         inputCampo3.setAttribute("type", "text");
         inputCampo3.required = "true";
-        // QUANTO DE LIMITE DE CARACTERES?
-        //inputCampo3.setAttribute("maxlength", "25")
+        inputCampo3.pattern = "[\\S]";
 
     btnEnviar.setAttribute("type", "submit");
     btnEnviar.setAttribute("form", "form-baralho");
     
     //REFATORAR FUNC DE EXIBIÇÃO DO MODAL
-    //btnEnviar.onsubmit = () => modal.style.display = "flex";
+    // btnEnviar.onsubmit = () => {
+        
+    //     modal.style.display = "flex";
+    // }
     
     
     btnEnviar.insertAdjacentText("afterbegin", "Enviar");
@@ -89,9 +95,8 @@ document.body.appendChild(btnVoltar);
     btnCancelar.insertAdjacentText("afterbegin", "Cancelar");
 
 
-    btnVoltar.addEventListener('click', ()=>{
-    location.href = "../index.html"}
-    )
+    btnVoltar.addEventListener('click', ()=> location.href = "../index.html");
+
     btnVoltar.insertAdjacentText("afterbegin", "Voltar");
 //------------------------------------------------------------------------ 
 //ATRIBUIÇÃO DE CLASSES E IDs
@@ -186,7 +191,7 @@ document.querySelector("*").style.cssText = `
         //ESTILO LEGEND
         Array.from(cLegend).forEach(element => {
             element.style.cssText=`
-                display: inline-block;
+                display: none;
                 width: fit-content;
                 margin-left: .5rem;
                 font-size: 1.2rem;
@@ -298,7 +303,7 @@ cardImg.setAttribute("alt","Imagem a ser exibida na carta");
 
 cardTitulo.insertAdjacentText("afterbegin", "Título");
 
-cardText.insertAdjacentText("afterbegin", "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla reprehenderit quae sit aliquam ratione cum cumque pariatur officia, ea ipsa modi debitis dolor quasi magnam cupiditate earum. Ab, minima unde.");
+cardText.insertAdjacentText("afterbegin", "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla reprehenderit quae sit aliquam ratione cum cumque pariatur officia, ea ipsa modi debitis dolor quasi magnam cupiditate earum. Ab, minima unde. afterbegin", "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla reprehenderit quae sit aliquam ratione cum cumque pariatur officia, ea ipsa modi debitis dolor quasi magnam cupiditate earum. Ab, minima unde");
 
 cardBtnConfirmar.setAttribute("type", "submit");
 //REMOVER COMENTÁRIO AO FINAL - ALERTA DO ELSE INCOMODA NA HORA DE CODAR
@@ -384,14 +389,5 @@ modalContainer.style.cssText=`
 //formulario.onsubmit = comporCard();
 
 //const comporCard = event => {
-    //formulario.submit.preventDefault
 
-    //cardTitulo.innerHTML = inputCampo1.value;
-    
-    //cardTitulo.innerText = inputCampo1.value;
-    //valorDescricao = inputCampo2.value;
-    //valorImg = inputCampo3.value;
-    //cardImg.insertAdjacentText = inputCampo3.value;
-    // cardTitulo.insertAdjacentText("afterbegin", valorTitulo);
-    // cardText.insertAdjacentText = inputCampo2.value;
 //};
