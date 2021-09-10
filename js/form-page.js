@@ -19,8 +19,8 @@ const $main = document.createElement("main");
         
         const $btnEnviar = document.createElement("button");
         const $btnCancelar = document.createElement("button");
-        // const $btnVoltar = document.createElement("button");
         const $btnVoltar = document.createElement('a');
+        const $btnJogar = document.createElement('a');
 //------------------------------------------------------------------------ 
 //APENSANDO ELEMENTOS
 
@@ -46,6 +46,7 @@ document.body.appendChild($main);
 document.body.appendChild($btnEnviar);
 document.body.appendChild($btnCancelar);
 document.body.appendChild($btnVoltar);
+document.body.appendChild($btnJogar);
 
 //------------------------------------------------------------------------ 
 //EDITANDO ATRIBUTOS DOS ELEMENTOS
@@ -86,6 +87,8 @@ document.body.appendChild($btnVoltar);
     $btnVoltar.insertAdjacentHTML('afterbegin', `
     <img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt="">`)
 
+    $btnJogar.href = "../html/game-page-created.html"
+    $btnJogar.insertAdjacentText("afterbegin", "Jogar");
 
 //------------------------------------------------------------------------ 
 //ATRIBUIÇÃO DE CLASSES E IDs
