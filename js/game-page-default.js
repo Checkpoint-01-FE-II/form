@@ -13,7 +13,7 @@ audio.style.display='none';
 audioMatch.style.display='none';
 audioWin.style.display='none';
 audioLetsGo.style.display='none';
-audio.volume = 0.40;
+audio.volume = 0.60;
 
 let mm = 0;
 let ss = 0;
@@ -579,7 +579,7 @@ function verificaPar(i) {
         let faceElemento2 = document.querySelector(idElemento2).getElementsByClassName('div-frente-verso');
         if (arrayDuasCartas[0].url == arrayDuasCartas[1].url) {
             audioMatch.play()
-            audioMatch.volume=.4;
+            audioMatch.volume=.15;
             faceElemento1[0].style.opacity = '0.2';
             faceElemento1[1].style.opacity = '0.2';
             faceElemento2[0].style.opacity = '0.2';

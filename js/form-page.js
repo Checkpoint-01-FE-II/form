@@ -19,8 +19,8 @@ const $main = document.createElement("main");
         
         const $btnEnviar = document.createElement("button");
         const $btnCancelar = document.createElement("button");
-        const $btnVoltar = document.createElement("button");
-
+        // const $btnVoltar = document.createElement("button");
+        const $btnVoltar = document.createElement('a');
 //------------------------------------------------------------------------ 
 //APENSANDO ELEMENTOS
 
@@ -107,10 +107,12 @@ document.body.appendChild($btnVoltar);
     $btnCancelar.setAttribute("form", "form-baralho");
     $btnCancelar.insertAdjacentText("afterbegin", "Cancelar");
 
+    $btnVoltar.href = '../index.html'
+    $btnVoltar.insertAdjacentHTML('afterbegin', `
+    <img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt="">`)
+    // $btnVoltar.addEventListener('click', ()=> location.href = "../index.html");
 
-    $btnVoltar.addEventListener('click', ()=> location.href = "../index.html");
-
-    $btnVoltar.insertAdjacentText("afterbegin", "Voltar");
+    // $btnVoltar.insertAdjacentText("afterbegin", "Voltar");
 //------------------------------------------------------------------------ 
 //ATRIBUIÇÃO DE CLASSES E IDs
 
@@ -144,9 +146,9 @@ $btnCancelar.classList.add("form-btn");
 $btnCancelar.classList.add("nes-btn");
 $btnCancelar.classList.add("is-warning");
 
-$btnVoltar.classList.add("form-btn");
-$btnVoltar.classList.add("nes-btn");
-$btnVoltar.classList.add("is-warning");
+// $btnVoltar.classList.add("form-btn");
+// $btnVoltar.classList.add("nes-btn");
+// $btnVoltar.classList.add("is-warning");
 
 const $cFormBtn = document.getElementsByClassName("form-btn");
 
@@ -174,20 +176,164 @@ document.querySelector("*").style.cssText = `
         gap: 1.5rem;
     `
     
-
-    $formulario.style.cssText=`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        padding-bottom: 2rem;
-    `
-
+    if (window.matchMedia("(min-width: 768px)").matches) {
+        $formulario.style.cssText=`
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding-bottom: 2rem;
+            width: 500px;
+            height: 500px;
+        `
+        $tituloForm.style.cssText=`
+        margin-top: 2rem;    
+        font-size: 2rem;
+        `
+    } else{
+        $formulario.style.cssText=`
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding-bottom: 2rem;
+        `
         $tituloForm.style.cssText=`
             font-size: 1.6rem;
         `
+    }
+        
         
         //ESTILO FIELDSET - cor anterior: #FFC9725B
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            Array.from($cCampo).forEach(element => {
+                element.style.cssText=`
+                    border: .3rem solid #ffffff;
+                    font-size: 1rem;
+                `
+            });
+    
+            $campoForm1.style.cssText = `
+                margin-top: 1.5rem;
+                border: .3rem solid #ffffff;
+                font-size: 1rem;
+                padding: 1rem;
+                width: 80%;
+            `
+            $campoForm2.style.cssText = `
+                margin-top: 1.5rem;
+                border: .3rem solid #ffffff;
+                font-size: 1rem;
+                padding: 1rem;
+                width: 80%;
+            `
+            $campoForm3.style.cssText = `
+                margin-top: 1.5rem;
+                border: .3rem solid #ffffff;
+                font-size: 1rem;
+                padding: 1rem;
+                width: 80%;
+            `
+                
+            //ESTILO LEGEND
+            // Array.from($cLegend).forEach(element => {  
+            //     element.style.cssText=`
+            //         display: none;
+            //         width: fit-content;
+            //         margin-left: .5rem;
+            //         font-size: 1.6rem;
+
+            //     `
+            // });
+        
+            $legendCampo1.style.cssText=`
+                display: none;
+            `
+            $legendCampo2.style.cssText=`
+                display: none;
+            `
+            $legendCampo3.style.cssText=`
+                display: none;
+            `
+
+            $inputCampo1.addEventListener('focus', ()=>{
+                $legendCampo1.style.cssText=`
+                    display: auto;
+                    width: fit-content;
+                    margin-left: .5rem;
+                    font-size: 1.6rem;
+                `
+                $inputCampo1.placeholder = '';
+                
+            })
+            $inputCampo2.addEventListener('focus', ()=>{
+                $legendCampo2.style.cssText=`
+                    display: auto;
+                    width: fit-content;
+                    margin-left: .5rem;
+                    font-size: 1.6rem;
+                `
+                $inputCampo2.placeholder = '';
+            })
+            $inputCampo3.addEventListener('focus', ()=>{
+                $legendCampo3.style.cssText=`
+                    display: auto;
+                    width: fit-content;
+                    margin-left: .5rem;
+                    font-size: 1.6rem;
+                `
+                $inputCampo3.placeholder = '';
+            })
+
+            $inputCampo1.addEventListener('focusout', ()=>{
+                $legendCampo1.style.cssText=`
+                    display: none;
+                `
+                $inputCampo1.placeholder = 'Insira título';
+            })
+            $inputCampo2.addEventListener('focusout', ()=>{
+                $legendCampo2.style.cssText=`
+                    display: none;
+                `
+                $inputCampo2.placeholder = 'Insira descrição';
+            })
+            $inputCampo3.addEventListener('focusout', ()=>{
+                $legendCampo3.style.cssText=`
+                    display: none;
+                `
+                $inputCampo3.placeholder = 'Insira URL';
+            })
+
+
+
+            //ESTILO INPUT
+            Array.from($cInput).forEach(element => {
+                element.style.cssText=`
+                    border: none;    
+                    outline: none;
+                    background-color: #212529;
+                    padding: 1rem 2rem 1rem 2rem;
+                    width: 95%;
+                    color: #FFFFFF;
+                    text-align: center;
+                    font-size: 1.3rem;
+                `
+            });
+
+
+            
+    
+            //ESTILO BTNS DO FORM
+            Array.from($cFormBtn).forEach(element => {
+                    element.style.cssText=`
+                    font-size: 1.5rem;
+                    border-image-repeat: stretch;
+                    width: 16rem;
+                `
+            });
+        
+        
+        } else {
         Array.from($cCampo).forEach(element => {
             element.style.cssText=`
                 border: .3rem solid #ffffff;
@@ -234,6 +380,65 @@ document.querySelector("*").style.cssText = `
             `
         });
 
+
+            $legendCampo1.style.cssText=`
+                display: none;
+            `
+            $legendCampo2.style.cssText=`
+                display: none;
+            `
+            $legendCampo3.style.cssText=`
+                display: none;
+            `
+
+            $inputCampo1.addEventListener('focus', ()=>{
+                $legendCampo1.style.cssText=`
+                    display: auto;
+                    width: fit-content;
+                    margin-left: .5rem;
+                    font-size: 1rem;
+                `
+                $inputCampo1.placeholder = '';
+                
+            })
+            $inputCampo2.addEventListener('focus', ()=>{
+                $legendCampo2.style.cssText=`
+                    display: auto;
+                    width: fit-content;
+                    margin-left: .5rem;
+                    font-size: 1rem;
+                `
+                $inputCampo2.placeholder = '';
+            })
+            $inputCampo3.addEventListener('focus', ()=>{
+                $legendCampo3.style.cssText=`
+                    display: auto;
+                    width: fit-content;
+                    margin-left: .5rem;
+                    font-size: 1rem;
+                `
+                $inputCampo3.placeholder = '';
+            })
+
+            $inputCampo1.addEventListener('focusout', ()=>{
+                $legendCampo1.style.cssText=`
+                    display: none;
+                `
+                $inputCampo1.placeholder = 'Insira título';
+            })
+            $inputCampo2.addEventListener('focusout', ()=>{
+                $legendCampo2.style.cssText=`
+                    display: none;
+                `
+                $inputCampo2.placeholder = 'Insira descrição';
+            })
+            $inputCampo3.addEventListener('focusout', ()=>{
+                $legendCampo3.style.cssText=`
+                    display: none;
+                `
+                $inputCampo3.placeholder = 'Insira URL';
+            })
+    }
 
 //------------------------------------------------------------------------ 
 //INTERATIVIDADE        
@@ -411,4 +616,26 @@ $modalContainer.style.cssText=`
 // };
 // document.addEventListener('DOMContentLoaded', () => $btnEnviar.onclick = "comporCard()");
 
+
+
+
+    if (window.matchMedia("(min-width: 768px)").matches) {
+        document.querySelector('#img-button').style.cssText =
+        `
+        position: absolute;
+        top: 2%;
+        left: 5%;
+        width:70px;
+        height: 70px;
+        `
+    } else {
+        document.querySelector('#img-button').style.cssText =
+        `
+        position: absolute;
+        top: 2%;
+        left: 5%;
+        width: 50px;
+        height: 50px;
+        `
+    }
 
