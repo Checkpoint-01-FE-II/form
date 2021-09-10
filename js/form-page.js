@@ -55,27 +55,16 @@ document.body.appendChild($btnVoltar);
     $campoForm1.setAttribute("type", "text");   
         $legendCampo1.insertAdjacentText("afterbegin", "Título");    
         $inputCampo1.setAttribute("placeholder", "Insira título"); 
-        // $inputCampo1.required = "true";
-        // $inputCampo1.pattern = "[\\S]{4,20}";
-        //ACRESCENTAR ORIENTAÇÃO AO USUÁRIO SOBRE PREENCHIMENTO DO INPUT
-        //BUSCAR PADRÃO QUE PERMITA UM ESPAÇO ENTRE PALAVRAS
-        
         
     $campoForm2.setAttribute("type", "text");
         $legendCampo2.insertAdjacentText("afterbegin", "Descrição");
         $inputCampo2.setAttribute("placeholder", "Insira descrição");
-        // $inputCampo2.required = "true";
-        //inputCampo2.setAttribute("maxlength", "400");
-        //inputCampo2.pattern = "[\\S]{4,400}";
-        //PADRÃO DISTINTO -> USUÁRIO DIGITARÁ UM TEXTO
-        //LIMITE DE CARACTERES = 400
     
-    $campoForm3.setAttribute("type", "file"); //ESTUDAR HIPÓTESE DE TER 2 TIPOS DE INPUT DE IMAGEM: FILE E TEXT (URL)
+    $campoForm3.setAttribute("type", "file"); 
+    //ESTUDAR HIPÓTESE DE TER 2 TIPOS DE INPUT DE IMAGEM: FILE E TEXT (URL)
         $legendCampo3.insertAdjacentText("afterbegin", "Imagem");
         $inputCampo3.setAttribute("placeholder", "Insira URL");
         $inputCampo3.setAttribute("type", "text");
-        // $inputCampo3.required = "true";
-        //inputCampo3.pattern = "[\\S]";
 
     $btnEnviar.setAttribute("type", "submit");
     $btnEnviar.setAttribute("form", "form-baralho");
@@ -85,23 +74,9 @@ document.body.appendChild($btnVoltar);
         $cardTitulo.innerHTML = $inputCampo1.value;
         $cardText.innerHTML = $inputCampo2.value;
         $cardImg.src = $inputCampo3.value;
-    };
-
-    // evt.preventDefault();
-//     modal.style.display = "flex";
-//     $cardTitulo.innerHTML = $inputCampo1.value;
-//     $cardText.innerHTML = $inputCampo2.value;
-//     $cardImg.innerHTML = $inputCampo3.value;
-    
-    //REFATORAR FUNC DE EXIBIÇÃO DO MODAL
-    // btnEnviar.onsubmit = () => {
-        
-    //     modal.style.display = "flex";
-    // }
-    
-    
+    };    
     $btnEnviar.insertAdjacentText("afterbegin", "Enviar");
-
+    $btnEnviar.disabled = true;
 
     $btnCancelar.setAttribute("type", "reset");
     $btnCancelar.setAttribute("form", "form-baralho");
@@ -110,9 +85,8 @@ document.body.appendChild($btnVoltar);
     $btnVoltar.href = '../index.html'
     $btnVoltar.insertAdjacentHTML('afterbegin', `
     <img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt="">`)
-    // $btnVoltar.addEventListener('click', ()=> location.href = "../index.html");
 
-    // $btnVoltar.insertAdjacentText("afterbegin", "Voltar");
+
 //------------------------------------------------------------------------ 
 //ATRIBUIÇÃO DE CLASSES E IDs
 
@@ -146,12 +120,7 @@ $btnCancelar.classList.add("form-btn");
 $btnCancelar.classList.add("nes-btn");
 $btnCancelar.classList.add("is-warning");
 
-// $btnVoltar.classList.add("form-btn");
-// $btnVoltar.classList.add("nes-btn");
-// $btnVoltar.classList.add("is-warning");
-
 const $cFormBtn = document.getElementsByClassName("form-btn");
-
 
 
 //------------------------------------------------------------------------ 
@@ -205,8 +174,6 @@ document.querySelector("*").style.cssText = `
         
     }
         
-        
-        //ESTILO FIELDSET - cor anterior: #FFC9725B
         if (window.matchMedia("(min-width: 768px)").matches) {
             Array.from($cCampo).forEach(element => {
                 element.style.cssText=`
@@ -236,18 +203,8 @@ document.querySelector("*").style.cssText = `
                 padding: 1rem;
                 width: 80%;
             `
-                
+            
             //ESTILO LEGEND
-            // Array.from($cLegend).forEach(element => {  
-            //     element.style.cssText=`
-            //         display: none;
-            //         width: fit-content;
-            //         margin-left: .5rem;
-            //         font-size: 1.6rem;
-
-            //     `
-            // });
-
             Array.from($cLegend).forEach(element => {
                     element.style.cssText=`
                         display: none;
@@ -449,7 +406,7 @@ document.querySelector("*").style.cssText = `
         }
         
         function adicionarCarta(){
-          if ($inputCampo1.value != '' && $inputCampo2.value != '' && $inputCampo3.value != '') {
+        //   if ($inputCampo1.value != '' && $inputCampo2.value != '' && $inputCampo3.value != '') {
             let dadosNovaCarta=
               {
                 id: '',
@@ -461,11 +418,10 @@ document.querySelector("*").style.cssText = `
             listaDeCartas.push(dadosNovaCarta);
             listaDeCartas.push(dadosNovaCarta);
             localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
-            //DEVEMOS MUDAR O ENDEREÇO DO LOCATION.HREF, NÃO?
             location.reload();
-          }else{
-            alert("Verifique se a URL inserida é válida (.png ou .jpg) e se todos os campos estão preenchidos.")
-          }
+        //   }else{
+        //     alert("Verifique se a URL inserida é válida (.png ou .jpg) e se todos os campos estão preenchidos.")
+        //   }
         }
 
 
@@ -601,19 +557,144 @@ $modalContainer.style.cssText=`
 
 //----------------------------------------------------------------
 
-//FUNCTION MONTAR MODAL
+//VALIDAÇÃO DE INPUTS
 
-// const comporCard = (evt) => {
-//     evt.preventDefault();
-//     modal.style.display = "flex";
-//     $cardTitulo.innerHTML = $inputCampo1.value;
-//     $cardText.innerHTML = $inputCampo2.value;
-//     $cardImg.innerHTML = $inputCampo3.value;
-// };
-// document.addEventListener('DOMContentLoaded', () => $btnEnviar.onclick = "comporCard()");
+//CRIAÇÃO DOS ELEMENTOS E VARIÁVEIS DAS MSGS DE ERRO
+
+const $msgErroInput1 = document.createElement("label");
+$formulario.appendChild($msgErroInput1);
+$msgErroInput1.setAttribute("for", "input-titulo");
+
+const $msgErroInput2 = document.createElement("label");
+$formulario.appendChild($msgErroInput2);
+$msgErroInput1.setAttribute("for", "input-descricao");
+
+const $msgErroInput3 = document.createElement("label");
+$formulario.appendChild($msgErroInput3);
+$msgErroInput1.setAttribute("for", "input-img");
+
+//ATRIBUIÇÃO DE CLASSES
+
+$msgErroInput1.className = "msg-erro";     
+$msgErroInput2.className = "msg-erro";
+$msgErroInput3.className = "msg-erro";
+const $cMsgErro = document.getElementsByClassName("msg-erro")
+
+//ATRIBUIÇÃO DE ESTILO
+
+Array.from($cMsgErro).forEach(element => {
+    element.style.cssText=`
+    color: red;
+    display: none;
+    padding-bottom: 0;
+    font-size: 1rem;
+    `
+});
+
+//VINCULANDO A EVENTO
+
+$inputCampo1.addEventListener("focusout", () => validarInput1())
+$inputCampo2.addEventListener("focusout", () => validarInput2())
+$inputCampo3.addEventListener("focusout", () => validarInput3())
+
+//DEFININDO COMPORTAMENTOS
+
+let verificador = [0, 0, 0];
+
+function validarInput1 () {
+    let valorTrim = $inputCampo1.value.trim()
+    if (valorTrim == "") {
+        $msgErroInput1.innerHTML = "Escreva um Título";
+        $msgErroInput1.style.cssText=`
+            color: red;
+            display: auto;
+        `      
+        verificador[0] = 0;
+        $btnEnviar.disabled = true;
+    } else if (valorTrim.length >= 30) {
+        $msgErroInput1.innerHTML = "Título deve ter até 30 caracteres";
+        $msgErroInput1.style.cssText=`
+        color: red;
+        text-align: center;
+        display: auto;
+        ` 
+        verificador[0] = 0;
+        $btnEnviar.disabled = true;
+    } else {
+        $msgErroInput1.style.cssText=`
+            display: none;
+        `
+        verificador[0] = 1;
+        if (verificador.reduce((acc, sum)=>acc+=sum)==6) {
+            $btnEnviar.disabled = false;
+        }
+    }
+}
+
+function validarInput2 () {
+    let valorTrim = $inputCampo2.value.trim()
+    if (valorTrim == "") {
+        $msgErroInput2.innerHTML = "Escreva uma Descrição";
+        $msgErroInput2.style.cssText=`
+            color: red;
+            text-align: center;
+            display: auto;
+        `
+        verificador[1] = 0; 
+        $btnEnviar.disabled = true;     
+    } else if (valorTrim.length >= 400) {
+        $msgErroInput2.innerHTML = "Título deve ter até 400 caracteres";
+        $msgErroInput2.style.cssText=`
+        color: red;
+        text-align: center;
+        display: auto;
+        `
+        verificador[1] = 0;
+        $btnEnviar.disabled = true;
+    } else {
+        $msgErroInput2.style.cssText=`
+            display: none;
+        `
+        verificador[1] = 2;
+        if (verificador.reduce((acc, sum)=>acc+=sum)==6) {
+            $btnEnviar.disabled = false;
+        }
+    }
+}
+
+function validarInput3 () {
+    let valorTrim = $inputCampo3.value.trim()
+    if (valorTrim == "") {
+        $msgErroInput3.innerHTML = "Insira uma URL";
+        $msgErroInput3.style.cssText=`
+            color: red;
+            display: auto;
+        `
+        verificador[2] = 0;
+        $btnEnviar.disabled = true;    
+    } else if (!valorTrim.match(/(jpeg|jpg|png)/)) {
+        $msgErroInput3.innerHTML = "URL inválida";
+        $msgErroInput3.style.cssText=`
+            color: red;
+            display: auto;
+        `
+        verificador[2] = 0;
+        $btnEnviar.disabled = true;           
+    } else {
+        $msgErroInput3.style.cssText=`
+            display: none;
+        `
+        verificador[2] = 3;
+        if (verificador.reduce((acc, sum)=>acc+=sum)==6) {
+            $btnEnviar.disabled = false;
+        }
+        
+    }
+}
 
 
-
+//----------------------------------------------------------------
+//RESPONSIVIDADE
 
     if (window.matchMedia("(min-width: 768px)").matches) {
         document.querySelector('#img-button').style.cssText =
