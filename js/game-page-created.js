@@ -3,82 +3,92 @@ const $containerCartas = document.querySelector('.container-cartas');
 const $h1InfosNaTela = document.querySelector('.h1');
 const $h2InfosNaTela = document.querySelector('.h2');
 const $infosNaTela = document.querySelector('.infos-na-tela');
+const $audio = document.getElementById("musica");
+const $audioMatch = document.getElementById("som-match");
+const $audioWin = document.getElementById("som-win");
+const $audioLetsGo = document.getElementById("som-letsgo");
 
-let hh = 0;
+$audio.volume = 0.5;
+
 let mm = 0;
 let ss = 0;
+let ms = 0;
 let cron;
-let tempo = 1000;/*quantos milessimos equivalem a 1 seg*/
+let tempo = 16.666;//tempo em milisegundos
 let paresEncontrados = 0;
 
-
+/**
+ * Contagem regressiva 3,2,1.
+ */
 function contador (){
     $infosNaTela.style.display='block';
     setTimeout(()=>{
         $h1InfosNaTela.innerHTML='3'
+        $audioMatch.play()
+        $audioMatch.volume=.3;
     }, 1000)
     setTimeout(()=>{
         $h1InfosNaTela.innerHTML='2'
+        $audioMatch.play()
+        $audioMatch.volume=.3;
     }, 2000)
     setTimeout(()=>{
+        $audio.volume=0;
         $h1InfosNaTela.innerHTML='1'
+        $audioMatch.play()
+        $audioMatch.volume=.3;
     }, 3000)
+    setTimeout(()=>{
+        $audioLetsGo.play()
+        $audioLetsGo.volume=.3;      
+    }, 3100)  
 }
+
+/**
+ * inicializa o jogo quando invocada.
+ */
 function start() {
     const $modal = document.querySelector('.modal');
     $modal.style.display='none';
+    $modal.disabled='true';
     contador();
     setTimeout(()=>{
         $h1InfosNaTela.style.display='none';
         $infosNaTela.style.display='none';
     cron = setInterval(() => { timer(); }, tempo)
     document.getElementById("btniniciar").style.display = "none"
+    $audio.play();
+    $audio.volume = .6;
     document.getElementById("btnreiniciar").style.display = "block"},4000)
 }
 
-function pausar() {
-    
-}
+/**
+ * Inicia uma nova partida.
+ */
 function recomecar() {
-    // cron = clearInterval
-    // hh = 0;
-    // mm = 0;
-    // ss = 0;
-
-    // embaralharCartas()
-    // cron = setInterval(() => { timer(); }, tempo)
-    location.href='../game-page-default.html'
-    // document.getElementById("btnreiniciar").style.display = "block"
-       
+    location.reload()
 }
-
+/**
+ * Pausa o cronômetro do jogo.
+ */
 function pausar() {
     clearInterval(cron);
 
 }
-// function recomecar() {
-//     document.getElementById("btniniciar").style.display = "block"
-//     document.getElementById("btnreiniciar").style.display = "none"
-      
-//     clearInterval(cron);
-//     hh = 0;
-//     mm = 0;
-//     ss = 0;
-    
-// }
+/**
+ * Cronômetro do jogo.
+ */
 function timer() {
-    ss++;
-
-    if (ss == 60) {
-        ss = 0;
-        mm++;
-        if (mm == 60) {
-            mm = 0;
-            hh++;
+    ms++;
+    if (ms == 60) {
+        ms = 0;
+        ss++;
+        if (ss == 60) {
+            ss = 0;
+            mm++;
         }
     }
-
-    let formato = "Tempo : " + (hh < 10 ? "0" + hh : hh) + ":" + (mm < 10 ? "0" + mm : mm) + ":" + (ss < 10 ? "0" + ss : ss)
+    let formato = "Tempo : " + (mm < 10 ? "0" + mm : mm) + ":" + (ss < 10 ? "0" + ss : ss) + ":" + (ms < 10 ? "0" + ms : ms)
     document.getElementById("Iniciar").innerText = formato
 }
 
@@ -87,19 +97,39 @@ $header.insertAdjacentHTML("beforeend", `
     <h6 class='pares-encontrados'>Pares encontrados: ${paresEncontrados}/6</h6>
 `);
 
+//seta a música de fundo da página de jogos
+// let numberRandom = Math.floor(Math.random()*5)
+// switch(numberRandom){
+//     case 0: $audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
+//     break;
+//     case 1: $audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
+//     break;
+//     case 2: $audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
+//     break;
+//     case 3: $audio.src='../audio/Super Mario Bros Theme Song .mp3'
+//     break;
+//     case 4: $audio.src='../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
+//     break;
+// }
 
+//Array com as cartas criadas pelo usuário.
 let storagelistaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"));
 
-const embaralharCartas = (arr)=>{
-    let novoArray=[];
-    while(novoArray.length !== arr.length){
-        let i=Math.floor(Math.random()*arr.length);
-        novoArray.indexOf(arr[i])<0 ? novoArray.push(arr[i]) : '';
+/**
+ * Embaralha os elementos de um array.
+ * @param {Array} i
+ */
+const embaralharCartas = (arr) => {
+    let novoArray = [];
+    while (novoArray.length !== arr.length) {
+        let i = Math.floor(Math.random() * arr.length);
+        novoArray.indexOf(arr[i]) < 0 ? novoArray.push(arr[i]) : '';
     };
     return novoArray;
 };
 
 storagelistaDeCartas = embaralharCartas(storagelistaDeCartas);
+
 
 
 for (let i = 0; i < storagelistaDeCartas.length; i++) {
@@ -108,7 +138,7 @@ for (let i = 0; i < storagelistaDeCartas.length; i++) {
         `
         <div class='cartas' id=${storagelistaDeCartas[i].id}>
             <div class='div-frente-verso front'>
-                <img class='img-cartas' src='${storagelistaDeCartas[i].url}' alt="">
+                <img class='img-cartas' src='../imgs/${storagelistaDeCartas[i].url}' alt="">
             </div>
             <div class='div-frente-verso back'>
                 <div class='img-cartas div-frente-verso'></div>
@@ -133,7 +163,7 @@ for (let i = 0; i < storagelistaDeCartas.length; i++) {
             document.querySelector('.section-descricao').innerHTML =
                 `
             <img class='img-descricao'
-            src="${storagelistaDeCartas[i].url}"
+            src="../imgs/${storagelistaDeCartas[i].url}"
             alt="">
             <div>
                 <h3>${storagelistaDeCartas[i].titulo}<h3>
@@ -147,9 +177,11 @@ for (let i = 0; i < storagelistaDeCartas.length; i++) {
 }
 
 
-
+/**
+ * Verifica se os pares de cartas escolhidos pelo usuário são iguais ou não. Verifica também se todos os pares foram encontrados.
+ * @param {int} i
+ */
 function verificaPar(i) {
-
     arrayDuasCartas.length == 2 ? arrayDuasCartas = [] : '';
 
     if (arrayDuasCartas.length == 0) {
@@ -161,7 +193,9 @@ function verificaPar(i) {
         let idElemento2 = `#${arrayDuasCartas[1].id}`;
         let faceElemento1 = document.querySelector(idElemento1).getElementsByClassName('div-frente-verso');
         let faceElemento2 = document.querySelector(idElemento2).getElementsByClassName('div-frente-verso');
-        if (arrayDuasCartas[0].url == arrayDuasCartas[1].url) {
+        if ((arrayDuasCartas[0].url.split('.'))[arrayDuasCartas[0].url.split('.').length-2] == (arrayDuasCartas[1].url.split('.'))[arrayDuasCartas[1].url.split('.').length-2]) {
+            $audioMatch.play()
+            $audioMatch.volume=.15;
             faceElemento1[0].style.opacity = '0.2';
             faceElemento1[1].style.opacity = '0.2';
             faceElemento2[0].style.opacity = '0.2';
@@ -173,12 +207,13 @@ function verificaPar(i) {
             setTimeout(() => {
                 if (paresEncontrados === 6) {
                     $infosNaTela.style.display='block';
-                    $h2InfosNaTela.style.display='block';
+                    $audio.pause()
+                    $audioWin.play()
+                    $audioWin.volume=.5;
                     $h2InfosNaTela.innerHTML=`
                     Fim de Jogo!
-                    Seu tempo foi de: ${(hh < 10 ? "0" + hh : hh)}:${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}.`
+                    Seu tempo foi de: ${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}:${(ms < 10 ? "0" + ms : ms)}.`;
                     pausar()}}, 1000)
-
         } else {
             arrayDuasCartas = [];
             setTimeout(() => {
@@ -187,8 +222,7 @@ function verificaPar(i) {
                 faceElemento2[0].classList.toggle('flip')
                 faceElemento2[1].classList.toggle('flip')
                 document.querySelector('.section-descricao').innerHTML = '';
-            }, 1200)
+            }, 800)
         }
     }
 }
-
