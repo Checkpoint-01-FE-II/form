@@ -13,7 +13,7 @@ audio.style.display='none';
 audioMatch.style.display='none';
 audioWin.style.display='none';
 audioLetsGo.style.display='none';
-audio.volume = 0.60;
+audio.volume = 0.40;
 
 let mm = 0;
 let ss = 0;
@@ -25,6 +25,7 @@ let paresEncontrados = 0;
 
 function contador (){
     $infosNaTela.style.display='block';
+
     setTimeout(()=>{
         $h1InfosNaTela.innerHTML='3'
         audioMatch.play()
@@ -36,6 +37,7 @@ function contador (){
         audioMatch.volume=.3;
     }, 2000)
     setTimeout(()=>{
+        audio.volume=0;
         $h1InfosNaTela.innerHTML='1'
         audioMatch.play()
         audioMatch.volume=.3;
@@ -56,7 +58,8 @@ function start() {
         $infosNaTela.style.display='none';
     cron = setInterval(() => { timer(); }, tempo)
     document.getElementById("btniniciar").style.display = "none"
-    audio.play();
+    // audio.play();
+    audio.volume = .8;
     document.getElementById("btnreiniciar").style.display = "block"},4000)
 }
 
