@@ -13,7 +13,7 @@ audio.style.display='none';
 audioMatch.style.display='none';
 audioWin.style.display='none';
 audioLetsGo.style.display='none';
-audio.volume = 0.40;
+audio.volume = 0.5;
 
 let mm = 0;
 let ss = 0;
@@ -44,7 +44,7 @@ function contador (){
     }, 3000)
     setTimeout(()=>{
         audioLetsGo.play()
-        audioLetsGo.volume=.3;
+        audioLetsGo.volume=.3;      
     }, 3100)  
 }
 
@@ -58,8 +58,8 @@ function start() {
         $infosNaTela.style.display='none';
     cron = setInterval(() => { timer(); }, tempo)
     document.getElementById("btniniciar").style.display = "none"
-    // audio.play();
-    audio.volume = .8;
+    audio.play();
+    audio.volume = .6;
     document.getElementById("btnreiniciar").style.display = "block"},4000)
 }
 
@@ -115,13 +115,16 @@ $header.insertAdjacentHTML("beforeend", `
 switch(JSON.parse(localStorage.getItem('baralho'))){
     case 'onepiece': audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
     break;
-    case 'marvel':audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
+    case 'marvel': audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
     break;
-    case 'aleatorios1':audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
+    case 'aleatorios1': audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
     break;
-    case 'aleatorios2':audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
+    case 'aleatorios2': audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
     break;
     case 'default': audio.src='../audio/Super Mario Bros Theme Song .mp3'
+    break;
+    case 'ingles': audio.src='../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
+    break;
 }
 
 //Array com as cartas preestabelecidas.
@@ -506,6 +509,158 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             }
         ];
+        break;
+    case 'ingles':
+        cartasDefault = [
+            {
+                id: '',
+                titulo: 'Laranja',
+                url: '../imgs/ingles/laranja.png',
+                descricao: 'fruta cÃ­trica suculenta.'
+            },
+            {
+                id: '',
+                titulo: 'Ãgua',
+                url: '../imgs/ingles/agua.png',
+                descricao: 'lÃ­quido sem cor nem sabor que se bebe.'
+            },
+            {
+                id: '',
+                titulo: 'Peixe',
+                url: '../imgs/ingles/peixe.png',
+                descricao: 'animal aquÃ¡tico.'
+            },
+            {
+                id: '',
+                titulo: 'Brincar',
+                url: '../imgs/ingles/brincar.png',
+                descricao: 'jogar, divertir-se.'
+            },
+            {
+                id: '',
+                titulo: 'Doce',
+                url: '../imgs/ingles/doce.png',
+                descricao: 'Alimento preparado com aÃ§Ãºcar.'
+            },
+            {
+                id: '',
+                titulo: 'Correr',
+                url: '../imgs/ingles/correr.png',
+                descricao: 'Deslocar-se ou mover-se rapidamente.'
+            },
+            {
+                id: '',
+                titulo: 'Orange',
+                url: '../imgs/ingles/laranja.jpg',
+                descricao: 'a type of juicy citrus fruit with a thick reddish-yellow skin.'
+            },
+            {
+                id: '',
+                titulo: 'Water',
+                url: '../imgs/ingles/agua.jpg',
+                descricao: 'a colourless/colorless, transparent liquid compound of hydrogen and oxygen, having no taste or smell, which turns to steam when boiled and to ice when frozen.'
+            },
+            {
+                id: '',
+                titulo: 'Fish',
+                url: '../imgs/ingles/peixe.jpg',
+                descricao: 'a kind of creature that lives in water and breathes through gills.'
+            },
+            {
+                id: '',
+                titulo: 'To Play',
+                url: '../imgs/ingles/brincar.jpg',
+                descricao: 'play act.'
+            },
+            {
+                id: '',
+                titulo: 'Candy',
+                url: '../imgs/ingles/doce.jpg',
+                descricao: 'food prepared with sugar.'
+            },
+            {
+                id: '',
+                titulo: 'To Run',
+                url: '../imgs/ingles/correr.jpg',
+                descricao: 'Move quickly.'
+            }
+        ];
+        break;
+    default:
+        cartasDefault = [
+            {
+                id: '',
+                titulo: 'Bulbasaur',
+                url: 'carta01.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Loki',
+                url: 'carta02.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Luke Skywalker',
+                url: 'carta03.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Squirtle',
+                url: 'carta04.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Little Mermaid',
+                url: 'carta05.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Princess Jasmine',
+                url: 'carta06.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Bulbasaur',
+                url: 'carta01.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Loki',
+                url: 'carta02.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Luke Skywalker',
+                url: 'carta03.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Squirtle',
+                url: 'carta04.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Little Mermaid',
+                url: 'carta05.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            },
+            {
+                id: '',
+                titulo: 'Princess Jasmine',
+                url: 'carta06.jpg',
+                descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
+            }
+        ];
 }
 
 //função que embaralha os elementos do array "cartasDefault"
@@ -580,7 +735,7 @@ function verificaPar(i) {
         let idElemento2 = `#${arrayDuasCartas[1].id}`;
         let faceElemento1 = document.querySelector(idElemento1).getElementsByClassName('div-frente-verso');
         let faceElemento2 = document.querySelector(idElemento2).getElementsByClassName('div-frente-verso');
-        if (arrayDuasCartas[0].url == arrayDuasCartas[1].url) {
+        if ((arrayDuasCartas[0].url.split('.'))[arrayDuasCartas[0].url.split('.').length-2] == (arrayDuasCartas[1].url.split('.'))[arrayDuasCartas[1].url.split('.').length-2]) {
             audioMatch.play()
             audioMatch.volume=.15;
             faceElemento1[0].style.opacity = '0.2';

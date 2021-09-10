@@ -4,6 +4,7 @@ const $audio = document.getElementById("musica");
 const $audioFundo = document.getElementById("musica-fundo");
 $audio.volume = 1;
 
+
     window.addEventListener('mousemove', ()=>{
         $audioFundo.play()
         $audioFundo.volume = .2;
@@ -38,6 +39,10 @@ $btn.addEventListener('click', ()=>{
             break;
             case 'personagens-aleatorios-2':
                 storage='aleatorios2';
+                localStorage.setItem('baralho', JSON.stringify(storage))    
+            break;
+            case 'ingles':
+                storage='ingles';
                 localStorage.setItem('baralho', JSON.stringify(storage))    
             break;
             default:  

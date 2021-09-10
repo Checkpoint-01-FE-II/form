@@ -190,6 +190,7 @@ document.querySelector("*").style.cssText = `
         margin-top: 2rem;    
         font-size: 2rem;
         `
+        
     } else{
         $formulario.style.cssText=`
             display: flex;
@@ -201,6 +202,7 @@ document.querySelector("*").style.cssText = `
         $tituloForm.style.cssText=`
             font-size: 1.6rem;
         `
+        
     }
         
         
