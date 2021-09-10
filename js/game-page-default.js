@@ -3,51 +3,50 @@ const $containerCartas = document.querySelector('.container-cartas');
 const $h1InfosNaTela = document.querySelector('.h1');
 const $h2InfosNaTela = document.querySelector('.h2');
 const $infosNaTela = document.querySelector('.infos-na-tela');
+const $audio = document.getElementById("musica");
+const $audioMatch = document.getElementById("som-match");
+const $audioWin = document.getElementById("som-win");
+const $audioLetsGo = document.getElementById("som-letsgo");
 
-const audio = document.getElementById("musica");
-const audioMatch = document.getElementById("som-match");
-const audioWin = document.getElementById("som-win");
-const audioLetsGo = document.getElementById("som-letsgo");
-
-audio.style.display='none';
-audioMatch.style.display='none';
-audioWin.style.display='none';
-audioLetsGo.style.display='none';
-audio.volume = 0.5;
+$audio.volume = 0.5;
 
 let mm = 0;
 let ss = 0;
 let ms = 0;
 let cron;
-let tempo = 16.666;//tempo em milisegundos /*quantos milessimos equivalem a 1 seg*/
+let tempo = 16.666;//tempo em milisegundos
 let paresEncontrados = 0;
 
-
+/**
+ * Contagem regressiva 3,2,1.
+ */
 function contador (){
     $infosNaTela.style.display='block';
-
     setTimeout(()=>{
         $h1InfosNaTela.innerHTML='3'
-        audioMatch.play()
-        audioMatch.volume=.3;
+        $audioMatch.play()
+        $audioMatch.volume=.3;
     }, 1000)
     setTimeout(()=>{
         $h1InfosNaTela.innerHTML='2'
-        audioMatch.play()
-        audioMatch.volume=.3;
+        $audioMatch.play()
+        $audioMatch.volume=.3;
     }, 2000)
     setTimeout(()=>{
-        audio.volume=0;
+        $audio.volume=0;
         $h1InfosNaTela.innerHTML='1'
-        audioMatch.play()
-        audioMatch.volume=.3;
+        $audioMatch.play()
+        $audioMatch.volume=.3;
     }, 3000)
     setTimeout(()=>{
-        audioLetsGo.play()
-        audioLetsGo.volume=.3;      
+        $audioLetsGo.play()
+        $audioLetsGo.volume=.3;      
     }, 3100)  
 }
 
+/**
+ * inicializa o jogo quando invocada.
+ */
 function start() {
     const $modal = document.querySelector('.modal');
     $modal.style.display='none';
@@ -58,41 +57,29 @@ function start() {
         $infosNaTela.style.display='none';
     cron = setInterval(() => { timer(); }, tempo)
     document.getElementById("btniniciar").style.display = "none"
-    audio.play();
-    audio.volume = .6;
+    $audio.play();
+    $audio.volume = .6;
     document.getElementById("btnreiniciar").style.display = "block"},4000)
 }
 
+/**
+ * Inicia uma nova partida.
+ */
 function recomecar() {
-    // cron = clearInterval
-    // hh = 0;
-    // mm = 0;
-    // ss = 0;
-
-    // embaralharCartas()
-    // cron = setInterval(() => { timer(); }, tempo)
-    location.href='../html/game-page-default.html'
-    // document.getElementById("btnreiniciar").style.display = "block"
-       
+    location.reload()
 }
-
+/**
+ * Pausa o cronômetro do jogo.
+ */
 function pausar() {
     clearInterval(cron);
 
 }
-// function recomecar() {
-//     document.getElementById("btniniciar").style.display = "block"
-//     document.getElementById("btnreiniciar").style.display = "none"
-      
-//     clearInterval(cron);
-//     hh = 0;
-//     mm = 0;
-//     ss = 0;
-    
-// }
+/**
+ * Cronômetro do jogo.
+ */
 function timer() {
     ms++;
-
     if (ms == 60) {
         ms = 0;
         ss++;
@@ -101,7 +88,6 @@ function timer() {
             mm++;
         }
     }
-
     let formato = "Tempo : " + (mm < 10 ? "0" + mm : mm) + ":" + (ss < 10 ? "0" + ss : ss) + ":" + (ms < 10 ? "0" + ms : ms)
     document.getElementById("Iniciar").innerText = formato
 }
@@ -111,24 +97,26 @@ $header.insertAdjacentHTML("beforeend", `
     <h6 class='pares-encontrados'>Pares encontrados: ${paresEncontrados}/6</h6>
 `);
 
-//musica de fundo
+//seta a música de fundo da página de jogos
 switch(JSON.parse(localStorage.getItem('baralho'))){
-    case 'onepiece': audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
+    case 'onepiece': $audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
     break;
-    case 'marvel': audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
+    case 'marvel': $audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
     break;
-    case 'aleatorios1': audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
+    case 'aleatorios1': $audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
     break;
-    case 'aleatorios2': audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
+    case 'aleatorios2': $audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
     break;
-    case 'default': audio.src='../audio/Super Mario Bros Theme Song .mp3'
+    case 'default': $audio.src='../audio/Super Mario Bros Theme Song .mp3'
     break;
-    case 'ingles': audio.src='../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
+    case 'ingles': $audio.src='../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
     break;
 }
 
 //Array com as cartas preestabelecidas.
 let cartasDefault;
+
+//Seta o baralho escolhido pelo usuário.
 switch(JSON.parse(localStorage.getItem('baralho'))){
     case 'onepiece':
         cartasDefault = [
@@ -663,7 +651,10 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
         ];
 }
 
-//função que embaralha os elementos do array "cartasDefault"
+/**
+ * Embaralha os elementos de um array.
+ * @param {Array} i
+ */
 const embaralharCartas = (arr) => {
     let novoArray = [];
     while (novoArray.length !== arr.length) {
@@ -721,9 +712,11 @@ for (let i = 0; i < cartasDefault.length; i++) {
 }
 
 
-
+/**
+ * Verifica se os pares de cartas escolhidos pelo usuário são iguais ou não. Verifica também se todos os pares foram encontrados.
+ * @param {int} i
+ */
 function verificaPar(i) {
-
     arrayDuasCartas.length == 2 ? arrayDuasCartas = [] : '';
 
     if (arrayDuasCartas.length == 0) {
@@ -736,8 +729,8 @@ function verificaPar(i) {
         let faceElemento1 = document.querySelector(idElemento1).getElementsByClassName('div-frente-verso');
         let faceElemento2 = document.querySelector(idElemento2).getElementsByClassName('div-frente-verso');
         if ((arrayDuasCartas[0].url.split('.'))[arrayDuasCartas[0].url.split('.').length-2] == (arrayDuasCartas[1].url.split('.'))[arrayDuasCartas[1].url.split('.').length-2]) {
-            audioMatch.play()
-            audioMatch.volume=.15;
+            $audioMatch.play()
+            $audioMatch.volume=.15;
             faceElemento1[0].style.opacity = '0.2';
             faceElemento1[1].style.opacity = '0.2';
             faceElemento2[0].style.opacity = '0.2';
@@ -749,9 +742,9 @@ function verificaPar(i) {
             setTimeout(() => {
                 if (paresEncontrados === 6) {
                     $infosNaTela.style.display='block';
-                    audio.pause()
-                    audioWin.play()
-                    audioWin.volume=.5;
+                    $audio.pause()
+                    $audioWin.play()
+                    $audioWin.volume=.5;
                     $h2InfosNaTela.innerHTML=`
                     Fim de Jogo!
                     Seu tempo foi de: ${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}:${(ms < 10 ? "0" + ms : ms)}.`;
