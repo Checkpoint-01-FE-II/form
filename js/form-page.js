@@ -245,18 +245,13 @@ document.querySelector("*").style.cssText = `
 
             //     `
             // });
-        
-            $legendCampo1.style.cssText=`
-                display: none;
-            `
-            $legendCampo2.style.cssText=`
-                display: none;
-            `
-            $legendCampo3.style.cssText=`
-                display: none;
-            `
 
-            $inputCampo1.addEventListener('focus', ()=>{
+            Array.from($cLegend).forEach(element => {
+                    element.style.cssText=`
+                        display: none;
+                    `
+            });
+            $inputCampo1.addEventListener('focusin', ()=>{
                 $legendCampo1.style.cssText=`
                     display: auto;
                     width: fit-content;
@@ -266,7 +261,7 @@ document.querySelector("*").style.cssText = `
                 $inputCampo1.placeholder = '';
                 
             })
-            $inputCampo2.addEventListener('focus', ()=>{
+            $inputCampo2.addEventListener('focusin', ()=>{
                 $legendCampo2.style.cssText=`
                     display: auto;
                     width: fit-content;
@@ -275,7 +270,7 @@ document.querySelector("*").style.cssText = `
                 `
                 $inputCampo2.placeholder = '';
             })
-            $inputCampo3.addEventListener('focus', ()=>{
+            $inputCampo3.addEventListener('focusin', ()=>{
                 $legendCampo3.style.cssText=`
                     display: auto;
                     width: fit-content;
@@ -303,7 +298,6 @@ document.querySelector("*").style.cssText = `
                 `
                 $inputCampo3.placeholder = 'Insira URL';
             })
-
 
 
             //ESTILO INPUT
