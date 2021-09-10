@@ -406,22 +406,23 @@ document.querySelector("*").style.cssText = `
         }
         
         function adicionarCarta(){
-        //   if ($inputCampo1.value != '' && $inputCampo2.value != '' && $inputCampo3.value != '') {
-            let dadosNovaCarta=
-              {
-                id: '',
-                titulo: $inputCampo1.value,
-                url: $inputCampo3.value,
-                descricao: $inputCampo2.value,
-              }
-
+        let dadosNovaCarta=
+            {
+            id: '',
+            titulo: $inputCampo1.value,
+            url: $inputCampo3.value,
+            descricao: $inputCampo2.value,
+            }
+        if (listaDeCartas.length >= 4) {
+            //btn jogar display = auto
+        } else if (listaDeCartas.length <= 10) {
             listaDeCartas.push(dadosNovaCarta);
             listaDeCartas.push(dadosNovaCarta);
-            localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
-            location.reload();
-        //   }else{
-        //     alert("Verifique se a URL inserida é válida (.png ou .jpg) e se todos os campos estão preenchidos.")
-        //   }
+        } else {
+            alert("Você atingiu o limite de cartas!")
+        }
+        localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
+        location.reload();
         }
 
 
@@ -468,7 +469,6 @@ document.body.appendChild($modalContainer);
 
 //-----------------------------------------------------------------
 
-//MUDAR VALORES DO CARD, DEIXAR "" VAZIOS
 $cardImg.setAttribute("src","");
 $cardImg.setAttribute("alt","Imagem a ser exibida na carta");
 
@@ -478,7 +478,6 @@ $cardText.insertAdjacentText("afterbegin", "");
 
 $cardBtnConfirmar.setAttribute("type", "submit");
 
-//REMOVER COMENTÁRIO AO FINAL - ALERTA DO ELSE INCOMODA NA HORA DE CODAR
 $cardBtnConfirmar.onclick = () => adicionarCarta();
 
 $cardBtnConfirmar.insertAdjacentText("afterbegin", "Confirmar");
@@ -691,6 +690,9 @@ function validarInput3 () {
         
     }
 }
+
+//RESETA CONDIÇÃO DO BTN ENVIAR PARA DESABILITADO
+$formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
 
 
 //----------------------------------------------------------------
