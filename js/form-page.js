@@ -1,6 +1,7 @@
 //-----------------------------------------------------------------        
 //CRIAÇÃO ELEMENTOS COM SUAS VARIÁVEIS
 
+const $header = document.createElement('header')
 const $main = document.createElement("main");
     const $formulario = document.createElement("form");
         const $tituloForm = document.createElement("h1");
@@ -20,12 +21,12 @@ const $main = document.createElement("main");
         const $btnEnviar = document.createElement("button");
         const $btnCancelar = document.createElement("button");
         const $btnVoltar = document.createElement('a');
-        const $btnJogar = document.createElement('a');
+        const $btnJogar = document.createElement('button');
 //------------------------------------------------------------------------ 
 //APENSANDO ELEMENTOS
-
+document.body.appendChild($header);
 document.body.appendChild($main);
-    
+
     $main.appendChild($formulario);
            
         $formulario.appendChild($tituloForm);
@@ -398,6 +399,10 @@ document.querySelector("*").style.cssText = `
 
 //------------------------------------------------------------------------ 
 //INTERATIVIDADE        
+        let paresCriados = 0;
+        $header.insertAdjacentHTML("beforeend", `
+            <h6 class='pares-criados'>Pares criados: ${paresCriados}/6</h6>
+        `);
 
         let listaDeCartas = localStorage.getItem("listaDeCartas");
 
@@ -720,4 +725,133 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
         height: 50px;
         `
     }
+
+
+
+    //MODAL INICIAL - INSTRUÇÕES PARA CRIAÇÃO DAS CARTAS
+
+    const $divModal = document.createElement('div');
+    $divModal.classList.add('modal-instrucoes');
+    // const $divCaixaInfos = document.createElement('div');
+    // $divCaixaInfos.classList.add('caixa-infos');
+    // $divCaixaInfos.setAttribute('id', 'caixa-infos')
+    // $divCaixaInfos.setAttribute('disabled', 'true')
+    // $divModal.appendChild($divCaixaInfos)
+    // const $divInfosCards = document.createElement('div');
+    // $divInfosCards.classList.add('infos-cards');
+    // $divInfosCards.classList.add('nes-container');
+    // $divInfosCards.classList.add('is-dark');
+    // $divCaixaInfos.appendChild($divInfosCards);
+    // const $h1ModalTitulo = document.createElement('h1')
+    // $h1ModalTitulo.classList.add('title-modal-instrucoes')
+    // $h1ModalTitulo.insertAdjacentText('afterbegin', `Crie seu baralho de cartas`)
+    // $divCaixaInfos.appendChild($h1ModalTitulo);
+    // const $pSubtitleModalInstrucoes = document.createElement('p')
+
+    $divModal.insertAdjacentHTML('afterbegin', `  
+        <div id="caixa-infos" disabled class="caixa-infos">
+            <div class="infos-cards nes-container is-dark" >
+                <h1 class="title-modal-instrucoes">Crie seu baralho de cartas</h1>
+                <p class="subtitle">Siga as instruções abaixo para criar as suas cartas</p>
+                <h2 class="instructions">Instruções</h2>
+                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>Seu baralho deverá ter no mínimo 2 e no máximo 6 pares de cartas.</p>
+                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>Não adicione cartas com imagens idênticas.</p>
+                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>A partir de duas cartas adicionadas, é liberado o botão "Start" e você poderá iniciar a partida.</p>
+                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>O campo título deve ser preenchido com no máximo 30 caracteres.</p>
+                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>O campo descrição deve ser preenchido com no máximo 400 caracteres.</p>
+                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>Para obter a URL da imagem, clique com o botao direito do mouse sobre uma imagem que você escolhar na internet e clique em "copiar link da imagem".</p>
+                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>Nenhum dos campos pode estar vazio (sem preencher).</p>
+                <div class='div-btns'>
+                    <button onclick="fecharInstrucoes()" id="btnFecharInstrucoes"
+                        class="nes-btn is-warning">Ok</button>
+                </div>
+            </div>
+        </div>
+    `)
+
+    $main.appendChild($divModal)
+
+
+    //modal com as instruções do jogo.
+    $divModal.style.cssText=
+    `
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100vw;
+        height: 100vh;
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    `
+
+    //(min-width: 768px)
+    document.querySelector('.caixa-infos').style.cssText=
+    `
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 700px;
+    `
+    //MOBILE
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // z-index: 3;
+    // width: 90%;
+
+    //(min-width: 768px)
+    document.querySelector('.infos-cards').style.cssText=`
+    padding:  40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    `
+    //MOBILE
+    // padding:  1.5rem;
+    // display: flex;
+    // flex-direction: column;
+    // gap: 1rem;
+    // text-align: center;
+    document.querySelector('.title-modal-instrucoes').style.cssText=
+    `
+        font-weight: 600;
+        font-size: 18px;
+    `
+    //(min-width: 1024px)
+    document.querySelector('.subtitle').style.cssText=
+    `
+    font-size: 13px;
+    line-height: 30px;
+    `
+    //MOBILE
+    // font-size: 1rem;
+    // line-height: 2rem;
+
+    //(min-width: 768px)
+    document.querySelector('.instructions').style.cssText=
+    `
+    font-weight: 600;
+    font-size: 18px;
+    `            
+    //MOBILE
+    // font-weight: 600;
+    // font-size: 1.5rem;
+            
+    //(min-width: 1024px)
+    document.querySelectorAll('.p-instructions').style.cssText=
+    `            
+    margin: 0 50px;
+    line-height: 13px;
+    font-size: 10px;
+    `
+    //MOBILE
+    // margin: 0 1rem;
+    // line-height: 1.5rem;
+    // font-size: 1rem;
 
