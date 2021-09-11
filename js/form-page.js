@@ -419,10 +419,6 @@ document.querySelector("*").style.cssText = `
 
 //------------------------------------------------------------------------ 
 //INTERATIVIDADE        
-        // let paresCriados = 0;
-
-
-
 
         let listaDeCartas = localStorage.getItem("listaDeCartas");
 

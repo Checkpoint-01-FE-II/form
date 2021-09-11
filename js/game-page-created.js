@@ -92,25 +92,20 @@ function timer() {
     document.getElementById("Iniciar").innerText = formato
 }
 
-$header.insertAdjacentHTML("beforeend", `
-    <h6 id="Iniciar">Tempo : 00:00:00</h6>
-    <h6 class='pares-encontrados'>Pares encontrados: ${paresEncontrados}/6</h6>
-`);
-
-//seta a música de fundo da página de jogos
-// let numberRandom = Math.floor(Math.random()*5)
-// switch(numberRandom){
-//     case 0: $audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
-//     break;
-//     case 1: $audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
-//     break;
-//     case 2: $audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
-//     break;
-//     case 3: $audio.src='../audio/Super Mario Bros Theme Song .mp3'
-//     break;
-//     case 4: $audio.src='../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
-//     break;
-// }
+//seta a música de fundo da página de jogos aleatoriamente
+let numberRandom = Math.floor(Math.random()*5)
+switch(numberRandom){
+    case 0: $audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
+    break;
+    case 1: $audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
+    break;
+    case 2: $audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
+    break;
+    case 3: $audio.src='../audio/Super Mario Bros Theme Song .mp3'
+    break;
+    case 4: $audio.src='../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
+    break;
+}
 
 //Array com as cartas criadas pelo usuário.
 let storagelistaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"));
@@ -130,6 +125,10 @@ const embaralharCartas = (arr) => {
 
 storagelistaDeCartas = embaralharCartas(storagelistaDeCartas);
 
+$header.insertAdjacentHTML("beforeend", `
+    <h6 id="Iniciar">Tempo : 00:00:00</h6>
+    <h6 class='pares-encontrados'>Pares encontrados: ${paresEncontrados}/${storagelistaDeCartas.length/2}</h6>
+`);
 
 
 for (let i = 0; i < storagelistaDeCartas.length; i++) {
@@ -138,7 +137,7 @@ for (let i = 0; i < storagelistaDeCartas.length; i++) {
         `
         <div class='cartas' id=${storagelistaDeCartas[i].id}>
             <div class='div-frente-verso front'>
-                <img class='img-cartas' src='../imgs/${storagelistaDeCartas[i].url}' alt="">
+                <img class='img-cartas' src='${storagelistaDeCartas[i].url}' alt="">
             </div>
             <div class='div-frente-verso back'>
                 <div class='img-cartas div-frente-verso'></div>
@@ -163,7 +162,7 @@ for (let i = 0; i < storagelistaDeCartas.length; i++) {
             document.querySelector('.section-descricao').innerHTML =
                 `
             <img class='img-descricao'
-            src="../imgs/${storagelistaDeCartas[i].url}"
+            src="${storagelistaDeCartas[i].url}"
             alt="">
             <div>
                 <h3>${storagelistaDeCartas[i].titulo}<h3>
@@ -193,7 +192,7 @@ function verificaPar(i) {
         let idElemento2 = `#${arrayDuasCartas[1].id}`;
         let faceElemento1 = document.querySelector(idElemento1).getElementsByClassName('div-frente-verso');
         let faceElemento2 = document.querySelector(idElemento2).getElementsByClassName('div-frente-verso');
-        if ((arrayDuasCartas[0].url.split('.'))[arrayDuasCartas[0].url.split('.').length-2] == (arrayDuasCartas[1].url.split('.'))[arrayDuasCartas[1].url.split('.').length-2]) {
+        if (arrayDuasCartas[0].url == arrayDuasCartas[1].url) {
             $audioMatch.play()
             $audioMatch.volume=.15;
             faceElemento1[0].style.opacity = '0.2';
@@ -203,9 +202,9 @@ function verificaPar(i) {
 
             paresEncontrados++;
 
-            document.querySelector('.pares-encontrados').innerHTML = `Pares encontrados: ${paresEncontrados}/6`
+            document.querySelector('.pares-encontrados').innerHTML = `Pares encontrados: ${paresEncontrados}/${storagelistaDeCartas.length/2}`
             setTimeout(() => {
-                if (paresEncontrados === 6) {
+                if (paresEncontrados === storagelistaDeCartas.length/2) {
                     $infosNaTela.style.display='block';
                     $audio.pause()
                     $audioWin.play()
