@@ -12,7 +12,8 @@ const $main = document.createElement("main");
         
         const $campoForm2 = document.createElement("fieldset");
             const $legendCampo2 = document.createElement("legend");
-            const $inputCampo2 = document.createElement("input");
+            // const $inputCampo2 = document.createElement("input");
+            const $inputCampo2 = document.createElement("textarea");
             
         const $campoForm3 = document.createElement("fieldset");
             const $legendCampo3 = document.createElement("legend");    
@@ -150,34 +151,35 @@ document.querySelector("*").style.cssText = `
     `
     
     if (window.matchMedia("(min-width: 768px)").matches) {
-        $formulario.style.cssText=`
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            padding-bottom: 2rem;
-            width: 500px;
-            height: 500px;
-        `
+        // $formulario.style.cssText=`
+        //     display: flex;
+        //     flex-direction: column;
+        //     align-items: center;
+        //     gap: 1.5rem;
+        //     padding-bottom: 2rem;
+        //     width: 500px;
+        //     height: 500px;
+        // `
         $tituloForm.style.cssText=`
         margin-top: 2rem;    
         font-size: 2rem;
         `
         
     } else{
-        $formulario.style.cssText=`
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            padding-bottom: 2rem;
-        `
+        // $formulario.style.cssText=`
+        //     display: flex;
+        //     flex-direction: column;
+        //     align-items: center;
+        //     gap: 1.5rem;
+        //     padding-bottom: 2rem;
+        // `
         $tituloForm.style.cssText=`
             font-size: 1.6rem;
         `
         
     }
         
+
         if (window.matchMedia("(min-width: 768px)").matches) {
             Array.from($cCampo).forEach(element => {
                 element.style.cssText=`
@@ -230,6 +232,7 @@ document.querySelector("*").style.cssText = `
                     width: fit-content;
                     margin-left: .5rem;
                     font-size: 1.6rem;
+                    
                 `
                 $inputCampo2.placeholder = '';
             })
@@ -356,7 +359,7 @@ document.querySelector("*").style.cssText = `
                     font-size: 1rem;
                 `
                 $inputCampo1.placeholder = '';
-                
+
             })
             $inputCampo2.addEventListener('focus', ()=>{
                 $legendCampo2.style.cssText=`
@@ -589,14 +592,15 @@ const $cMsgErro = document.getElementsByClassName("msg-erro")
 
 //ATRIBUIÇÃO DE ESTILO
 
-Array.from($cMsgErro).forEach(element => {
-    element.style.cssText=`
-    color: red;
-    display: none;
-    padding-bottom: 0;
-    font-size: 1rem;
-    `
-});
+    Array.from($cMsgErro).forEach(element => {
+        element.style.cssText=`
+        text-align: center;
+        color: red;
+        display: none;
+        padding-bottom: 0;
+        font-size: 1rem;
+        `
+    });
 
 //VINCULANDO A EVENTO
 
@@ -612,20 +616,47 @@ function validarInput1 () {
     let valorTrim = $inputCampo1.value.trim()
     if (valorTrim == "") {
         $msgErroInput1.innerHTML = "Escreva um Título";
-        $msgErroInput1.style.cssText=`
-            color: red;
-            display: auto;
-        `      
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            $msgErroInput1.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1.5rem;
+            `     
+        } else {
+            $msgErroInput1.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1rem;
+            `     
+        }
         verificador[0] = 0;
+        $inputCampo1.focus()
         $btnEnviar.disabled = true;
     } else if (valorTrim.length >= 30) {
         $msgErroInput1.innerHTML = "Título deve ter até 30 caracteres";
-        $msgErroInput1.style.cssText=`
-        color: red;
-        text-align: center;
-        display: auto;
-        ` 
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            $msgErroInput1.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1.5rem;
+            `     
+        } else {
+            $msgErroInput1.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1rem;
+            `     
+        }
         verificador[0] = 0;
+        $inputCampo1.focus()
         $btnEnviar.disabled = true;
     } else {
         $msgErroInput1.style.cssText=`
@@ -642,21 +673,47 @@ function validarInput2 () {
     let valorTrim = $inputCampo2.value.trim()
     if (valorTrim == "") {
         $msgErroInput2.innerHTML = "Escreva uma Descrição";
-        $msgErroInput2.style.cssText=`
-            color: red;
-            text-align: center;
-            display: auto;
-        `
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            $msgErroInput2.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1.5rem;
+            `     
+        } else {
+            $msgErroInput2.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1rem;
+            `     
+        }
         verificador[1] = 0; 
+        $inputCampo2.focus()
         $btnEnviar.disabled = true;     
     } else if (valorTrim.length >= 400) {
         $msgErroInput2.innerHTML = "Título deve ter até 400 caracteres";
-        $msgErroInput2.style.cssText=`
-        color: red;
-        text-align: center;
-        display: auto;
-        `
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            $msgErroInput2.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1.5rem;
+            `     
+        } else {
+            $msgErroInput2.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1rem;
+            `     
+        }
         verificador[1] = 0;
+        $inputCampo2.focus()
         $btnEnviar.disabled = true;
     } else {
         $msgErroInput2.style.cssText=`
@@ -673,19 +730,47 @@ function validarInput3 () {
     let valorTrim = $inputCampo3.value.trim()
     if (valorTrim == "") {
         $msgErroInput3.innerHTML = "Insira uma URL";
-        $msgErroInput3.style.cssText=`
-            color: red;
-            display: auto;
-        `
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            $msgErroInput3.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1.5rem;
+            `     
+        } else {
+            $msgErroInput3.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1rem;
+            `     
+        }
         verificador[2] = 0;
+        $inputCampo3.focus()
         $btnEnviar.disabled = true;    
     } else if (!valorTrim.match(/(jpeg|jpg|png)/)) {
         $msgErroInput3.innerHTML = "URL inválida";
-        $msgErroInput3.style.cssText=`
-            color: red;
-            display: auto;
-        `
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            $msgErroInput3.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1.5rem;
+            `     
+        } else {
+            $msgErroInput3.style.cssText=`
+                color: red;
+                text-align: center;
+                display: auto;
+                padding-bottom: 0;
+                font-size: 1rem;
+            `     
+        }
         verificador[2] = 0;
+        $inputCampo3.focus()
         $btnEnviar.disabled = true;           
     } else {
         $msgErroInput3.style.cssText=`
@@ -754,13 +839,16 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
                 <h1 class="title-modal-instrucoes">Crie seu baralho de cartas</h1>
                 <p class="subtitle">Siga as instruções abaixo para criar as suas cartas</p>
                 <h2 class="instructions">Instruções</h2>
-                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>Seu baralho deverá ter no mínimo 2 e no máximo 6 pares de cartas.</p>
-                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>Não adicione cartas com imagens idênticas.</p>
-                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>A partir de duas cartas adicionadas, é liberado o botão "Start" e você poderá iniciar a partida.</p>
-                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>O campo título deve ser preenchido com no máximo 30 caracteres.</p>
-                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>O campo descrição deve ser preenchido com no máximo 400 caracteres.</p>
-                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>Para obter a URL da imagem, clique com o botao direito do mouse sobre uma imagem que você escolhar na internet e clique em "copiar link da imagem".</p>
-                <p style='margin: 0 50px; line-height: 20px; font-size: 12px;' class='p-instructions'>Nenhum dos campos pode estar vazio (sem preencher).</p>
+                <ol class='lista'>
+                    <li class='p-instructions'>Seu baralho deverá ter no mínimo 2 e no máximo 6 pares de cartas.</li>
+                    <li class='p-instructions'>Cada carta que você adicionar, automaticamente será gerado pelo sistema uns respectivo par para ela.</li>
+                    <li class='p-instructions'>Não adicione cartas com imagens idênticas.</li>
+                    <li class='p-instructions'>A partir de duas cartas adicionadas, é liberado o botão "Start" e você poderá iniciar a partida.</li>
+                    <li class='p-instructions'>O campo título deve ser preenchido com no máximo 30 caracteres.</li>
+                    <li class='p-instructions'>O campo descrição deve ser preenchido com no máximo 400 caracteres.</li>
+                    <li class='p-instructions'>Para obter a URL da imagem, clique com o botao direito do mouse sobre uma imagem que você escolhar na internet e clique em "copiar link da imagem".</li>
+                    <li class='p-instructions'>Nenhum dos campos pode estar vazio (sem preencher).</li>
+                </ol>
                 <div class='div-btns'>
                     <button onclick="fecharInstrucoes()" id="btnFecharInstrucoes"
                         class="nes-btn is-warning">Ok</button>
@@ -771,7 +859,8 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
 
     $main.appendChild($divModal)
 
-
+//ESTILIZAÇÃO RESPONSIVA DO MODAL
+if (window.matchMedia("(min-width: 1024px)").matches) {
     //modal com as instruções do jogo.
     $divModal.style.cssText=
     `
@@ -785,8 +874,6 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
         right: 0;
         bottom: 0;
     `
-
-    //(min-width: 768px)
     document.querySelector('.caixa-infos').style.cssText=
     `
     position: absolute;
@@ -794,17 +881,8 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
-    width: 700px;
+    width: 900px;
     `
-    //MOBILE
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-    // z-index: 3;
-    // width: 90%;
-
-    //(min-width: 768px)
     document.querySelector('.infos-cards').style.cssText=`
     padding:  40px;
     display: flex;
@@ -812,46 +890,253 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
     gap: 20px;
     text-align: center;
     `
-    //MOBILE
-    // padding:  1.5rem;
-    // display: flex;
-    // flex-direction: column;
-    // gap: 1rem;
-    // text-align: center;
     document.querySelector('.title-modal-instrucoes').style.cssText=
     `
         font-weight: 600;
-        font-size: 18px;
+        font-size: 20px;
     `
-    //(min-width: 1024px)
     document.querySelector('.subtitle').style.cssText=
     `
     font-size: 13px;
     line-height: 30px;
     `
-    //MOBILE
-    // font-size: 1rem;
-    // line-height: 2rem;
-
-    //(min-width: 768px)
     document.querySelector('.instructions').style.cssText=
     `
     font-weight: 600;
     font-size: 18px;
     `            
-    //MOBILE
-    // font-weight: 600;
-    // font-size: 1.5rem;
-            
-    //(min-width: 1024px)
-    document.querySelectorAll('.p-instructions').style.cssText=
+    let pInstructions = document.getElementsByClassName('p-instructions')
+    
+    for(let p of pInstructions){
+        p.style.cssText=
+        `            
+        margin: 0 50px;
+        line-height: 15px;
+        font-size: 10px;
+        text-align: left;
+        `
+    }
+    document.querySelector('.lista').style.cssText=
+    `
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    `
+    document.querySelector('#btnFecharInstrucoes').style.cssText=
+    `
+        width: 150px;
+    `
+} else if (window.matchMedia("(min-width: 768px)").matches) {
+
+$divModal.style.cssText=
+`
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+`
+document.querySelector('.caixa-infos').style.cssText=
+`
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 3;
+width: 650px;
+`
+document.querySelector('.infos-cards').style.cssText=`
+padding: 40px 25px;
+display: flex;
+flex-direction: column;
+gap: 20px;
+text-align: center;
+`
+document.querySelector('.title-modal-instrucoes').style.cssText=
+`
+    font-weight: 600;
+    font-size: 18px;
+`
+document.querySelector('.subtitle').style.cssText=
+`
+font-size: 13px;
+line-height: 30px;
+`
+document.querySelector('.instructions').style.cssText=
+`
+font-weight: 600;
+font-size: 18px;
+`            
+let pInstructions = document.getElementsByClassName('p-instructions')
+
+for(let p of pInstructions){
+    p.style.cssText=
     `            
     margin: 0 50px;
-    line-height: 13px;
+    line-height: 15px;
     font-size: 10px;
+    text-align: left;
     `
-    //MOBILE
-    // margin: 0 1rem;
-    // line-height: 1.5rem;
-    // font-size: 1rem;
+}
 
+document.querySelector('.lista').style.cssText=
+`
+display:flex;
+flex-direction: column;
+gap: 10px;
+`
+document.querySelector('#btnFecharInstrucoes').style.cssText=
+`
+    width: 150px;
+`
+} 
+else {
+    $divModal.style.cssText=
+    `
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100vw;
+        height: 1400px;
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    `
+    document.querySelector('.caixa-infos').style.cssText=
+    `
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -25%);
+        z-index: 3;
+        width: 90%;
+    `
+    document.querySelector('.infos-cards').style.cssText=`
+        padding:  15px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        padding-top: 40px;
+        text-align: center;
+    `
+    document.querySelector('.title-modal-instrucoes').style.cssText=
+    `
+        font-weight: 600;
+        font-size: 13px;
+    `
+    document.querySelector('.subtitle').style.cssText=
+    `
+    font-size: 10px;
+    line-height: 12px;
+    `
+    document.querySelector('.instructions').style.cssText=
+    `
+    font-weight: 600;
+    font-size: 13px;
+    `            
+    let pInstructions = document.getElementsByClassName('p-instructions')
+    
+    for(let p of pInstructions){
+        p.style.cssText=
+        `            
+        margin: 0 5px;
+        line-height: 15px;
+        font-size: 9px;
+        text-align: left;
+        `
+    }
+    document.querySelector('.lista').style.cssText=
+    `
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    `
+    document.querySelector('#btnFecharInstrucoes').style.cssText=
+    `
+        width: 150px;
+    `
+}
+
+
+
+function fecharInstrucoes(){
+    $divModal.style.display='none';
+    $divModal.disabled='true';
+}
+
+
+//ESTILO RESPONSIVO DO FORMULÁRIO
+if(window.matchMedia('(min-width: 768px)').matches){
+    document.getElementsByClassName('campo-formulario')[1].style.cssText=
+    `
+    height: 200px;
+    background-color: #212529;
+    color: #fff;
+    border: 3px solid #fff;
+    width: 80%;
+    padding-top: 25px; 
+    `
+    document.querySelector('#input-descricao').style.cssText=
+    `
+    height: 130px;
+    background-color: #212529;
+    color: #fff;
+    outline: none;
+    border: none;
+    text-align: center;
+    resize: none;
+    padding-left: 5px;
+    width: 100%;
+    font-size: 1.3rem;
+    `
+
+    $formulario.style.cssText = `
+    width: 500px;
+    margin: auto;
+    height: 550px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 25px;
+    `
+} else {
+    document.getElementsByClassName('campo-formulario')[1].style.cssText=
+    `
+    height: 160px;
+    background-color: #212529;
+    color: #fff;
+    border: 3px solid #fff;
+    width: 100%;
+    padding-top: 10px;
+    `
+    // 
+    document.querySelector('#input-descricao').style.cssText=
+    `
+    height: 100px;
+    background-color: #212529;
+    color: #fff;
+    outline: none;
+    border: none;
+    text-align: center;
+    resize: none;
+    padding-left: 10px;
+    width: 100%;
+    font-size: .9rem;
+    `
+    $formulario.style.cssText = `
+    width: 90%;
+    margin: auto;
+    height: 400px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    `
+}

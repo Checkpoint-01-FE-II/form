@@ -5,10 +5,10 @@ const $audioFundo = document.getElementById("musica-fundo");
 $audio.volume = 1;
 
 
-    window.addEventListener('mousemove', ()=>{
-        $audioFundo.play()
-        $audioFundo.volume = .2;
-    })  
+window.addEventListener('mousemove', ()=>{
+    $audioFundo.play()
+    $audioFundo.volume = .4;
+})  
 
 $select.addEventListener("change",()=> {
     document.getElementById("musica").play()
