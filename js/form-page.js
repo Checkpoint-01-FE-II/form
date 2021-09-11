@@ -425,14 +425,14 @@ document.querySelector("*").style.cssText = `
         `);
 
         let listaDeCartas = localStorage.getItem("listaDeCartas");
-        if (listaDeCartas.length >= 4) {
-            $btnJogar.classList.remove('is-disabled')
-            $btnJogar.classList.add('is-error')
-            $btnJogar.disabled = false
-        }
+
         if(listaDeCartas ==null){
             listaDeCartas = []
           localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
+        } else if (listaDeCartas.length >= 4) {
+            $btnJogar.classList.remove('is-disabled')
+            $btnJogar.classList.add('is-error')
+            $btnJogar.disabled = false
         } else {
             listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
         }
@@ -1100,7 +1100,7 @@ else {
 
 function fecharInstrucoes(){
     $divModal.style.display='none';
-    $divModal.disabled='true';
+    $divModal.disabled=true;
 }
 
 
