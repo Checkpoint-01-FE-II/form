@@ -105,7 +105,7 @@ $main.appendChild($btnJogar);
     `
         font-size: 1.5rem;
         border-image-repeat: stretch;
-        width: 30rem;
+        width: 25rem;
     `
 
 
@@ -419,25 +419,27 @@ document.querySelector("*").style.cssText = `
 
 //------------------------------------------------------------------------ 
 //INTERATIVIDADE        
-        let paresCriados = 0;
-        $header.insertAdjacentHTML("beforeend", `
-            <h6 class='pares-criados'>Pares criados: ${paresCriados}/6</h6>
-        `);
+        // let paresCriados = 0;
+
+
+
 
         let listaDeCartas = localStorage.getItem("listaDeCartas");
 
         if(listaDeCartas ==null){
             listaDeCartas = []
           localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
-        } else if (listaDeCartas.length >= 4) {
+        } else if (JSON.parse(localStorage.getItem("listaDeCartas")).length >= 4) {
             $btnJogar.classList.remove('is-disabled')
             $btnJogar.classList.add('is-error')
             $btnJogar.disabled = false
         } else {
             listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
         }
-        
-        function adicionarCarta(){
+        $header.insertAdjacentHTML("beforeend", `
+        <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
+        `);
+    function adicionarCarta(){
         let dadosNovaCarta=
             {
             id: '',
@@ -446,7 +448,7 @@ document.querySelector("*").style.cssText = `
             descricao: $inputCampo2.value,
             }
 
-        if (listaDeCartas.length <= 10) {
+        if (JSON.parse(localStorage.getItem("listaDeCartas")).length <= 10) {
             listaDeCartas.push(dadosNovaCarta);
             listaDeCartas.push(dadosNovaCarta);
         } else {
@@ -454,7 +456,7 @@ document.querySelector("*").style.cssText = `
         }
         localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
         location.reload()
-}
+    }
 
 
 
@@ -826,6 +828,15 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
 //RESPONSIVIDADE
 
     if (window.matchMedia("(min-width: 768px)").matches) {
+
+        $header.style.cssText=
+        `
+        display: flex; 
+        justify-content: flex-end;
+        padding: 5rem 5rem 0 0;
+        font-size: 2.5rem;
+        `
+        
         document.querySelector('#img-button').style.cssText =
         `
         position: absolute;
@@ -835,6 +846,15 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
         height: 70px;
         `
     } else {
+
+        $header.style.cssText=
+        `
+        display: flex; 
+        justify-content: flex-end;
+        padding: 2rem 3rem 0 0;
+        font-size: 1.5rem;
+        `
+        
         document.querySelector('#img-button').style.cssText =
         `
         position: absolute;
@@ -1133,7 +1153,7 @@ if(window.matchMedia('(min-width: 768px)').matches){
     width: 500px;
     margin: auto;
     height: 550px;
-    margin-top: 100px;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     gap: 20px;
