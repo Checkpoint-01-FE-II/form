@@ -23,6 +23,8 @@ const $main = document.createElement("main");
         const $btnCancelar = document.createElement("button");
         const $btnVoltar = document.createElement('a');
         const $btnJogar = document.createElement('button');
+        //DIV DOS BOTÕES DO FORM
+        const $divBtnsForm = document.createElement('div')
 //------------------------------------------------------------------------ 
 //APENSANDO ELEMENTOS
 document.body.appendChild($header);
@@ -45,10 +47,12 @@ document.body.appendChild($main);
             $campoForm3.appendChild($inputCampo3);
 
 //VALE A PENA CRIAR UMA DIV SÓ PARA BTNS, COMO CARD PREVIEW      
-document.body.appendChild($btnEnviar);
-document.body.appendChild($btnCancelar);
-document.body.appendChild($btnVoltar);
-document.body.appendChild($btnJogar);
+
+$divBtnsForm.appendChild($btnEnviar);
+$divBtnsForm.appendChild($btnCancelar);
+$main.appendChild($divBtnsForm);
+$main.appendChild($btnVoltar);
+$main.appendChild($btnJogar);
 
 //------------------------------------------------------------------------ 
 //EDITANDO ATRIBUTOS DOS ELEMENTOS
@@ -73,7 +77,7 @@ document.body.appendChild($btnJogar);
     $btnEnviar.setAttribute("form", "form-baralho");
     $btnEnviar.onclick = evt => {
         evt.preventDefault();
-        modal.style.display = "flex";
+        $modalContainer.style.display = "flex";
         $cardTitulo.innerHTML = $inputCampo1.value;
         $cardText.innerHTML = $inputCampo2.value;
         $cardImg.src = $inputCampo3.value;
@@ -89,8 +93,21 @@ document.body.appendChild($btnJogar);
     $btnVoltar.insertAdjacentHTML('afterbegin', `
     <img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt="">`)
 
-    $btnJogar.href = "../html/game-page-created.html"
-    $btnJogar.insertAdjacentText("afterbegin", "Jogar");
+    
+    $btnJogar.insertAdjacentText("afterbegin", "Start");
+    $btnJogar.disabled=true;
+    $btnJogar.classList.add('is-disabled')
+    $btnJogar.classList.add('nes-btn');
+    $btnJogar.addEventListener('click', ()=>{
+        location.href = "../html/game-page-created.html"
+    })
+    document.querySelector('.nes-btn').style.cssText=
+    `
+        font-size: 1.5rem;
+        border-image-repeat: stretch;
+        width: 30rem;
+    `
+
 
 //------------------------------------------------------------------------ 
 //ATRIBUIÇÃO DE CLASSES E IDs
@@ -143,44 +160,47 @@ document.querySelector("*").style.cssText = `
         width: 100vw;
         height: 100vh;
         background-image: url(../imgs/background.png);
+    `
+    $main.style.cssText = `
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
-    `
-    
+`
+
+
     if (window.matchMedia("(min-width: 768px)").matches) {
-        // $formulario.style.cssText=`
-        //     display: flex;
-        //     flex-direction: column;
-        //     align-items: center;
-        //     gap: 1.5rem;
-        //     padding-bottom: 2rem;
-        //     width: 500px;
-        //     height: 500px;
-        // `
         $tituloForm.style.cssText=`
-        margin-top: 2rem;    
-        font-size: 2rem;
+            margin-top: 2rem;    
+            font-size: 2rem;
+            text-align: center;
         `
         
+        $divBtnsForm.style.cssText=
+        `
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5rem;
+        `
     } else{
-        // $formulario.style.cssText=`
-        //     display: flex;
-        //     flex-direction: column;
-        //     align-items: center;
-        //     gap: 1.5rem;
-        //     padding-bottom: 2rem;
-        // `
         $tituloForm.style.cssText=`
             font-size: 1.6rem;
+            text-align: center;
+        `    
+        $divBtnsForm.style.cssText=
         `
-        
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        `
     }
         
 
-        if (window.matchMedia("(min-width: 768px)").matches) {
+    if (window.matchMedia("(min-width: 768px)").matches) {
             Array.from($cCampo).forEach(element => {
                 element.style.cssText=`
                     border: .3rem solid #ffffff;
@@ -279,8 +299,6 @@ document.querySelector("*").style.cssText = `
                     font-size: 1.3rem;
                 `
             });
-
-
             
     
             //ESTILO BTNS DO FORM
@@ -291,8 +309,7 @@ document.querySelector("*").style.cssText = `
                     width: 16rem;
                 `
             });
-        
-        
+               
         } else {
         Array.from($cCampo).forEach(element => {
             element.style.cssText=`
@@ -408,7 +425,11 @@ document.querySelector("*").style.cssText = `
         `);
 
         let listaDeCartas = localStorage.getItem("listaDeCartas");
-
+        if (listaDeCartas.length >= 4) {
+            $btnJogar.classList.remove('is-disabled')
+            $btnJogar.classList.add('is-error')
+            $btnJogar.disabled = false
+        }
         if(listaDeCartas ==null){
             listaDeCartas = []
           localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
@@ -424,17 +445,21 @@ document.querySelector("*").style.cssText = `
             url: $inputCampo3.value,
             descricao: $inputCampo2.value,
             }
-        if (listaDeCartas.length >= 4) {
-            //btn jogar display = auto
-        } else if (listaDeCartas.length <= 10) {
+
+        if (listaDeCartas.length <= 10) {
             listaDeCartas.push(dadosNovaCarta);
             listaDeCartas.push(dadosNovaCarta);
         } else {
             alert("Você atingiu o limite de cartas!")
         }
         localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
-        location.reload();
-        }
+        location.reload()
+}
+
+
+
+
+
 
 
 //------------------------------------------------------------------------ 
@@ -467,7 +492,7 @@ const $cCardBtn = document.getElementsByClassName("card-btn");
 
 //-----------------------------------------------------------------
 
-document.body.appendChild($modalContainer);
+$main.appendChild($modalContainer);
 
     $modalContainer.appendChild($cardPreview);
         $cardPreview.appendChild($cardImg);
@@ -510,11 +535,13 @@ $modalContainer.style.cssText=`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    width: 100%;
-    height: 100%;
+    position:absolute;
+    top: -20%;
+    width: 150vw;
+    height: 150vh;
     gap: 1rem;
     background-color: rgba(0,0,0,0.85);
+    z-index: 7;
     `
 
         $cardPreview.style.cssText=`
@@ -523,13 +550,13 @@ $modalContainer.style.cssText=`
             align-items: center;
             gap: 1.5rem;
             padding-bottom: 2rem;
-            width: 35rem;
-            max-width: 95%;
-            max-height: 95%;
+            width: 26rem;
+            height: 48rem;
             `
-
+            // max-width: 95%;
+            // max-height: 95%;
             $cardImg.style.cssText=`
-                width: 27rem;
+                width: 22rem;
                 max-height: 27rem;
                 object-fit: scale-down;
                 border: 1rem solid;
@@ -539,16 +566,24 @@ $modalContainer.style.cssText=`
                 `
 
             $cardTitulo.style.cssText=`
-                font-size: 1.6rem;
+                font-size: 1.2rem;
+                overflow: hidden;
+                width: 22rem;
+                height: 2rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 `
 
             $cardText.style.cssText=`
-                font-size: .9rem;
-                text-align: center;
-                line-height: 1.5rem;
-                width: 27rem;
+                font-size: .8rem;
+                line-height: 1rem;
+                width: 22rem;
+                height: 20rem;
+                white-space: pre-line;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 `
-        
+                // text-overflow: ellipsis;
         $divCardBtns.style.cssText=`
             display: flex;
             flex-direction: row;
@@ -786,7 +821,6 @@ function validarInput3 () {
 
 //RESETA CONDIÇÃO DO BTN ENVIAR PARA DESABILITADO
 $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
-
 
 //----------------------------------------------------------------
 //RESPONSIVIDADE
@@ -1134,7 +1168,7 @@ if(window.matchMedia('(min-width: 768px)').matches){
     width: 90%;
     margin: auto;
     height: 400px;
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 20px;
