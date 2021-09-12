@@ -136,7 +136,7 @@ const $cInput = document.getElementsByClassName("input-formulario");
 
 $btnEnviar.classList.add("form-btn")
 $btnEnviar.classList.add("nes-btn");
-$btnEnviar.classList.add("is-warning");
+$btnEnviar.classList.add("is-disabled");
 
 $btnCancelar.classList.add("form-btn");
 $btnCancelar.classList.add("nes-btn");
@@ -699,8 +699,10 @@ function validarInput1 () {
         `
         verificador[0] = 1;
         if (verificador.reduce((acc, sum)=>acc+=sum)==6) {
+            $btnEnviar.classList.remove('is-disabled')
+            $btnEnviar.classList.add('is-warning')
             $btnEnviar.disabled = false;
-        }
+        } 
     }
 }
 
@@ -728,8 +730,8 @@ function validarInput2 () {
         verificador[1] = 0; 
         $inputCampo2.focus()
         $btnEnviar.disabled = true;     
-    } else if (valorTrim.length >= 400) {
-        $msgErroInput2.innerHTML = "Título deve ter até 400 caracteres";
+    } else if (valorTrim.length >= 170) {
+        $msgErroInput2.innerHTML = "Título deve ter até 170 caracteres";
         if (window.matchMedia("(min-width: 768px)").matches) {
             $msgErroInput2.style.cssText=`
                 color: red;
@@ -756,6 +758,8 @@ function validarInput2 () {
         `
         verificador[1] = 2;
         if (verificador.reduce((acc, sum)=>acc+=sum)==6) {
+            $btnEnviar.classList.remove('is-disabled')
+            $btnEnviar.classList.add('is-warning')
             $btnEnviar.disabled = false;
         }
     }
@@ -813,6 +817,8 @@ function validarInput3 () {
         `
         verificador[2] = 3;
         if (verificador.reduce((acc, sum)=>acc+=sum)==6) {
+            $btnEnviar.classList.remove('is-disabled')
+            $btnEnviar.classList.add('is-warning')
             $btnEnviar.disabled = false;
         }
         
@@ -897,7 +903,7 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
                     <li class='p-instructions'>Não adicione cartas com imagens idênticas.</li>
                     <li class='p-instructions'>A partir de duas cartas adicionadas, é liberado o botão "Start" e você poderá iniciar a partida.</li>
                     <li class='p-instructions'>O campo título deve ser preenchido com no máximo 30 caracteres.</li>
-                    <li class='p-instructions'>O campo descrição deve ser preenchido com no máximo 400 caracteres.</li>
+                    <li class='p-instructions'>O campo descrição deve ser preenchido com no máximo 170 caracteres.</li>
                     <li class='p-instructions'>Para obter a URL da imagem, clique com o botao direito do mouse sobre uma imagem que você escolhar na internet e clique em "copiar link da imagem".</li>
                     <li class='p-instructions'>Nenhum dos campos pode estar vazio (sem preencher).</li>
                 </ol>
