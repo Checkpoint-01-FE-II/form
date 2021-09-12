@@ -102,7 +102,11 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
     case 'onepiece': $audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
     break;
     case 'marvel': $audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
+    $audio.volume = .4;
     console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEzW5RTB8R6HWWnDaOYIJ83AaLgvwx7E1dug&usqp=CAU')no-repeat; background-size: 100%")
+    console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://nerdando.com/wp-content/uploads/2018/11/Dr1MP6XX4AIF_zG.jpg')no-repeat; background-size: 100%")
+    console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://registadeu.com.br/wp-content/uploads/2018/11/10.23_StanLee-FTR.jpg')no-repeat; background-size: 100%")
+
     break;
     case 'aleatorios1': $audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
     break;

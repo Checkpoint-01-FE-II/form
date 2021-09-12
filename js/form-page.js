@@ -160,6 +160,8 @@ document.querySelector("*").style.cssText = `
         width: 100vw;
         height: 100vh;
         background-image: url(../imgs/background.png);
+        max-width: 1200px;
+        margin: auto;
     `
     $main.style.cssText = `
         display: flex;
