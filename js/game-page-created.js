@@ -210,8 +210,22 @@ function verificaPar(i) {
                     $audioWin.play()
                     $audioWin.volume=.5;
                     $h2InfosNaTela.innerHTML=`
-                    Fim de Jogo!
-                    Seu tempo foi de: ${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}:${(ms < 10 ? "0" + ms : ms)}.`;
+                    <section class="nes-container is-dark container-final">
+                          <section class="message -left">
+                            <img class="nes-bcrikko" src='../imgs/logo_final.png'>
+                            <div class="nes-balloon from-left is-dark">
+                              <p>                    Fim de Jogo!
+                              Seu tempo foi de: ${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}:${(ms < 10 ? "0" + ms : ms)}.</p>
+                            </div>
+                          </section>
+                            <div class='div-btns-final'>
+                                <button onclick="jogarNovamente()" id="btnJogarNovamente"
+                                    class="btn-final nes-btn is-warning">Jogar Novamente</button>
+                                <button onclick="voltarAoMenuInicial()" id="btnVoltarAoMenuInicial"
+                                    class="btn-final nes-btn is-error">Voltar ao Menu Inicial</button>
+                            </div>
+                      </section>
+`;
                     pausar()}}, 1000)
         } else {
             arrayDuasCartas = [];
@@ -224,4 +238,12 @@ function verificaPar(i) {
             }, 800)
         }
     }
+}
+
+function jogarNovamente(){
+    location.reload()
+}
+
+function voltarAoMenuInicial(){
+    location.href = '../index.html'
 }

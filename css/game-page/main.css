@@ -271,6 +271,7 @@
   }
   .section-descricao div h3 {
     font-size: 1.3rem;
+    word-wrap: break-word;
   }
 }
 
@@ -283,7 +284,7 @@
 @media screen and (min-width: 1024px) {
   .section-descricao div p {
     font-size: 1rem;
-    line-height: 1.7rem;
+    line-height: 1.6rem;
   }
 }
 
@@ -468,21 +469,95 @@
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   z-index: 5;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #fff;
   text-shadow: 1.4rem 1.4rem 1rem #000;
   text-align: center;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
   .infos-na-tela .h2 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    width: 70rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .infos-na-tela .h2 {
-    font-size: 3rem;
+    font-size: 1.5rem;
+    width: 70rem;
+  }
+}
+
+.infos-na-tela .message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.infos-na-tela .nes-balloon {
+  width: 24rem;
+  border-image-repeat: stretch;
+}
+
+.infos-na-tela .nes-bcrikko {
+  width: 11rem;
+  height: 11rem;
+}
+
+@media screen and (min-width: 768px) {
+  .infos-na-tela .nes-bcrikko {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
+.infos-na-tela .container-final {
+  width: 90%;
+  margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .infos-na-tela .container-final {
+    width: 67%;
+  }
+}
+
+.infos-na-tela .btn-final {
+  width: 20rem;
+  height: 5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .infos-na-tela .btn-final {
+    height: 9rem;
+  }
+}
+
+.infos-na-tela .div-btns-final {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .infos-na-tela .div-btns-final {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
 

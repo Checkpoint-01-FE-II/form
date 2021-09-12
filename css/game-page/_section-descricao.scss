@@ -46,13 +46,14 @@
                 padding: 2rem;
                 h3{
                     font-size: 1.3rem;
+                    word-wrap: break-word;
                     @media screen and (min-width: 1300px) { 
                         font-size: 1.4rem;
                     }
                 }
                 p{
                     font-size: 1rem;
-                    line-height: 1.7rem;
+                    line-height: 1.6rem;
                     @media screen and (min-width: 1300px) { 
                         font-size: 1.1rem;
                         line-height: 1.8rem;
