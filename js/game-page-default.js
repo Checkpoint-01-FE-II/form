@@ -707,7 +707,7 @@ for (let i = 0; i < cartasDefault.length; i++) {
             document.querySelector('.section-descricao').innerHTML =
                 `
             <img class='img-descricao'
-            src="./imgs/${cartasDefault[i].url}"
+            src="${cartasDefault[i].url}"
             alt="">
             <div>
                 <h3>${cartasDefault[i].titulo}<h3>
