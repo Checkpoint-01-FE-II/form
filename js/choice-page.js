@@ -49,10 +49,10 @@ $btn.addEventListener('click', ()=>{
                 storage='default';
                 localStorage.setItem('baralho', JSON.stringify(storage))   
         }
-        location.href = '../html/game-page-default.html'
+        location.href = '../game-page-default.html'
     } else if(document.querySelector('#created').checked){
         localStorage.removeItem('listaDeCartas')
-        location.href = '../html/form-page.html'
+        location.href = '../form-page.html'
         
     }
 })

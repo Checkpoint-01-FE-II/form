@@ -108,7 +108,7 @@ $main.appendChild($btnJogar);
     $btnJogar.classList.add('is-disabled')
     $btnJogar.classList.add('nes-btn');
     $btnJogar.addEventListener('click', ()=>{
-        location.href = "../html/game-page-created.html"
+        location.href = "../game-page-created.html"
     })
     document.querySelector('.nes-btn').style.cssText=
     `
@@ -954,7 +954,7 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
                 <h2 class="instructions">Instruções</h2>
                 <ol class='lista'>
                     <li class='p-instructions'>Seu baralho deverá ter no mínimo 2 e no máximo 6 pares de cartas.</li>
-                    <li class='p-instructions'>Cada carta que você adicionar, automaticamente será gerado pelo sistema uns respectivo par para ela.</li>
+                    <li class='p-instructions'>Cada carta que você adicionar, automaticamente será gerado pelo sistema um respectivo par para ela.</li>
                     <li class='p-instructions'>Não adicione cartas com imagens idênticas.</li>
                     <li class='p-instructions'>A partir de duas cartas adicionadas, é liberado o botão "Start" e você poderá iniciar a partida.</li>
                     <li class='p-instructions'>O campo título deve ser preenchido com no máximo 30 caracteres.</li>
