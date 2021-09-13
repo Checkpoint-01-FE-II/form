@@ -514,11 +514,6 @@ document.querySelector("*").style.cssText = `
     }
 
 
-
-
-
-
-
 //------------------------------------------------------------------------ 
 //MODAL
 
@@ -614,7 +609,7 @@ $modalContainer.style.cssText=`
             // max-height: 95%;
             $cardImg.style.cssText=`
                 width: 22rem;
-                max-height: 27rem;
+                max-height: 23rem;
                 object-fit: scale-down;
                 border: 1rem solid;
                 border-image-slice: 35;
@@ -658,7 +653,6 @@ $modalContainer.style.cssText=`
 
 
 //----------------------------------------------------------------
-
 //VALIDAÇÃO DE INPUTS
 
 //CRIAÇÃO DOS ELEMENTOS E VARIÁVEIS DAS MSGS DE ERRO
@@ -930,7 +924,6 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
         height: 50px;
         `
     }
-
 
 
     //MODAL INICIAL - INSTRUÇÕES PARA CRIAÇÃO DAS CARTAS
