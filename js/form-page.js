@@ -27,7 +27,7 @@ const $main = document.createElement("main");
         const $divBtnsForm = document.createElement('div')
 
     const $musicaFundo = document.createElement('audio')
-    $musicaFundo.src = '../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
+    $musicaFundo.src = './audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
     $musicaFundo.setAttribute('id', 'musica-fundo')
     $musicaFundo.autoplay=true;
     $musicaFundo.volume = .4;
@@ -168,7 +168,7 @@ document.querySelector("*").style.cssText = `
     document.body.style.cssText = `
         width: 100vw;
         height: 100vh;
-        background-image: url(../imgs/background.png);
+        background-image: url(./imgs/background.png);
         max-width: 1200px;
         margin: auto;
     `
@@ -444,7 +444,7 @@ document.querySelector("*").style.cssText = `
             listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
         }
         $header.innerHTML = `
-        <a><img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt=""></a>
+        <a><img id='img-button' src="./imgs/setas/icons8-desfazer-100 (1)_edited.png" alt=""></a>
         <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
         `;
         
@@ -478,7 +478,7 @@ document.querySelector("*").style.cssText = `
         }
 
                     $header.innerHTML = `
-                    <a><img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt=""></a>
+                    <a><img id='img-button' src="./imgs/setas/icons8-desfazer-100 (1)_edited.png" alt=""></a>
                         <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
                     `;
                     if (window.matchMedia("(min-width: 768px)").matches) {
@@ -494,7 +494,7 @@ document.querySelector("*").style.cssText = `
                         height: 50px;
                         `
                     }
-                    document.querySelector('a').href = '../index.html'
+                    document.querySelector('a').href = './index.html'
 
                     $modalContainer.style.cssText=`
                         display: none;

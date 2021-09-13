@@ -95,15 +95,15 @@ function timer() {
 //seta a música de fundo da página de jogos aleatoriamente
 let numberRandom = Math.floor(Math.random()*5)
 switch(numberRandom){
-    case 0: $audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
+    case 0: $audio.src='./audio/One Piece - We Are! 8-Bit .mp3';
     break;
-    case 1: $audio.src='../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
+    case 1: $audio.src='./audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
     break;
-    case 2: $audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
+    case 2: $audio.src='./audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
     break;
-    case 3: $audio.src='../audio/Super Mario Bros Theme Song .mp3'
+    case 3: $audio.src='./audio/Super Mario Bros Theme Song .mp3'
     break;
-    case 4: $audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
+    case 4: $audio.src='./audio/One Piece - We Are! 8-Bit .mp3';
     break;
 }
 
@@ -212,7 +212,7 @@ function verificaPar(i) {
                     $h2InfosNaTela.innerHTML=`
                     <section class="nes-container is-dark container-final">
                           <section class="message -left">
-                            <img class="nes-bcrikko" src='../imgs/logo_final.png'>
+                            <img class="nes-bcrikko" src='./imgs/logo_final.png'>
                             <div class="nes-balloon from-left is-dark">
                               <p>                    Fim de Jogo!
                               Seu tempo foi de: ${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}:${(ms < 10 ? "0" + ms : ms)}.</p>

@@ -103,22 +103,22 @@ $header.insertAdjacentHTML("beforeend", `
 
 //seta a música de fundo da página de jogos
 switch(JSON.parse(localStorage.getItem('baralho'))){
-    case 'onepiece': $audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
+    case 'onepiece': $audio.src='./audio/One Piece - We Are! 8-Bit .mp3';
     break;
-    case 'marvel': $audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
+    case 'marvel': $audio.src='./audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
     // console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEzW5RTB8R6HWWnDaOYIJ83AaLgvwx7E1dug&usqp=CAU')no-repeat; background-size: 100%")
     console.log("%c                                                             ", "padding: 40px 45px; line-height: 240px; background:url('https://nerdando.com/wp-content/uploads/2018/11/Dr1MP6XX4AIF_zG.jpg')no-repeat; background-size: 100%")
     console.log("%c \"“A vida nunca é completa sem seus desafios\” - Stan Lee", "color:#61105E; font-size: 30px; text-shadow: 3px 3px 2px #61105E; font-weight: bold")
     // console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://registadeu.com.br/wp-content/uploads/2018/11/10.23_StanLee-FTR.jpg')no-repeat; background-size: 100%")
 
     break;
-    case 'aleatorios1': $audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
+    case 'aleatorios1': $audio.src='./audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
     break;
-    case 'aleatorios2': $audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
+    case 'aleatorios2': $audio.src='./audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
     break;
-    case 'default': $audio.src='../audio/Super Mario Bros Theme Song .mp3'
+    case 'default': $audio.src='./audio/Super Mario Bros Theme Song .mp3'
     break;
-    case 'ingles': $audio.src='../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
+    case 'ingles': $audio.src='./audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
     break;
 }
 
@@ -132,73 +132,73 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
         {
             id: '',
             titulo: "Monkey D. Luffy",
-            url: '../imgs/onepiece/luffy.png',
+            url: './imgs/onepiece/luffy.png',
             descricao: ' é o fundador e o capitão do cada vez mais infame e poderoso Piratas do Chapéu de Palha, bem como um de seus quatro principais lutadores.Seu sonho de vida é se tornar o Rei dos Piratas.'
         },
         {
             id: '',
             titulo: 'Roronoa Zoro',
-            url: '../imgs/onepiece/zoro.jpg',
+            url: './imgs/onepiece/zoro.jpg',
             descricao: 'é o espadachim dos Piratas do Chapéu de Palha e um ex-caçador de recompensas.Ele foi o primeiro membro a juntar-se à tripulação.'
         },
         {
             id: '',
             titulo: 'Nami',
-            url: '../imgs/onepiece/nami.png',
+            url: './imgs/onepiece/nami.png',
             descricao: 'A "Gata Ladra" Nami é a navegadora dos Piratas do Chapéu de Palha. Ela foi o terceiro membro da tripulação e a segunda a entrar, fazendo-o durante o Arco Orange Town.'
         },
         {
             id: '',
             titulo: 'Tony Tony Chopper',
-            url: '../imgs/onepiece/chopper.png',
+            url: './imgs/onepiece/chopper.png',
             descricao: 'Ele é o médico da tripulação dos Piratas do Chapéu de Palha. Chopper é uma rena que, após comer a Hito Hito no Mi, adquiriu a habilidade de se transformar e raciocinar como os humanos.'
         },
         {
             id: '',
             titulo: 'Brook',
-            url: '../imgs/onepiece/brook.png',
+            url: './imgs/onepiece/brook.png',
             descricao: 'é o Músico dos Piratas do Chapéu de Palha. Ele é um esqueleto que os Chapéus de Palha encontraram a bordo de um navio fantasma depois de entrarem no Triângulo Florian.'
         },
         {
             id: '',
             titulo: 'Franky',
-            url: '../imgs/onepiece/franky.png',
+            url: './imgs/onepiece/franky.png',
             descricao: 'é o carpinteiro dos Piratas do Chapéu de Palha. Ele é um cyborg de 36 anos de Water 7 e foi introduzido na história como o líder da Família Franky'
         },
         {
             id: '',
             titulo: "Monkey D. Luffy",
-            url: '../imgs/onepiece/luffy.png',
+            url: './imgs/onepiece/luffy.png',
             descricao: 'é o fundador e o capitão do cada vez mais infame e poderoso Piratas do Chapéu de Palha, bem como um de seus quatro principais lutadores.Seu sonho de vida é se tornar o Rei dos Piratas.'
         },
         {
             id: '',
             titulo: 'Roronoa Zoro',
-            url: '../imgs/onepiece/zoro.jpg',
+            url: './imgs/onepiece/zoro.jpg',
             descricao: 'é o espadachim dos Piratas do Chapéu de Palha e um ex-caçador de recompensas.Ele foi o primeiro membro a juntar-se à tripulação.'
         },
         {
             id: '',
             titulo: 'Nami',
-            url: '../imgs/onepiece/nami.png',
+            url: './imgs/onepiece/nami.png',
             descricao: 'A "Gata Ladra" Nami é a navegadora dos Piratas do Chapéu de Palha. Ela foi o terceiro membro da tripulação e a segunda a entrar, fazendo-o durante o Arco Orange Town.'
         },
         {
             id: '',
             titulo: 'Tony Tony Chopper',
-            url: '../imgs/onepiece/chopper.png',
+            url: './imgs/onepiece/chopper.png',
             descricao: 'Ele é o médico da tripulação dos Piratas do Chapéu de Palha. Chopper é uma rena que, após comer a Hito Hito no Mi, adquiriu a habilidade de se transformar e raciocinar como os humanos.'
         },
         {
             id: '',
             titulo: 'Brook',
-            url: '../imgs/onepiece/brook.png',
+            url: './imgs/onepiece/brook.png',
             descricao: 'é o Músico dos Piratas do Chapéu de Palha. Ele é um esqueleto que os Chapéus de Palha encontraram a bordo de um navio fantasma depois de entrarem no Triângulo Florian.'
         },
         {
             id: '',
             titulo: 'Franky',
-            url: '../imgs/onepiece/franky.png',
+            url: './imgs/onepiece/franky.png',
             descricao: 'é o carpinteiro dos Piratas do Chapéu de Palha. Ele é um cyborg de 36 anos de Water 7 e foi introduzido na história como o líder da Família Franky.'
         }
     ];
@@ -208,73 +208,73 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
             {
                 id: '',
                 titulo: 'Dr. Estranho',
-                url: '../imgs/marvel/estranho.jpg',
+                url: './imgs/marvel/estranho.jpg',
                 descricao: 'serve como o Mago Supremo, o principal protetor da Terra contra ameaças mágicas e místicas. Inspirado por histórias de magia negra e o programa de rádio Chandu, the Magician.'
             },
             {
                 id: '',
                 titulo: 'Homem-Aranha',
-                url: '../imgs/marvel/homem-aranha.jpg',
+                url: './imgs/marvel/homem-aranha.jpg',
                 descricao: 'Peter Parker era um adolescente órfão, tímido e franzino, dedicado aos estudos e com poucos amigos além de seus tios que o criaram. Mas a vida de Peter mudou quando foi picado por uma aranha radioativa.'
             },
             {
                 id: '',
                 titulo: 'Homem de Ferro',
-                url: '../imgs/marvel/homem-ferro.jpg',
+                url: './imgs/marvel/homem-ferro.jpg',
                 descricao: 'o inventor e empresário Tony Stark foi vítima de uma explosão de granada. Stark sobreviveu à explosão mas estilhaços do explosivo se alojaram próximo ao seu coração, ameaçando sua vida.'
             },
             {
                 id: '',
                 titulo: 'Pantera Negra',
-                url: '../imgs/marvel/pantera.jpg',
+                url: './imgs/marvel/pantera.jpg',
                 descricao: 'é o título cerimonial atribuído ao chefe da Tribo Pantera da avançada nação africana de Wakanda. Além de governar o país, ele também é chefe de suas várias tribos.'
             },
             {
                 id: '',
                 titulo: 'Senhor das Estrelas',
-                url: '../imgs/marvel/senhor-estrelas.jpg',
+                url: './imgs/marvel/senhor-estrelas.jpg',
                 descricao: 'foi concebido como resultado do amor entre a terráquea Meredith Quill e o Imperador Spartoi da época, Json.'
             },
             {
                 id: '',
                 titulo: 'Thor',
-                url: '../imgs/marvel/thor.jpg',
+                url: './imgs/marvel/thor.jpg',
                 descricao: 'é virtualmente um deus de outra realidade, possuindo vastos poderes. Desta maneira, possui uma enorme força e velocidade sobre-humanas.'
             },
             {
                 id: '',
                 titulo: 'Dr. Estranho',
-                url: '../imgs/marvel/estranho.jpg',
+                url: './imgs/marvel/estranho.jpg',
                 descricao: 'serve como o Mago Supremo, o principal protetor da Terra contra ameaças mágicas e místicas. Inspirado por histórias de magia negra e o programa de rádio Chandu, the Magician.'
             },
             {
                 id: '',
                 titulo: 'Homem-Aranha',
-                url: '../imgs/marvel/homem-aranha.jpg',
+                url: './imgs/marvel/homem-aranha.jpg',
                 descricao: 'Peter Parker era um adolescente órfão, tímido e franzino, dedicado aos estudos e com poucos amigos além de seus tios que o criaram. Mas a vida de Peter mudou quando foi picado por uma aranha radioativa.'
             },
             {
                 id: '',
                 titulo: 'Homem de Ferro',
-                url: '../imgs/marvel/homem-ferro.jpg',
+                url: './imgs/marvel/homem-ferro.jpg',
                 descricao: 'o inventor e empresário Tony Stark foi vítima de uma explosão de granada. Stark sobreviveu à explosão mas estilhaços do explosivo se alojaram próximo ao seu coração, ameaçando sua vida.'
             },
             {
                 id: '',
                 titulo: 'Pantera Negra',
-                url: '../imgs/marvel/pantera.jpg',
+                url: './imgs/marvel/pantera.jpg',
                 descricao: 'é o título cerimonial atribuído ao chefe da Tribo Pantera da avançada nação africana de Wakanda. Além de governar o país, ele também é chefe de suas várias tribos.'
             },
             {
                 id: '',
                 titulo: 'Senhor das Estrelas',
-                url: '../imgs/marvel/senhor-estrelas.jpg',
+                url: './imgs/marvel/senhor-estrelas.jpg',
                 descricao: 'foi concebido como resultado do amor entre a terráquea Meredith Quill e o Imperador Spartoi da época, Json.'
             },
             {
                 id: '',
                 titulo: 'Thor',
-                url: '../imgs/marvel/thor.jpg',
+                url: './imgs/marvel/thor.jpg',
                 descricao: 'é virtualmente um deus de outra realidade, possuindo vastos poderes. Desta maneira, possui uma enorme força e velocidade sobre-humanas.'
             }
         ];
@@ -284,73 +284,73 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
             {
                 id: '',
                 titulo: 'Ranger Amarelo',
-                url: '../imgs/aleatorios/ranger.jpg',
+                url: './imgs/aleatorios/ranger.jpg',
                 descricao: 'é uma franquia americana de entretenimento e merchandising construída em torno de uma série de televisão em live-action de super-heróis baseada na franquia japonesa Tokusatsu Super Sentai.'
             },
             {
                 id: '',
                 titulo: 'Smurf',
-                url: '../imgs/aleatorios/smurf.jpg',
+                url: './imgs/aleatorios/smurf.jpg',
                 descricao: 'é um dos protagonistas do série animada dos Smurfs, que apareceu durante toda sua exibição, e personagem dos quadrinhos.'
             },
             {
                 id: '',
                 titulo: 'Krusty',
-                url: '../imgs/aleatorios/krusty.jpg',
+                url: './imgs/aleatorios/krusty.jpg',
                 descricao: 'vive como palhaço para desgosto de seu pai. Seu nome verdadeiro é Hershel Krustofsky. Na frente das câmaras é um típico palhaço animador para crianças.'
             },
             {
                 id: '',
                 titulo: 'Tio Patinhas',
-                url: '../imgs/aleatorios/tio-patinhas.jpg',
+                url: './imgs/aleatorios/tio-patinhas.jpg',
                 descricao: 'Tio Patinhas, surgiu nos quadrinhos em dezembro de 1947 em "Natal nas Montanhas", história escrita e desenhada por Carl Barks. Patinhas era um velho barbudo, de óculos e razoavelmente rico.'
             },
             {
                 id: '',
                 titulo: 'Capitão Planeta',
-                url: '../imgs/aleatorios/capitao-planeta.jpg',
+                url: './imgs/aleatorios/capitao-planeta.jpg',
                 descricao: 'é um amálgama consistente dos elementos componentes da natureza do mundo. Ele tem consciência de que não pode resolver os problemas ecológicos eternamente. Representa: A Terra.'
             },
             {
                 id: '',
                 titulo: 'Buzz Lightyear',
-                url: '../imgs/aleatorios/buzz.jpg',
+                url: './imgs/aleatorios/buzz.jpg',
                 descricao: 'é um patrulheiro do espaço da Aliança intergaláctica e está estacionado no Quadrante Gama, Setor 4. Ele é o capitão da equipe da Aliança Lightyear.'
             },
             {
                 id: '',
                 titulo: 'Ranger Amarelo',
-                url: '../imgs/aleatorios/ranger.jpg',
+                url: './imgs/aleatorios/ranger.jpg',
                 descricao: 'é uma franquia americana de entretenimento e merchandising construída em torno de uma série de televisão em live-action de super-heróis baseada na franquia japonesa Tokusatsu Super Sentai.'
             },
             {
                 id: '',
                 titulo: 'Smurf',
-                url: '../imgs/aleatorios/smurf.jpg',
+                url: './imgs/aleatorios/smurf.jpg',
                 descricao: 'é um dos protagonistas do série animada dos Smurfs, que apareceu durante toda sua exibição, e personagem dos quadrinhos. '
             },
             {
                 id: '',
                 titulo: 'Krusty',
-                url: '../imgs/aleatorios/krusty.jpg',
+                url: './imgs/aleatorios/krusty.jpg',
                 descricao: 'vive como palhaço para desgosto de seu pai. Seu nome verdadeiro é Hershel Krustofsky. Na frente das câmaras é um típico palhaço animador para crianças.'
             },
             {
                 id: '',
                 titulo: 'Tio Patinhas',
-                url: '../imgs/aleatorios/tio-patinhas.jpg',
+                url: './imgs/aleatorios/tio-patinhas.jpg',
                 descricao: 'Tio Patinhas, surgiu nos quadrinhos em dezembro de 1947 em "Natal nas Montanhas", história escrita e desenhada por Carl Barks. Patinhas era um velho barbudo, de óculos e razoavelmente rico."..'
             },
             {
                 id: '',
                 titulo: 'Capitão Planeta',
-                url: '../imgs/aleatorios/capitao-planeta.jpg',
+                url: './imgs/aleatorios/capitao-planeta.jpg',
                 descricao: 'é um amálgama consistente dos elementos componentes da natureza do mundo. Ele tem consciência de que não pode resolver os problemas ecológicos eternamente. Representa: A Terra.'
             },
             {
                 id: '',
                 titulo: 'Buzz Lightyear',
-                url: '../imgs/aleatorios/buzz.jpg',
+                url: './imgs/aleatorios/buzz.jpg',
                 descricao: 'é um patrulheiro do espaço da Aliança intergaláctica e está estacionado no Quadrante Gama, Setor 4. Ele é o capitão da equipe da Aliança Lightyear.'
             }
         ];
@@ -360,73 +360,73 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
             {
                 id: '',
                 titulo: 'Ciclope',
-                url: '../imgs/aleatorios/ciclope.jpg',
+                url: './imgs/aleatorios/ciclope.jpg',
                 descricao: 'foi um dos numerosos mutantes que se uniram para atacar os Inumanos depois que descobriu-se que a Nuvem Terrigen final passou semanas a ser completamente assimilada na atmosfera terrestre.'
             },
             {
                 id: '',
                 titulo: 'Crash Bandicoot',
-                url: '../imgs/aleatorios/crash.jpg',
+                url: './imgs/aleatorios/crash.jpg',
                 descricao: 'geneticamente alterado Crash, que luta para impedir o planos do cientista do mal Neo Córtex e seus lacaios. A história do jogo se passa nas fictícias Ilhas Wumpa.'
             },
             {
                 id: '',
                 titulo: 'Fly',
-                url: '../imgs/aleatorios/fly.jpg',
+                url: './imgs/aleatorios/fly.jpg',
                 descricao: 'é uma série em mangá de Kōji Inada e Riku Sanjō, lançada em 1991 para a Shonen Jump inspirado na série de vídeo game Dragon Quest sob a supervisão de Yūji Horii, criador da série.'
             },
             {
                 id: '',
                 titulo: 'O Máscara',
-                url: '../imgs/aleatorios/mascara.jpg',
+                url: './imgs/aleatorios/mascara.jpg',
                 descricao: 'A máscara é uma relíquia simbiótica encontrada no continente africano, que impregna qualquer usuário com a fictícia realidade mágica e impermeabilidade física.'
             },
             {
                 id: '',
                 titulo: 'Spock',
-                url: '../imgs/aleatorios/spock.jpg',
+                url: './imgs/aleatorios/spock.jpg',
                 descricao: 'é um personagem da franquia de entretenimento Star Trek. Interpretado primeiramente por Leonard Nimoy na série Star Trek original.'
             },
             {
                 id: '',
                 titulo: 'Seiya de Pégaso',
-                url: '../imgs/aleatorios/pegasus.jpg',
+                url: './imgs/aleatorios/pegasus.jpg',
                 descricao: ' é o titular e principal protagonista do Mangá/Anime Saint Seiya do autor Musami Kurumada e o Cavaleiro de Bronze da constelação de Pégaso do século XX.'
             },
             {
                 id: '',
                 titulo: 'Ciclope',
-                url: '../imgs/aleatorios/ciclope.jpg',
+                url: './imgs/aleatorios/ciclope.jpg',
                 descricao: 'foi um dos numerosos mutantes que se uniram para atacar os Inumanos depois que descobriu-se que a Nuvem Terrigen final passou semanas a ser completamente assimilada na atmosfera terrestre.'
             },
             {
                 id: '',
                 titulo: 'Crash Bandicoot',
-                url: '../imgs/aleatorios/crash.jpg',
+                url: './imgs/aleatorios/crash.jpg',
                 descricao: 'geneticamente alterado Crash, que luta para impedir o planos do cientista do mal Neo Córtex e seus lacaios. A história do jogo se passa nas fictícias Ilhas Wumpa.'
             },
             {
                 id: '',
                 titulo: 'Fly',
-                url: '../imgs/aleatorios/fly.jpg',
+                url: './imgs/aleatorios/fly.jpg',
                 descricao: 'é uma série em mangá de Kōji Inada e Riku Sanjō, lançada em 1991 para a Shonen Jump inspirado na série de vídeo game Dragon Quest sob a supervisão de Yūji Horii, criador da série.'
             },
             {
                 id: '',
                 titulo: 'O Máscara',
-                url: '../imgs/aleatorios/mascara.jpg',
+                url: './imgs/aleatorios/mascara.jpg',
                 descricao: 'A máscara é uma relíquia simbiótica encontrada no continente africano, que impregna qualquer usuário com a fictícia realidade mágica e impermeabilidade física.'
             },
             {
                 id: '',
                 titulo: 'Spock',
-                url: '../imgs/aleatorios/spock.jpg',
+                url: './imgs/aleatorios/spock.jpg',
                 descricao: 'é um personagem da franquia de entretenimento Star Trek. Interpretado primeiramente por Leonard Nimoy na série Star Trek original.'
             },
             {
                 id: '',
                 titulo: 'Seiya de Pégaso',
-                url: '../imgs/aleatorios/pegasus.jpg',
+                url: './imgs/aleatorios/pegasus.jpg',
                 descricao: ' é o titular e principal protagonista do Mangá/Anime Saint Seiya do autor Musami Kurumada e o Cavaleiro de Bronze da constelação de Pégaso do século XX.'
             }
         ];
@@ -512,73 +512,73 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
             {
                 id: '',
                 titulo: 'Laranja',
-                url: '../imgs/ingles/laranja.png',
+                url: './imgs/ingles/laranja.png',
                 descricao: 'fruta cÃ­trica suculenta.'
             },
             {
                 id: '',
                 titulo: 'Ãgua',
-                url: '../imgs/ingles/agua.png',
+                url: './imgs/ingles/agua.png',
                 descricao: 'lÃ­quido sem cor nem sabor que se bebe.'
             },
             {
                 id: '',
                 titulo: 'Peixe',
-                url: '../imgs/ingles/peixe.png',
+                url: './imgs/ingles/peixe.png',
                 descricao: 'animal aquÃ¡tico.'
             },
             {
                 id: '',
                 titulo: 'Brincar',
-                url: '../imgs/ingles/brincar.png',
+                url: './imgs/ingles/brincar.png',
                 descricao: 'jogar, divertir-se.'
             },
             {
                 id: '',
                 titulo: 'Doce',
-                url: '../imgs/ingles/doce.png',
+                url: './imgs/ingles/doce.png',
                 descricao: 'Alimento preparado com aÃ§Ãºcar.'
             },
             {
                 id: '',
                 titulo: 'Correr',
-                url: '../imgs/ingles/correr.png',
+                url: './imgs/ingles/correr.png',
                 descricao: 'Deslocar-se ou mover-se rapidamente.'
             },
             {
                 id: '',
                 titulo: 'Orange',
-                url: '../imgs/ingles/laranja.jpg',
+                url: './imgs/ingles/laranja.jpg',
                 descricao: 'a type of juicy citrus fruit with a thick reddish-yellow skin.'
             },
             {
                 id: '',
                 titulo: 'Water',
-                url: '../imgs/ingles/agua.jpg',
+                url: './imgs/ingles/agua.jpg',
                 descricao: 'a colourless/colorless, transparent liquid compound of hydrogen and oxygen, having no taste or smell, which turns to steam when boiled and to ice when frozen.'
             },
             {
                 id: '',
                 titulo: 'Fish',
-                url: '../imgs/ingles/peixe.jpg',
+                url: './imgs/ingles/peixe.jpg',
                 descricao: 'a kind of creature that lives in water and breathes through gills.'
             },
             {
                 id: '',
                 titulo: 'To Play',
-                url: '../imgs/ingles/brincar.jpg',
+                url: './imgs/ingles/brincar.jpg',
                 descricao: 'play act.'
             },
             {
                 id: '',
                 titulo: 'Candy',
-                url: '../imgs/ingles/doce.jpg',
+                url: './imgs/ingles/doce.jpg',
                 descricao: 'food prepared with sugar.'
             },
             {
                 id: '',
                 titulo: 'To Run',
-                url: '../imgs/ingles/correr.jpg',
+                url: './imgs/ingles/correr.jpg',
                 descricao: 'Move quickly.'
             }
         ];
@@ -682,7 +682,7 @@ for (let i = 0; i < cartasDefault.length; i++) {
         `
         <div class='cartas' id=${cartasDefault[i].id}>
             <div class='div-frente-verso front'>
-                <img class='img-cartas' src='../imgs/${cartasDefault[i].url}' alt="">
+                <img class='img-cartas' src='./imgs/${cartasDefault[i].url}' alt="">
             </div>
             <div class='div-frente-verso back'>
                 <div class='img-cartas div-frente-verso'></div>
@@ -707,7 +707,7 @@ for (let i = 0; i < cartasDefault.length; i++) {
             document.querySelector('.section-descricao').innerHTML =
                 `
             <img class='img-descricao'
-            src="../imgs/${cartasDefault[i].url}"
+            src="./imgs/${cartasDefault[i].url}"
             alt="">
             <div>
                 <h3>${cartasDefault[i].titulo}<h3>
@@ -757,7 +757,7 @@ function verificaPar(i) {
                     $h2InfosNaTela.innerHTML=`
                     <section class="nes-container is-dark container-final">
                           <section class="message -left">
-                            <img class="nes-bcrikko" src='../imgs/logo_final.png'>
+                            <img class="nes-bcrikko" src='./imgs/logo_final.png'>
                             <div class="nes-balloon from-left is-dark">
                               <p>                    Fim de Jogo!
                               Seu tempo foi de: ${(mm < 10 ? "0" + mm : mm)}:${(ss < 10 ? "0" + ss : ss)}:${(ms < 10 ? "0" + ms : ms)}.</p>
