@@ -215,7 +215,7 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
                 id: '',
                 titulo: 'Homem-Aranha',
                 url: '../imgs/marvel/homem-aranha.jpg',
-                descricao: 'Peter Parker era um adolescente órfão, tímido e franzino, dedicado aos estudos e com poucos amigos além de seus tios que o criaram. Mas a vida de Peter mudou quando foi picado por uma aranha radioativa, fruto de um experimento realizado ali'
+                descricao: 'Peter Parker era um adolescente órfão, tímido e franzino, dedicado aos estudos e com poucos amigos além de seus tios que o criaram. Mas a vida de Peter mudou quando foi picado por uma aranha radioativa.'
             },
             {
                 id: '',
@@ -227,19 +227,19 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
                 id: '',
                 titulo: 'Pantera Negra',
                 url: '../imgs/marvel/pantera.jpg',
-                descricao: 'é o título cerimonial atribuído ao chefe da Tribo Pantera da avançada nação africana de Wakanda. Além de governar o país, ele também é chefe de suas várias tribos . O uniforme do Pantera é um símbolo oficial e é usado mesmo durante missões diplomáticas. O Pantera é um título hereditário, mas ainda é preciso ganhar um desafio.'
+                descricao: 'é o título cerimonial atribuído ao chefe da Tribo Pantera da avançada nação africana de Wakanda. Além de governar o país, ele também é chefe de suas várias tribos.'
             },
             {
                 id: '',
                 titulo: 'Senhor das Estrelas',
                 url: '../imgs/marvel/senhor-estrelas.jpg',
-                descricao: 'foi concebido como resultado do amor entre a terráquea Meredith Quill e o Imperador Spartoi da época, Json. Json deixou a Terra logo após a concepção de Peter, a fim de continuar sua guerra intergaláctica, deixando Meredith na Terra para protegê-la.'
+                descricao: 'foi concebido como resultado do amor entre a terráquea Meredith Quill e o Imperador Spartoi da época, Json.'
             },
             {
                 id: '',
                 titulo: 'Thor',
                 url: '../imgs/marvel/thor.jpg',
-                descricao: 'é virtualmente um deus de outra realidade, possuindo vastos poderes. Desta maneira, possui uma enorme força e velocidade sobre-humanas. Também é capaz de controlar os elementos da tempestade, gerando trovões, relâmpagos, raios, furacões e geadas. Além de possuir armas poderosas, como o martelo mágico Mjölnir.'
+                descricao: 'é virtualmente um deus de outra realidade, possuindo vastos poderes. Desta maneira, possui uma enorme força e velocidade sobre-humanas.'
             },
             {
                 id: '',
@@ -251,7 +251,7 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
                 id: '',
                 titulo: 'Homem-Aranha',
                 url: '../imgs/marvel/homem-aranha.jpg',
-                descricao: 'Peter Parker era um adolescente órfão, tímido e franzino, dedicado aos estudos e com poucos amigos além de seus tios que o criaram. Mas a vida de Peter mudou quando foi picado por uma aranha radioativa, fruto de um experimento realizado ali'
+                descricao: 'Peter Parker era um adolescente órfão, tímido e franzino, dedicado aos estudos e com poucos amigos além de seus tios que o criaram. Mas a vida de Peter mudou quando foi picado por uma aranha radioativa.'
             },
             {
                 id: '',
@@ -263,19 +263,19 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
                 id: '',
                 titulo: 'Pantera Negra',
                 url: '../imgs/marvel/pantera.jpg',
-                descricao: 'é o título cerimonial atribuído ao chefe da Tribo Pantera da avançada nação africana de Wakanda. Além de governar o país, ele também é chefe de suas várias tribos . O uniforme do Pantera é um símbolo oficial e é usado mesmo durante missões diplomáticas. O Pantera é um título hereditário, mas ainda é preciso ganhar um desafio.'
+                descricao: 'é o título cerimonial atribuído ao chefe da Tribo Pantera da avançada nação africana de Wakanda. Além de governar o país, ele também é chefe de suas várias tribos.'
             },
             {
                 id: '',
                 titulo: 'Senhor das Estrelas',
                 url: '../imgs/marvel/senhor-estrelas.jpg',
-                descricao: 'foi concebido como resultado do amor entre a terráquea Meredith Quill e o Imperador Spartoi da época, Json. Json deixou a Terra logo após a concepção de Peter, a fim de continuar sua guerra intergaláctica, deixando Meredith na Terra para protegê-la.'
+                descricao: 'foi concebido como resultado do amor entre a terráquea Meredith Quill e o Imperador Spartoi da época, Json.'
             },
             {
                 id: '',
                 titulo: 'Thor',
                 url: '../imgs/marvel/thor.jpg',
-                descricao: 'é virtualmente um deus de outra realidade, possuindo vastos poderes. Desta maneira, possui uma enorme força e velocidade sobre-humanas. Também é capaz de controlar os elementos da tempestade, gerando trovões, relâmpagos, raios, furacões e geadas. Além de possuir armas poderosas, como o martelo mágico Mjölnir.'
+                descricao: 'é virtualmente um deus de outra realidade, possuindo vastos poderes. Desta maneira, possui uma enorme força e velocidade sobre-humanas.'
             }
         ];
     break;
@@ -297,13 +297,13 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
                 id: '',
                 titulo: 'Krusty',
                 url: '../imgs/aleatorios/krusty.jpg',
-                descricao: 'vive como palhaço para desgosto de seu pai. Seu nome verdadeiro é Hershel Krustofsky. Na frente das câmaras é um típico palhaço animador para crianças, mas nos bastidores possui uma temática mais "adulta" e despachada.'
+                descricao: 'vive como palhaço para desgosto de seu pai. Seu nome verdadeiro é Hershel Krustofsky. Na frente das câmaras é um típico palhaço animador para crianças.'
             },
             {
                 id: '',
                 titulo: 'Tio Patinhas',
                 url: '../imgs/aleatorios/tio-patinhas.jpg',
-                descricao: 'Tio Patinhas, surgiu nos quadrinhos em dezembro de 1947 em "Natal nas Montanhas", história escrita e desenhada por Carl Barks. Patinhas era um velho barbudo, de óculos e razoavelmente rico, que andava curvado sobre sua bengala e vivia isolado numa "grande mansão".'
+                descricao: 'Tio Patinhas, surgiu nos quadrinhos em dezembro de 1947 em "Natal nas Montanhas", história escrita e desenhada por Carl Barks. Patinhas era um velho barbudo, de óculos e razoavelmente rico.'
             },
             {
                 id: '',
@@ -333,13 +333,13 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
                 id: '',
                 titulo: 'Krusty',
                 url: '../imgs/aleatorios/krusty.jpg',
-                descricao: 'vive como palhaço para desgosto de seu pai. Seu nome verdadeiro é Hershel Krustofsky. Na frente das câmaras é um típico palhaço animador para crianças, mas nos bastidores possui uma temática mais "adulta" e despachada.'
+                descricao: 'vive como palhaço para desgosto de seu pai. Seu nome verdadeiro é Hershel Krustofsky. Na frente das câmaras é um típico palhaço animador para crianças.'
             },
             {
                 id: '',
                 titulo: 'Tio Patinhas',
                 url: '../imgs/aleatorios/tio-patinhas.jpg',
-                descricao: 'Tio Patinhas, surgiu nos quadrinhos em dezembro de 1947 em "Natal nas Montanhas", história escrita e desenhada por Carl Barks. Patinhas era um velho barbudo, de óculos e razoavelmente rico, que andava curvado sobre sua bengala e vivia isolado numa "grande mansão"..'
+                descricao: 'Tio Patinhas, surgiu nos quadrinhos em dezembro de 1947 em "Natal nas Montanhas", história escrita e desenhada por Carl Barks. Patinhas era um velho barbudo, de óculos e razoavelmente rico."..'
             },
             {
                 id: '',
@@ -361,13 +361,13 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
                 id: '',
                 titulo: 'Ciclope',
                 url: '../imgs/aleatorios/ciclope.jpg',
-                descricao: 'foi um dos numerosos mutantes que se uniram para atacar os Inumanos depois que descobriu-se que a Nuvem Terrigen final passou semanas a ser completamente assimilada na atmosfera terrestre, tornando o planeta inabitável para os mutantes.'
+                descricao: 'foi um dos numerosos mutantes que se uniram para atacar os Inumanos depois que descobriu-se que a Nuvem Terrigen final passou semanas a ser completamente assimilada na atmosfera terrestre.'
             },
             {
                 id: '',
                 titulo: 'Crash Bandicoot',
                 url: '../imgs/aleatorios/crash.jpg',
-                descricao: 'geneticamente alterado Crash, que luta para impedir o planos do cientista do mal Neo Córtex e seus lacaios. A história do jogo se passa nas fictícias Ilhas Wumpa, um arquipélago situado na costa noroeste da Austrália.'
+                descricao: 'geneticamente alterado Crash, que luta para impedir o planos do cientista do mal Neo Córtex e seus lacaios. A história do jogo se passa nas fictícias Ilhas Wumpa.'
             },
             {
                 id: '',
@@ -379,7 +379,7 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
                 id: '',
                 titulo: 'O Máscara',
                 url: '../imgs/aleatorios/mascara.jpg',
-                descricao: 'A máscara é uma relíquia simbiótica encontrada no continente africano, que impregna qualquer usuário com a fictícia realidade mágica e impermeabilidade física, bem como evitar possíveis inibições psicológicas, permitindo realizar os seus objetivos mais desejados sem ter medo das consequências.'
+                descricao: 'A máscara é uma relíquia simbiótica encontrada no continente africano, que impregna qualquer usuário com a fictícia realidade mágica e impermeabilidade física.'
             },
             {
                 id: '',
@@ -397,13 +397,13 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
                 id: '',
                 titulo: 'Ciclope',
                 url: '../imgs/aleatorios/ciclope.jpg',
-                descricao: 'foi um dos numerosos mutantes que se uniram para atacar os Inumanos depois que descobriu-se que a Nuvem Terrigen final passou semanas a ser completamente assimilada na atmosfera terrestre, tornando o planeta inabitável para os mutantes.'
+                descricao: 'foi um dos numerosos mutantes que se uniram para atacar os Inumanos depois que descobriu-se que a Nuvem Terrigen final passou semanas a ser completamente assimilada na atmosfera terrestre.'
             },
             {
                 id: '',
                 titulo: 'Crash Bandicoot',
                 url: '../imgs/aleatorios/crash.jpg',
-                descricao: 'geneticamente alterado Crash, que luta para impedir o planos do cientista do mal Neo Córtex e seus lacaios. A história do jogo se passa nas fictícias Ilhas Wumpa, um arquipélago situado na costa noroeste da Austrália.'
+                descricao: 'geneticamente alterado Crash, que luta para impedir o planos do cientista do mal Neo Córtex e seus lacaios. A história do jogo se passa nas fictícias Ilhas Wumpa.'
             },
             {
                 id: '',
@@ -415,7 +415,7 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
                 id: '',
                 titulo: 'O Máscara',
                 url: '../imgs/aleatorios/mascara.jpg',
-                descricao: 'A máscara é uma relíquia simbiótica encontrada no continente africano, que impregna qualquer usuário com a fictícia realidade mágica e impermeabilidade física, bem como evitar possíveis inibições psicológicas, permitindo realizar os seus objetivos mais desejados sem ter medo das consequências.'
+                descricao: 'A máscara é uma relíquia simbiótica encontrada no continente africano, que impregna qualquer usuário com a fictícia realidade mágica e impermeabilidade física.'
             },
             {
                 id: '',
