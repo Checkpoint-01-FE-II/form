@@ -481,8 +481,21 @@ document.querySelector("*").style.cssText = `
                     <a><img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt=""></a>
                         <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
                     `;
+                    if (window.matchMedia("(min-width: 768px)").matches) {
+                        document.querySelector('#img-button').style.cssText =
+                        `
+                        width: 70px;
+                        height: 70px;
+                        `
+                     } else {
+                         document.querySelector('#img-button').style.cssText =
+                        `
+                        width: 50px;
+                        height: 50px;
+                        `
+                    }
                     document.querySelector('a').href = '../index.html'
-                    
+
                     $modalContainer.style.cssText=`
                         display: none;
                         flex-direction: column;
