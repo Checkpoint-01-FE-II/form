@@ -791,5 +791,5 @@ function jogarNovamente(){
 }
 
 function voltarAoMenuInicial(){
-    location.href = '../index.html'
+    location.href = 'index.html'
 }

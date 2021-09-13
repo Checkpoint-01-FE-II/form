@@ -108,7 +108,7 @@ $main.appendChild($btnJogar);
     $btnJogar.classList.add('is-disabled')
     $btnJogar.classList.add('nes-btn');
     $btnJogar.addEventListener('click', ()=>{
-        location.href = "../game-page-created.html"
+        location.href = "game-page-created.html"
     })
     document.querySelector('.nes-btn').style.cssText=
     `
@@ -448,7 +448,7 @@ document.querySelector("*").style.cssText = `
         <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
         `;
         
-        document.querySelector('a').href = '../index.html'
+        document.querySelector('a').href = 'index.html'
     
     function adicionarCarta(){
         let dadosNovaCarta=
