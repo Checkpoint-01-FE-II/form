@@ -21,7 +21,7 @@ const $main = document.createElement("main");
         
         const $btnEnviar = document.createElement("button");
         const $btnCancelar = document.createElement("button");
-        const $btnVoltar = document.createElement('a');
+        // const $btnVoltar = document.createElement('a');
         const $btnJogar = document.createElement('button');
         //DIV DOS BOTÕES DO FORM
         const $divBtnsForm = document.createElement('div')
@@ -61,7 +61,7 @@ document.body.appendChild($main);
 $divBtnsForm.appendChild($btnEnviar);
 $divBtnsForm.appendChild($btnCancelar);
 $main.appendChild($divBtnsForm);
-$header.appendChild($btnVoltar);
+// $header.appendChild($btnVoltar);
 $main.appendChild($btnJogar);
 
 //------------------------------------------------------------------------ 
@@ -99,11 +99,10 @@ $main.appendChild($btnJogar);
     $btnCancelar.setAttribute("form", "form-baralho");
     $btnCancelar.insertAdjacentText("afterbegin", "Cancelar");
 
-    $btnVoltar.href = '../index.html'
+
     // $btnVoltar.insertAdjacentHTML('afterbegin', `
     // <img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt="">`)
-
-    
+    // $btnVoltar.href = '../index.html'
     $btnJogar.insertAdjacentText("afterbegin", "Start");
     $btnJogar.disabled=true;
     $btnJogar.classList.add('is-disabled')
@@ -448,6 +447,9 @@ document.querySelector("*").style.cssText = `
         <a><img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt=""></a>
         <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
         `;
+        
+        document.querySelector('a').href = '../index.html'
+    
     function adicionarCarta(){
         let dadosNovaCarta=
             {
@@ -479,7 +481,8 @@ document.querySelector("*").style.cssText = `
                     <a><img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt=""></a>
                         <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
                     `;
-
+                    document.querySelector('a').href = '../index.html'
+                    
                     $modalContainer.style.cssText=`
                         display: none;
                         flex-direction: column;
@@ -592,7 +595,7 @@ $modalContainer.style.cssText=`
             gap: 1.5rem;
             padding-bottom: 2rem;
             width: 26rem;
-            height: 48rem;
+            height: 40rem;
             `
             // max-width: 95%;
             // max-height: 95%;
@@ -619,7 +622,7 @@ $modalContainer.style.cssText=`
                 font-size: .8rem;
                 line-height: 1rem;
                 width: 22rem;
-                height: 20rem;
+                height: 10rem;
                 white-space: pre-line;
                 overflow: hidden;
                 text-overflow: ellipsis;
