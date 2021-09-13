@@ -1,3 +1,13 @@
+.pares-encontrados {
+  text-shadow: -.1rem .1rem .1rem white;
+  color: black;
+}
+
+#Iniciar {
+  text-shadow: -.1rem .1rem .1rem white;
+  color: black;
+}
+
 .section-fundo-cartas {
   width: 27rem;
   height: 35rem;

@@ -108,7 +108,7 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
     case 'marvel': $audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
     // console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEzW5RTB8R6HWWnDaOYIJ83AaLgvwx7E1dug&usqp=CAU')no-repeat; background-size: 100%")
     console.log("%c                                                             ", "padding: 40px 45px; line-height: 240px; background:url('https://nerdando.com/wp-content/uploads/2018/11/Dr1MP6XX4AIF_zG.jpg')no-repeat; background-size: 100%")
-    console.log("%c \"“A vida nunca é completa sem seus desafios\” - Stan Lee", "color:#FF8303; font-size: 30px; text-shadow: 3px 3px 2px #61105E; font-weight: bold")
+    console.log("%c \"“A vida nunca é completa sem seus desafios\” - Stan Lee", "color:#61105E; font-size: 30px; text-shadow: 3px 3px 2px #61105E; font-weight: bold")
     // console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://registadeu.com.br/wp-content/uploads/2018/11/10.23_StanLee-FTR.jpg')no-repeat; background-size: 100%")
 
     break;

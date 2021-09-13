@@ -30,7 +30,7 @@ const $main = document.createElement("main");
     $musicaFundo.src = '../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
     $musicaFundo.setAttribute('id', 'musica-fundo')
     $musicaFundo.autoplay=true;
-    $musicaFundo.volume = .2;
+    $musicaFundo.volume = .4;
     $musicaFundo.loop=true
 
 
@@ -61,7 +61,7 @@ document.body.appendChild($main);
 $divBtnsForm.appendChild($btnEnviar);
 $divBtnsForm.appendChild($btnCancelar);
 $main.appendChild($divBtnsForm);
-$main.appendChild($btnVoltar);
+$header.appendChild($btnVoltar);
 $main.appendChild($btnJogar);
 
 //------------------------------------------------------------------------ 
@@ -100,8 +100,8 @@ $main.appendChild($btnJogar);
     $btnCancelar.insertAdjacentText("afterbegin", "Cancelar");
 
     $btnVoltar.href = '../index.html'
-    $btnVoltar.insertAdjacentHTML('afterbegin', `
-    <img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt="">`)
+    // $btnVoltar.insertAdjacentHTML('afterbegin', `
+    // <img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt="">`)
 
     
     $btnJogar.insertAdjacentText("afterbegin", "Start");
@@ -445,6 +445,7 @@ document.querySelector("*").style.cssText = `
             listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
         }
         $header.innerHTML = `
+        <a><img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt=""></a>
         <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
         `;
     function adicionarCarta(){
@@ -475,6 +476,7 @@ document.querySelector("*").style.cssText = `
         }
 
                     $header.innerHTML = `
+                    <a><img id='img-button' src="../imgs/setas/icons8-desfazer-100 (1)_edited.png" alt=""></a>
                         <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
                     `;
 
@@ -875,16 +877,18 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
         $header.style.cssText=
         `
         display: flex; 
-        justify-content: flex-end;
-        padding: 5rem 5rem 0 0;
-        font-size: 2.5rem;
+        justify-content: space-between;
+        padding: 3rem 0 0 0;
+        align-items: center;
         `
-        
+        document.querySelector('.pares-criados').style.cssText=
+        `
+        font-size: 1.5rem;
+        text-shadow: -.1rem .1rem .1rem white;
+        color: black;
+        `
         document.querySelector('#img-button').style.cssText =
         `
-        position: absolute;
-        top: 2%;
-        left: 5%;
         width:70px;
         height: 70px;
         `
@@ -893,16 +897,19 @@ $formulario.addEventListener("reset", () => $btnEnviar.disabled="true");
         $header.style.cssText=
         `
         display: flex; 
-        justify-content: flex-end;
-        padding: 2rem 3rem 0 0;
-        font-size: 1.5rem;
-        `
+        justify-content: space-around;
+        padding: 2rem 0 0 0;
         
+        align-items: center;
+        `
+        document.querySelector('.pares-criados').style.cssText=
+        `
+        font-size: 1rem;
+        text-shadow: -.1rem .1rem .1rem white;
+        color: black;
+        `
         document.querySelector('#img-button').style.cssText =
         `
-        position: absolute;
-        top: 2%;
-        left: 5%;
         width: 50px;
         height: 50px;
         `
