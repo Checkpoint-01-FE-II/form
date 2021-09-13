@@ -436,73 +436,73 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
             {
                 id: '',
                 titulo: 'Bulbasaur',
-                url: 'carta01.jpg',
+                url: './imgs/carta01.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Loki',
-                url: 'carta02.jpg',
+                url: './imgs/carta02.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Luke Skywalker',
-                url: 'carta03.jpg',
+                url: './imgs/carta03.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Squirtle',
-                url: 'carta04.jpg',
+                url: './imgs/carta04.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Little Mermaid',
-                url: 'carta05.jpg',
+                url: './imgs/carta05.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Princess Jasmine',
-                url: 'carta06.jpg',
+                url: './imgs/carta06.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Bulbasaur',
-                url: 'carta01.jpg',
+                url: './imgs/carta01.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Loki',
-                url: 'carta02.jpg',
+                url: './imgs/carta02.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Luke Skywalker',
-                url: 'carta03.jpg',
+                url: './imgs/carta03.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Squirtle',
-                url: 'carta04.jpg',
+                url: './imgs/carta04.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Little Mermaid',
-                url: 'carta05.jpg',
+                url: './imgs/carta05.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Princess Jasmine',
-                url: 'carta06.jpg',
+                url: './imgs/carta06.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             }
         ];
@@ -588,73 +588,73 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
             {
                 id: '',
                 titulo: 'Bulbasaur',
-                url: 'carta01.jpg',
+                url: './imgs/carta01.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Loki',
-                url: 'carta02.jpg',
+                url: './imgs/carta02.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Luke Skywalker',
-                url: 'carta03.jpg',
+                url: './imgs/carta03.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Squirtle',
-                url: 'carta04.jpg',
+                url: './imgs/carta04.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Little Mermaid',
-                url: 'carta05.jpg',
+                url: './imgs/carta05.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Princess Jasmine',
-                url: 'carta06.jpg',
+                url: './imgs/carta06.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Bulbasaur',
-                url: 'carta01.jpg',
+                url: './imgs/carta01.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Loki',
-                url: 'carta02.jpg',
+                url: './imgs/carta02.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Luke Skywalker',
-                url: 'carta03.jpg',
+                url: './imgs/carta03.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Squirtle',
-                url: 'carta04.jpg',
+                url: './imgs/carta04.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Little Mermaid',
-                url: 'carta05.jpg',
+                url: './imgs/carta05.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             },
             {
                 id: '',
                 titulo: 'Princess Jasmine',
-                url: 'carta06.jpg',
+                url: './imgs/carta06.jpg',
                 descricao: 'Molestias magni assumenda, similique magnam reiciendis iure exercitationem voluptatum quaerat rerum vero, ducimus repellat voluptas distinctio cupiditate perspiciatis.'
             }
         ];
@@ -682,7 +682,7 @@ for (let i = 0; i < cartasDefault.length; i++) {
         `
         <div class='cartas' id=${cartasDefault[i].id}>
             <div class='div-frente-verso front'>
-                <img class='img-cartas' src='./imgs/${cartasDefault[i].url}' alt="">
+                <img class='img-cartas' src='${cartasDefault[i].url}' alt="">
             </div>
             <div class='div-frente-verso back'>
                 <div class='img-cartas div-frente-verso'></div>
