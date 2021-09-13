@@ -97,13 +97,13 @@ let numberRandom = Math.floor(Math.random()*5)
 switch(numberRandom){
     case 0: $audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
     break;
-    case 1: $audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
+    case 1: $audio.src='../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
     break;
     case 2: $audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
     break;
     case 3: $audio.src='../audio/Super Mario Bros Theme Song .mp3'
     break;
-    case 4: $audio.src='../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
+    case 4: $audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
     break;
 }
 

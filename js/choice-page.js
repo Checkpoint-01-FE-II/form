@@ -5,19 +5,19 @@ const $audioFundo = document.getElementById("musica-fundo");
 $audio.volume = 1;
 
 
-window.addEventListener('mousemove', ()=>{
-    $audioFundo.play()
-    $audioFundo.volume = .4;
-})  
+// window.addEventListener('mousemove', ()=>{
+//     $audioFundo.play()
+//     $audioFundo.volume = .4;
+// })  
 
 $select.addEventListener("change",()=> {
-    document.getElementById("musica").play()
+    $audio.play()
 })
 document.querySelector("#default").addEventListener("change",()=> {
-    document.getElementById("musica").play()
+    $audio.play()
 })
 document.querySelector("#created").addEventListener("change",()=> {
-    document.getElementById("musica").play()
+    $audio.play()
 })
 
 

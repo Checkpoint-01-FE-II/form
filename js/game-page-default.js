@@ -8,7 +8,7 @@ const $audioMatch = document.getElementById("som-match");
 const $audioWin = document.getElementById("som-win");
 const $audioLetsGo = document.getElementById("som-letsgo");
 
-$audio.volume = 0.5;
+$audio.volume = 0.04;
 
 let mm = 0;
 let ss = 0;
@@ -58,7 +58,11 @@ function start() {
     cron = setInterval(() => { timer(); }, tempo)
     document.getElementById("btniniciar").style.display = "none"
     $audio.play();
-    $audio.volume = .6;
+    if(JSON.parse(localStorage.getItem('baralho')) === 'marvel'){
+        $audio.volume = .3;
+    } else{
+        $audio.volume = .6;
+    }
     document.getElementById("btnreiniciar").style.display = "block"},4000)
 }
 
@@ -102,10 +106,10 @@ switch(JSON.parse(localStorage.getItem('baralho'))){
     case 'onepiece': $audio.src='../audio/One Piece - We Are! 8-Bit .mp3';
     break;
     case 'marvel': $audio.src='../audio/The Avengers [8 Bit Tribute to Alan Silvestri & The Avengers].mp3'
-    $audio.volume = .4;
-    console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEzW5RTB8R6HWWnDaOYIJ83AaLgvwx7E1dug&usqp=CAU')no-repeat; background-size: 100%")
-    console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://nerdando.com/wp-content/uploads/2018/11/Dr1MP6XX4AIF_zG.jpg')no-repeat; background-size: 100%")
-    console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://registadeu.com.br/wp-content/uploads/2018/11/10.23_StanLee-FTR.jpg')no-repeat; background-size: 100%")
+    // console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEzW5RTB8R6HWWnDaOYIJ83AaLgvwx7E1dug&usqp=CAU')no-repeat; background-size: 100%")
+    console.log("%c                                                             ", "padding: 40px 45px; line-height: 240px; background:url('https://nerdando.com/wp-content/uploads/2018/11/Dr1MP6XX4AIF_zG.jpg')no-repeat; background-size: 100%")
+    console.log("%c \"“A vida nunca é completa sem seus desafios\” - Stan Lee", "color:#FF8303; font-size: 30px; text-shadow: 3px 3px 2px #61105E; font-weight: bold")
+    // console.log("%c                                                             ", "padding: 40px 45px; line-height: 400px; background:url('https://registadeu.com.br/wp-content/uploads/2018/11/10.23_StanLee-FTR.jpg')no-repeat; background-size: 100%")
 
     break;
     case 'aleatorios1': $audio.src='../audio/Zelda Link to the Past - Hyrule Field (Gameboy 8-bit)_50k.mp3'
@@ -745,7 +749,7 @@ function verificaPar(i) {
 
             document.querySelector('.pares-encontrados').innerHTML = `Pares encontrados: ${paresEncontrados}/6`
             setTimeout(() => {
-                if (paresEncontrados === 1) {
+                if (paresEncontrados === 6) {
                     $infosNaTela.style.display='block';
                     $audio.pause()
                     $audioWin.play()

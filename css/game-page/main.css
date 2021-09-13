@@ -505,6 +505,12 @@
   border-image-repeat: stretch;
 }
 
+@media screen and (min-width: 1200px) {
+  .infos-na-tela .nes-balloon {
+    width: 30rem;
+  }
+}
+
 .infos-na-tela .nes-bcrikko {
   width: 11rem;
   height: 11rem;
@@ -514,6 +520,13 @@
   .infos-na-tela .nes-bcrikko {
     width: 15rem;
     height: 15rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .infos-na-tela .nes-bcrikko {
+    width: 20rem;
+    height: 20rem;
   }
 }
 
@@ -528,6 +541,13 @@
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .infos-na-tela .container-final {
+    width: 85%;
+    height: 380px;
+  }
+}
+
 .infos-na-tela .btn-final {
   width: 20rem;
   height: 5rem;
@@ -536,6 +556,13 @@
 @media screen and (min-width: 768px) {
   .infos-na-tela .btn-final {
     height: 9rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .infos-na-tela .btn-final {
+    width: 30rem;
+    height: 12rem;
   }
 }
 

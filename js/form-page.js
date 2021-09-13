@@ -25,6 +25,16 @@ const $main = document.createElement("main");
         const $btnJogar = document.createElement('button');
         //DIV DOS BOTÕES DO FORM
         const $divBtnsForm = document.createElement('div')
+
+    const $musicaFundo = document.createElement('audio')
+    $musicaFundo.src = '../audio/Kirby s Return to Dream Land Title Theme 8 Bit Remix_50k.mp3'
+    $musicaFundo.setAttribute('id', 'musica-fundo')
+    $musicaFundo.autoplay=true;
+    $musicaFundo.volume = .2;
+    $musicaFundo.loop=true
+
+
+
 //------------------------------------------------------------------------ 
 //APENSANDO ELEMENTOS
 document.body.appendChild($header);
@@ -168,7 +178,7 @@ document.querySelector("*").style.cssText = `
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1.5rem;
+        gap: 1rem;
 `
 
 
@@ -434,9 +444,9 @@ document.querySelector("*").style.cssText = `
         } else {
             listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
         }
-        $header.insertAdjacentHTML("beforeend", `
+        $header.innerHTML = `
         <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
-        `);
+        `;
     function adicionarCarta(){
         let dadosNovaCarta=
             {
@@ -445,7 +455,7 @@ document.querySelector("*").style.cssText = `
             url: $inputCampo3.value,
             descricao: $inputCampo2.value,
             }
-
+            listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"));
         if (JSON.parse(localStorage.getItem("listaDeCartas")).length <= 10) {
             listaDeCartas.push(dadosNovaCarta);
             listaDeCartas.push(dadosNovaCarta);
@@ -453,7 +463,36 @@ document.querySelector("*").style.cssText = `
             alert("Você atingiu o limite de cartas!")
         }
         localStorage.setItem("listaDeCartas", JSON.stringify(listaDeCartas));
-        location.reload()
+
+        $btnEnviar.classList.remove('is-warning')
+        $btnEnviar.classList.add('is-disabled')
+        $btnEnviar.disabled = true;
+
+        if (JSON.parse(localStorage.getItem("listaDeCartas")).length >= 4) {
+            $btnJogar.classList.remove('is-disabled')
+            $btnJogar.classList.add('is-error')
+            $btnJogar.disabled = false;
+        }
+
+                    $header.innerHTML = `
+                        <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
+                    `;
+
+                    $modalContainer.style.cssText=`
+                        display: none;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        position:absolute;
+                        top: -20%;
+                        width: 150vw;
+                        height: 150vh;
+                        gap: 1rem;
+                        background-color: rgba(0,0,0,0.85);
+                        z-index: 7;
+                    `
+                    verificador = [0, 0, 0]
+                    $btnCancelar.click()
     }
 
 
@@ -657,7 +696,7 @@ function validarInput1 () {
                 text-align: center;
                 display: auto;
                 padding-bottom: 0;
-                font-size: 1.5rem;
+                font-size: 1rem;
             `     
         } else {
             $msgErroInput1.style.cssText=`
@@ -669,7 +708,7 @@ function validarInput1 () {
             `     
         }
         verificador[0] = 0;
-        $inputCampo1.focus()
+        // $inputCampo1.focus()
         $btnEnviar.disabled = true;
     } else if (valorTrim.length >= 30) {
         $msgErroInput1.innerHTML = "Título deve ter até 30 caracteres";
@@ -679,7 +718,7 @@ function validarInput1 () {
                 text-align: center;
                 display: auto;
                 padding-bottom: 0;
-                font-size: 1.5rem;
+                font-size: 1rem;
             `     
         } else {
             $msgErroInput1.style.cssText=`
@@ -691,7 +730,7 @@ function validarInput1 () {
             `     
         }
         verificador[0] = 0;
-        $inputCampo1.focus()
+        // $inputCampo1.focus()
         $btnEnviar.disabled = true;
     } else {
         $msgErroInput1.style.cssText=`
@@ -716,7 +755,7 @@ function validarInput2 () {
                 text-align: center;
                 display: auto;
                 padding-bottom: 0;
-                font-size: 1.5rem;
+                font-size: 1rem;
             `     
         } else {
             $msgErroInput2.style.cssText=`
@@ -728,7 +767,7 @@ function validarInput2 () {
             `     
         }
         verificador[1] = 0; 
-        $inputCampo2.focus()
+        // $inputCampo2.focus()
         $btnEnviar.disabled = true;     
     } else if (valorTrim.length >= 170) {
         $msgErroInput2.innerHTML = "Título deve ter até 170 caracteres";
@@ -738,7 +777,7 @@ function validarInput2 () {
                 text-align: center;
                 display: auto;
                 padding-bottom: 0;
-                font-size: 1.5rem;
+                font-size: 1rem;
             `     
         } else {
             $msgErroInput2.style.cssText=`
@@ -750,7 +789,7 @@ function validarInput2 () {
             `     
         }
         verificador[1] = 0;
-        $inputCampo2.focus()
+        // $inputCampo2.focus()
         $btnEnviar.disabled = true;
     } else {
         $msgErroInput2.style.cssText=`
@@ -775,7 +814,7 @@ function validarInput3 () {
                 text-align: center;
                 display: auto;
                 padding-bottom: 0;
-                font-size: 1.5rem;
+                font-size: 1rem;
             `     
         } else {
             $msgErroInput3.style.cssText=`
@@ -787,7 +826,7 @@ function validarInput3 () {
             `     
         }
         verificador[2] = 0;
-        $inputCampo3.focus()
+        // $inputCampo3.focus()
         $btnEnviar.disabled = true;    
     } else if (!valorTrim.match(/(jpeg|jpg|png)/)) {
         $msgErroInput3.innerHTML = "URL inválida";
@@ -797,7 +836,7 @@ function validarInput3 () {
                 text-align: center;
                 display: auto;
                 padding-bottom: 0;
-                font-size: 1.5rem;
+                font-size: 1rem;
             `     
         } else {
             $msgErroInput3.style.cssText=`
@@ -809,7 +848,7 @@ function validarInput3 () {
             `     
         }
         verificador[2] = 0;
-        $inputCampo3.focus()
+        // $inputCampo3.focus()
         $btnEnviar.disabled = true;           
     } else {
         $msgErroInput3.style.cssText=`
@@ -924,7 +963,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     `
         background-color: rgba(0, 0, 0, 0.5);
         width: 100vw;
-        height: 100vh;
+        height: 120vh;
         z-index: 2;
         position: absolute;
         top: 0;
@@ -937,7 +976,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -60%);
     z-index: 3;
     width: 900px;
     `
@@ -1132,16 +1171,34 @@ function fecharInstrucoes(){
 if(window.matchMedia('(min-width: 768px)').matches){
     document.getElementsByClassName('campo-formulario')[1].style.cssText=
     `
-    height: 200px;
+    height: 127px;
     background-color: #212529;
     color: #fff;
     border: 3px solid #fff;
     width: 80%;
-    padding-top: 25px; 
+    padding-top: 15px; 
+    `
+    document.getElementsByClassName('campo-formulario')[0].style.cssText=
+    `
+    height: 60px;
+    background-color: #212529;
+    color: #fff;
+    border: 3px solid #fff;
+    width: 80%;
+    margin: 0;
+    `
+    document.getElementsByClassName('campo-formulario')[2].style.cssText=
+    `
+    height: 60px;
+    background-color: #212529;
+    color: #fff;
+    border: 3px solid #fff;
+    width: 80%;
+    margin: 0;
     `
     document.querySelector('#input-descricao').style.cssText=
     `
-    height: 130px;
+    height: 70px;
     background-color: #212529;
     color: #fff;
     outline: none;
@@ -1152,18 +1209,45 @@ if(window.matchMedia('(min-width: 768px)').matches){
     width: 100%;
     font-size: 1.3rem;
     `
-
+    document.querySelector('#input-titulo').style.cssText=
+    `
+    height: 30px;
+    background-color: #212529;
+    color: #fff;
+    outline: none;
+    border: none;
+    text-align: center;
+    resize: none;
+    padding-left: 5px;
+    width: 100%;
+    font-size: 1.3rem;
+    `
+    document.querySelector('#input-img').style.cssText=
+    `
+    height: 30px;
+    background-color: #212529;
+    color: #fff;
+    outline: none;
+    border: none;
+    text-align: center;
+    resize: none;
+    padding-left: 5px;
+    width: 100%;
+    font-size: 1.3rem;
+    `
     $formulario.style.cssText = `
     width: 500px;
     margin: auto;
-    height: 550px;
-    margin-top: 70px;
+    height: 450px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
     padding-bottom: 25px;
     `
+
+
 } else {
     document.getElementsByClassName('campo-formulario')[1].style.cssText=
     `
