@@ -1,7 +1,6 @@
 <h1 align="center">
     <a href="https://checkpoint-01-fe-ii.github.io/form/"><img alt="Memory Game" src="./logoinicial.png" /></a>
     <br>
-    <br>
     Memory Game - Certified Tech Developer
 </h1>
 <br>
