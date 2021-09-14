@@ -682,7 +682,7 @@ for (let i = 0; i < cartasDefault.length; i++) {
         `
         <div class='cartas' id=${cartasDefault[i].id}>
             <div class='div-frente-verso front'>
-                <img class='img-cartas' src='${cartasDefault[i].url}' alt="">
+                <img class='img-cartas' src='${cartasDefault[i].url}' alt="imagem da carta">
             </div>
             <div class='div-frente-verso back'>
                 <div class='img-cartas div-frente-verso'></div>
@@ -708,7 +708,7 @@ for (let i = 0; i < cartasDefault.length; i++) {
                 `
             <img class='img-descricao'
             src="${cartasDefault[i].url}"
-            alt="">
+            alt="imagem da carta na descrição">
             <div>
                 <h3>${cartasDefault[i].titulo}<h3>
                 <p>${cartasDefault[i].descricao}</p>                

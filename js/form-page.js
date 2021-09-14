@@ -444,7 +444,7 @@ document.querySelector("*").style.cssText = `
             listaDeCartas = JSON.parse(localStorage.getItem("listaDeCartas"))
         }
         $header.innerHTML = `
-        <a><img id='img-button' src="./imgs/setas/icons8-desfazer-100 (1)_edited.png" alt=""></a>
+        <a><img id='img-button' src="./imgs/setas/icons8-desfazer-100 (1)_edited.png" alt="seta para voltar à home page"></a>
         <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
         `;
         
@@ -478,7 +478,7 @@ document.querySelector("*").style.cssText = `
         }
 
                     $header.innerHTML = `
-                    <a><img id='img-button' src="./imgs/setas/icons8-desfazer-100 (1)_edited.png" alt=""></a>
+                    <a><img id='img-button' src="./imgs/setas/icons8-desfazer-100 (1)_edited.png" alt="seta para voltar à home page"></a>
                         <h6 class='pares-criados'>Pares criados: ${JSON.parse(localStorage.getItem("listaDeCartas")).length/2}/6</h6>
                     `;
                     if (window.matchMedia("(min-width: 768px)").matches) {

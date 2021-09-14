@@ -137,7 +137,7 @@ for (let i = 0; i < storagelistaDeCartas.length; i++) {
         `
         <div class='cartas' id=${storagelistaDeCartas[i].id}>
             <div class='div-frente-verso front'>
-                <img class='img-cartas' src='${storagelistaDeCartas[i].url}' alt="">
+                <img class='img-cartas' src='${storagelistaDeCartas[i].url}' alt="imagem da carta">
             </div>
             <div class='div-frente-verso back'>
                 <div class='img-cartas div-frente-verso'></div>
@@ -163,7 +163,7 @@ for (let i = 0; i < storagelistaDeCartas.length; i++) {
                 `
             <img class='img-descricao'
             src="${storagelistaDeCartas[i].url}"
-            alt="">
+            alt="imagem da carta na descrição">
             <div>
                 <h3>${storagelistaDeCartas[i].titulo}<h3>
                 <p>${storagelistaDeCartas[i].descricao}</p>                
